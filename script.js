@@ -57,38 +57,44 @@ function startLoadingAnimation() {
     const header = document.querySelector('.header');
     const bars = document.querySelectorAll('.bar');
     const loadText = document.querySelector('.load-text');
+    const navWrapper = document.querySelector('nav');
+
+    navWrapper.style.display = 'none';
     
-    if (!header || !bars.length || !loadText ) {
+    if (!header || !bars.length || !loadText || !navWrapper) {
         console.warn("Animation elements not found - retrying...");
         setTimeout(startLoadingAnimation, 100); // Retry after 100ms
         return;
     }
     // Initialize animations
-    gsap.set(".header", { yPercent: -100 });
-    gsap.set(".load-text", { display: "grid" });
+    gsap.set(".header", { yPercent: -100, opacity: 0 });
+    gsap.set(".load-text", { display: "grid", opacity: 0, yPercent: 100 });
     
     let entryTl = gsap.timeline();
+    gsap.set(".header", { display: "none" });
+    // gsap.set("nav", { display: "none" });
     entryTl.add("loader")
-        .fromTo(".load-text", 
-            { opacity: 0, yPercent: 100 }, 
-            { opacity: 1, yPercent: 0 }, "loader")
+        .to(".load-text", {
+            opacity: 1, yPercent: 0 
+        }, "loader")
         .to(bars, {
             height: 0,
-            stagger: { from: "center", amount: 0.2 },
+            stagger: { from: "center", amount: 0.1 },
             delay: 1,
         }, "loader")
         .to('.load-text', 
             { yPercent: -100, opacity: 0, display: "none", duration: .3 }, "loader+=1")
         .to('.loader-container', { height: 0 }, "-=.5")
-        .add("content")
-        .to(".header", { yPercent: 0 }, "content")
+        .to(".header", { display: "flex" }, "-=0.3")
+        .to("nav", { display: "flex" }, "-=0.3")
+        // .add("content")
+        .to(".header", { yPercent: 0, opacity: 1, duration: .3 }, "-=0.3")
 }
 
 //---------------------------------------------------------------------
 //--------------- Page Specific Loading Animations --------------------
 // --------------------------------------------------------------------
 function initPageAnimations() {
-    console.log("Loading Page Animations");
     const page = document.body.dataset.page; // Set via <body data-page="services">
     gsap.set(".hero-title", {y: 100, opacity: 0});
     
@@ -214,7 +220,7 @@ function setupNavLinks() {
                 document.getElementById("header").classList.add("hidden");
                 gsap.fromTo(".bar", {height: 0}, {
                     height: "105vh", 
-                    stagger: { amount: 0.2, from: "center"},
+                    stagger: { amount: 0.05, from: "center"},
                     onComplete: () => window.location = destination
                 });
             }
