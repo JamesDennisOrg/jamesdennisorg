@@ -3,5 +3,10 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/jamewmgq/public_html/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp recipe-generator.html $DEPLOYPATH
+    - /bin/cp plugins.html $DEPLOYPATH
     - /bin/cp services.html $DEPLOYPATH
+    - /bin/cp keto-macro-calculator.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp script.js $DEPLOYPATH
