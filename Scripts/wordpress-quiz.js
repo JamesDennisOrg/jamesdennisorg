@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
       this.setupTriggers();
       this.setupNavigation();
       this.setupSubmission();
-      console.log('Quiz initialized with Web3Forms');
     },
 
     isSubmitting: false, // Preventing duplicate form submissions - see "submitQuiz()"
@@ -62,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.quiz-next').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          console.log('Next button test'); // Debug
           this.goToNextStep();
         });
       });
@@ -506,150 +504,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
       return message;
     },
-
-    /* ==========================================
-        Future submitQuiz function (Paid Tier)
-        =========================================*/
-    // submitQuiz: function() {
-    //   if (this.isSubmitting) return;
-    //   this.isSubmitting = true;
-
-    //   // Disable submit button immediately - prevent duplicate submissions
-    //   const submitBtn = this.currentModal?.querySelector('.quiz-submit');
-    //   if (submitBtn) submitBtn.disabled = true;
-
-    //   if (!this.currentModal) return;
-
-    //   const currentStep = this.currentModal.querySelector('.quiz-step.active');
-    //   if (!currentStep || currentStep.dataset.step !== "3") return;
-    //   // Validate first
-    //   if (!this.validateStep(currentStep)) return;
-
-      
-
-    //   const emailInput = currentStep.querySelector('input[type="email"]');
-    //   if (!emailInput || !emailInput.value.includes('@')) {
-    //     this.showError(currentStep, 'Please enter a valid email');
-    //     return;
-    //   }
-      
-    //   // Web3Forms Submission
-    //   // this.sendToWeb3Forms({
-    //   //   email: emailInput.value,
-    //   //   quizType: this.currentModal.id === 'new-site-quiz' ? 'New Site' : 'Existing Site',
-    //   //   purpose: this.userPurpose,
-    //   //   brandStatus: this.brandMaterials,
-    //   //   siteUrl: this.siteUrl,
-    //   //   issues: this.selectedIssues.join(', '),
-    //   //   _captcha: false // Disable CAPTCHA for testing
-    //   // });
-    
-    //   // Prepare data for Web3Forms
-    //   // Prepare all data
-    //   const submission = this.prepareSubmissionData();
-    //   const summaryHTML = this.generateSummaryHTML(submission);
-
-    //   // ------------------------
-    //   // Handle file uploads separately ( for paid email service accepting uploads )
-    //   //---------------------------*/
-    //   // this.handleFileUploads(submission)
-    //   // .then(() => this.sendNotifications(submission))
-    //   // .then(success => {
-    //     // this.showThankYou(summaryHTML, submission.email, success);
-    //   // })
-    //   // .catch(error => {
-    //     // console.error('Submission error:', error);
-    //     // this.showThankYou(summaryHTML, submission.email, true);
-    //   // });
-
-      
-    //   // Handle file uploads separately ( for FREE email service NOT accepting uploads )
-    //   this.handleFileUploads(submission)
-    //   .then(() => {
-    //     const emailBody = this.formatSubmissionEmail(submission);
-    //     return this.sendNotifications({
-    //       ...submission,
-    //       message: emailBody
-    //     });
-    //   })
-    //   .then(success => {
-    //     this.showThankYou(
-    //       this.generateSummaryHTML(submission),
-    //       submission.email,
-    //       success
-    //     );
-    //   });
-
-    //   // Generate summary before submission
-    //   // const summaryHTML = this.generateSummaryHTML(submission);
-
-    //   // Send to Web3Forms
-    //   this.sendNotifications(submission)
-    //     .then(success => {
-    //       this.showThankYou(summaryHTML, submission.email, success);
-    //   })
-    //   .catch(error => {
-    //     console.error('Submission error:', error);
-    //     this.showThankYou(summaryHTML, submission.email, false);
-    //   });
-    // },
-
-    // sendToWeb3Forms: function(data) {
-    //   const payload = {
-    //     access_key: 'ef80d7ef-9501-4189-add2-0530ffcaf0c0', // Replace with your actual key
-    //     subject: `New ${data.quizType} Submission`,
-    //     email: data.email,
-    //     name: 'Quiz Respondent', // Required field for Web3Forms
-    //     quiz_type: data.quizType,
-    //     purpose: data.details.purpose || 'Not specified',
-    //     brand_status: data.details.brandMaterials || 'Not specified',
-    //     site_url: data.details.siteUrl || 'Not specified',
-    //     issues: data.details.issues?.join(', ') || 'None reported',
-    //     from_name: 'Your Company Name', // Important for deliverability
-    //     reply_to: data.email, // So user can reply
-    //     redirect: 'https://yourdomain.com/thank-you', // Optional success page
-    //     _captcha: false // Disable if not using captcha
-    //   };
-    
-    //   fetch('https://api.web3forms.com/submit', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json'
-    //     },
-    //     body: JSON.stringify(payload)
-    //   })
-    //   .then(async response => {
-    //     const result = await response.json();
-    //     console.log('Web3Forms response:', result);
-        
-    //     if (result.success) {
-    //       this.showThankYou(
-    //         this.generateSummaryHTML(data), 
-    //         data.email, 
-    //         true
-    //       );
-          
-    //       // Optional: Trigger confirmation email
-    //       this.sendConfirmationEmail(data);
-    //     } else {
-    //       console.error('Submission failed:', result.message);
-    //       this.showThankYou(
-    //         this.generateSummaryHTML(data),
-    //         data.email,
-    //         false
-    //       );
-    //     }
-    //   })
-    //   .catch(error => {
-    //     console.error('Error:', error);
-    //     this.showThankYou(
-    //       this.generateSummaryHTML(data),
-    //       data.email,
-    //       false
-    //     );
-    //   });
-    // },
 
     // Thank you modal
         
