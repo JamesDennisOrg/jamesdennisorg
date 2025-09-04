@@ -2106,6 +2106,7 @@ input:focus-visible, textarea:focus-visible {
         transition: var(--transition);
         &:hover {
             border-color: var(--color-brand);
+            box-shadow: var(--shadow-text-alt);
         }
     }
 }
