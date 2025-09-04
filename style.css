@@ -2095,11 +2095,18 @@ input:focus-visible, textarea:focus-visible {
     text-align: center;
     justify-content: center;
     align-items: center;
+    font-size: 1.6rem;
     & li {
-        padding: 0;
+        padding: 2px 6px;
+        border-radius: 12px;
         text-align: center;
         width: fit-content;
         margin-inline: 1em;
+        border: 1px solid var(--color-brand-dark);
+        transition: var(--transition);
+        &:hover {
+            border-color: var(--color-brand);
+        }
     }
 }
 .plugin-container {
