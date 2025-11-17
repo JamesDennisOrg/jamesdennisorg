@@ -10,3 +10,5 @@ deployment:
     - /bin/cp contact.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
     - /bin/cp script.js $DEPLOYPATH
+    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
