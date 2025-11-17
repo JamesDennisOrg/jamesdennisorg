@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (highly recommended - see below)
+Sitemap: https://jamesdennis.org/sitemap.xml
