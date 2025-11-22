@@ -3,6 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/jamewmgq/public_html/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp Cube/ $DEPLOYPATH
     - /bin/cp recipe-generator.html $DEPLOYPATH
     - /bin/cp plugins.html $DEPLOYPATH
     - /bin/cp services.html $DEPLOYPATH
