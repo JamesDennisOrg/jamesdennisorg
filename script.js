@@ -94,16 +94,25 @@ function startLoadingAnimation() {
 //---------------------------------------------------------------------
 //--------------- Page Specific Loading Animations --------------------
 // --------------------------------------------------------------------
+
 function initPageAnimations() {
     const page = document.body.dataset.page; // Set via <body data-page="services">
     gsap.set(".hero-title", {y: 100, opacity: 0});
+    gsap.set(".hero-subtitle", {y: 100, opacity: 0});
     
     // Common animations (runs on all pages)
     gsap.to(".hero-title", {
         y: 0,
         opacity: 1,
-        ease: "power2.out",
-        delay: 1.5
+        ease: "slow(0.7,0.7,false)",
+        delay: 2
+    });
+    
+    gsap.to(".hero-subtitle", {
+        y: 0,
+        opacity: 1,
+        ease: "slow(0.7,0.7,false)",
+        delay: 2.5
     });
 
     // Page-specific animations - (Above the fold only - see page specific Scripts/page.js for below the fold)

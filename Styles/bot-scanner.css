@@ -1,0 +1,648 @@
+/* Base Styles */
+.bot-scanner-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 5em 2em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.scanner-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.scanner-header h1 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+}
+
+.scanner-wizard-container {
+    display: grid;
+    grid-template-columns: 4em auto;
+    align-items: start;
+    width: 100%;
+}
+
+.scanner-wizard {
+    border-radius: 12px;
+    background: url(/Assets/Images/Cube/Bots-blocked.webp);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 12px -2px rgba(0, 0, 0, 0.535);
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    min-height: 600px; /* Ensure enough height for content */
+    height: fit-content;
+    width: auto;
+    overflow: hidden; /* Keep this for the blur effect */
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        /* z-index: -1; */
+    }
+}
+/* Wizard Steps */
+.wizard-step {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    min-height: 80vh;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    padding: 1.6em 2em;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    visibility: hidden;
+    align-self: flex-start;
+}
+.wizard-step.leaving {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+.wizard-step.active {
+    z-index: +1;
+    opacity: 1;
+    color: whitesmoke;
+    transform: translateX(0);
+    pointer-events: all;
+    visibility: visible;
+    position: relative;
+    height: auto;
+    /* width: 96%; */
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    h2 {
+        margin-top: 0;
+        font-size: 2rem;
+    }
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    text-shadow: 1px 1px 4px black;
+    p {
+        width: 100%;
+        max-width: unset;
+        text-align:center;
+    }
+}
+.risk-list {
+    margin-bottom: 1em;
+    li {
+        font-size: 1.5rem;
+        margin-block: .6em;
+        &::marker {
+            content: "";
+        }
+    }
+}
+.input-section-wrap {
+    width: 90%;
+}
+.input-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 2em;
+}
+.url-input-group {
+    display: flex;
+    flex:2;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    input {
+        width: 100%;
+        appearance: base-select;
+        box-shadow: none;
+        z-index: +1;
+        padding: 0.5rem 0.75rem;
+        opacity: .8;
+        font-weight: 300;
+    }
+}
+.step-number {
+    background: #3498db;
+    color: white;
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Progress Bar */
+.wizard-progress {
+    width: auto;
+    margin-top: 0;
+}
+
+.progress-bar {
+    background: #ecf0f1;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: #3498db;
+    height: 100%;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.step-indicator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.step-indicator.active {
+    background: #3498db;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+.vertical-progress {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2em 1em;
+    min-height: 600px;
+    height: 80vh;
+    font-size: 1rem;
+}
+
+.progress-line {
+    flex: 1;
+    width: 4px;
+    background: #ecf0f1;
+    border-radius: 2px;
+    position: relative;
+    overflow: visible;
+    margin-left: 1em;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #3498db;
+    border-radius: 2px;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 0%; /* Start from top */
+}
+
+.step-indicators-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    justify-content: space-between;
+}
+
+.step-indicator-vertical {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.step-indicator-vertical.active {
+    background: #3498db;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.step-indicator-vertical.completed {
+    background: #27ae60;
+    color: white;
+}
+
+/* Step labels for better UX */
+.step-label {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    color: white;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.step-indicator-vertical.active .step-label,
+.step-indicator-vertical.completed .step-label {
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* Compact version for mobile */
+@media (max-width: 768px) {
+    .scanner-wizard-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+    
+    .vertical-progress {
+        flex-direction: row;
+        min-height: auto;
+        padding: 1rem;
+    }
+    
+    .progress-line {
+        width: 100%;
+        height: 4px;
+        flex: 1;
+    }
+    
+    .progress-fill {
+        width: 0%;
+        height: 100%;
+        transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .step-indicators-vertical {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        position: static;
+        transform: none;
+        justify-content: space-between;
+    }
+    
+    .step-indicator-vertical {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .step-label {
+        display: none; /* Hide labels on mobile for simplicity */
+    }
+}
+
+/* Buttons */
+.see-results-btns {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2em;
+}
+button {
+    height: fit-content;
+    width: fit-content;
+    flex: 1;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.action-buttons {
+    width:60%;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+.btn-primary {
+    height: fit-content;
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+}
+
+.btn-secondary {
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    span {
+        color: white!important;
+    }
+    &:hover {
+        text-indent: 0!important;
+    }
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+}
+
+.btn-cta {
+    background: #e74c3c;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-cta:hover {
+    background: #c0392b;
+}
+
+/* Code Section */
+.code-section {
+    width: 100%;
+    background: rgba(0,0,0, .5);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.code-header {
+    background: #34495e;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    span {
+        flex: 3;
+    }
+}
+code {
+    font-size: 15px;
+}
+.btn-copy {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+pre {
+    margin: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.65);
+    overflow-x: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bot-scanner-container {
+        padding: 1rem;
+    }
+    
+    .scanner-header h1 {
+        font-size: 2rem;
+    }
+    .url-input-group {
+        flex-direction: column;
+    }
+    .instruction-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 1em auto 0;
+    padding-inline: 2em;
+}
+
+/* Instruction Cards */
+.instruction-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.instruction-card {
+    background: rgba(0,0,0,0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card-number {
+    background: #3498db;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+}
+
+/* Report Styles */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: rgba(0,0,0,0.5);
+    padding: 0 1em var(--spacing-double);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.metric-status {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.risk-meter {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.risk-score {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.recommendations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.recommendations ul {
+    text-align: left;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    li {
+        &::marker {
+            color: mediumseagreen;
+        } 
+    }
+}
+
+.recommendations li {
+    margin: 0.5rem 0;
+    padding-left: 1em;
+    &::marker {
+        content: "⇾"
+    }
+}
+
+.action-steps {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.action-step {
+    background: rgba(0,0,0,0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    h4 {
+        margin-top: 0;
+    }
+}
+
+.action-step.urgent {
+    border-left: 4px solid #e74c3c;
+}
+.report-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2em;
+}
+.social-share {
+    width: 90%;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ecf0f120;
+}
+.share-link {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding-inline: 2em;
+    p {
+        flex: 2;
+    }
+}
+.twitter-btn, .linkedin-btn, .pinterest-btn {
+    background-color: transparent!important;
+    background: transparent!important;
+}
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.share-buttons button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.results-input {
+    width: 100%;
+    textarea {
+        margin-block: 2em;
+        width: 100%;
+        height: 300px;
+    }
+}
