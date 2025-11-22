@@ -7,8 +7,10 @@ deployment:
     - /bin/cp plugins.html $DEPLOYPATH
     - /bin/cp services.html $DEPLOYPATH
     - /bin/cp keto-macro-calculator.html $DEPLOYPATH
+    - /bin/cp bot-scanner.html $DEPLOYPATH
     - /bin/cp contact.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp bot-scanner.css $DEPLOYPATH
     - /bin/cp script.js $DEPLOYPATH
     - /bin/cp robots.txt $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
