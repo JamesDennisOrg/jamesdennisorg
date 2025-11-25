@@ -221,8 +221,8 @@
 
 .progress-line {
     flex: 1;
-    width: 4px;
-    background: #ecf0f1;
+    width: 2px;
+    background: linear-gradient(0deg, var(--color-background), transparent);
     border-radius: 2px;
     position: relative;
     overflow: visible;
@@ -234,7 +234,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #3498db;
+    background: var(--color-icon-green);
     border-radius: 2px;
     transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     height: 0%; /* Start from top */
@@ -253,8 +253,9 @@
 }
 
 .step-indicator-vertical {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    aspect-ratio: 1/1;
+    /* height: 26px; */
     border-radius: 50%;
     background: #ecf0f1;
     display: flex;
@@ -265,18 +266,25 @@
     z-index: 2;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    span {
+        color: var(--color-background);
+    }
 }
 
 .step-indicator-vertical.active {
-    background: #3498db;
-    color: white;
+    background: var(--color-background);
     transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 0 12px 6px rgba(14, 230, 90, .5);
+    span {
+        color: white;
+    }
 }
 
 .step-indicator-vertical.completed {
-    background: #27ae60;
-    color: white;
+    background: var(--color-icon-green);
+    span {
+        color: white;
+    }
 }
 
 /* Step labels for better UX */
