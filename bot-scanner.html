@@ -254,7 +254,6 @@
 
                         <div class="action-buttons">
                             <button class="btn-primary button hire-btn" onclick="openTargetSite()"><span><strong>①</strong>  Open My Site in New Tab</span></button>
-                            <!-- <button class="btn-secondary"><div type="button" class="button hire-btn" onclick="openTargetSite()"><span><strong>①</strong>  Open My Site in New Tab</span></a></div></button> -->
                             <button class="btn-primary" onclick="nextStep(3)">I Have My Results</button>
                             
                         </div>
@@ -264,7 +263,7 @@
                                 <span>Analysis Script</span>
                                 <button class="btn-copy" onclick="copyCode()">Copy Code</button>
                             </div>
-                            <pre id="analysis-code"><code>// WordPress Bot Vulnerability Scanner
+                            <pre id="analysis-code" style="text-wrap: auto"><code>// WordPress Bot Vulnerability Scanner
         console.log('🔍 Scanning for bot vulnerabilities...');
         const analysis = {
             performance: {
