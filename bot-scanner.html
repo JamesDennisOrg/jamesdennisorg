@@ -1,62 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="color-scheme" content="light dark" />
-    <link rel="icon" type="image/x-icon" href="/Assets/Images/favicon.ico">
-    <title>Free WordPress Bot Vulnerability Scanner | Stop AI Scraping | jamesdennis.org</title>
-    <link rel="canonical" href="https://jamesdennis.org/contact.html">
-    <meta name="description" content="Free tool to scan your WordPress site for AI bot scraping vulnerabilities. Get instant risk assessment and protection recommendations from WordPress security experts.">
-    <meta name="author" content="James Dennis">
-    <meta name="publisher" content="jamesdennis.org">
-    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
-    <script src="https://kit.fontawesome.com/1429501f16.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/Styles/lenis.css">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/Styles/bot-scanner.css">
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="zR0PNkDxR4EToTMJVxbrEw" async></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script type="application/ld+json">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="color-scheme" content="light dark" />
+        <link rel="icon" type="image/x-icon" href="/Assets/Images/favicon.ico">
+        <title>Free WordPress Bot Scanner | Check AI Scraping Vulnerability | jamesdennis.org</title>
+        <meta name="description" content="Free tool to scan your WordPress site for AI bot scraping vulnerabilities. Get instant risk assessment and protection recommendations from WordPress security experts.">
+        <meta name="keywords" content="wordpress bot scanner, ai scraping detection, chatgpt bot protection, wordpress security scan, bot vulnerability check">
+        <meta name="author" content="James Dennis">
+        <meta name="publisher" content="jamesdennis.org">
+        <link rel="canonical" href="https://jamesdennis.org/bot-scanner.html">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jamesdennis.org/bot-scanner.html">
+        <meta property="og:title" content="Free WordPress Bot Vulnerability Scanner - Check AI Scraping Risk">
+        <meta property="og:description" content="Scan your WordPress site for AI bot vulnerabilities. Get instant risk assessment and professional protection recommendations.">
+        <meta property="og:image" content="https://jamesdennis.org/Assets/Images/Cube/Bots-blocked.webp">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:site_name" content="James Dennis - WordPress Security">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://jamesdennis.org/bot-scanner.html">
+        <meta property="twitter:title" content="Free WordPress Bot Scanner | Check AI Scraping Vulnerability">
+        <meta property="twitter:description" content="Scan your WordPress site for AI bot vulnerabilities. Instant risk assessment + protection plan.">
+        <meta property="twitter:image" content="https://jamesdennis.org/Assets/Images/Cube/Bots-blocked.webp">
+        <meta name="twitter:creator" content="@JamesDennis_web">
+
+        <!-- Additional SEO Meta Tags -->
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+        <meta name="theme-color" content="#2980b9">
+        <!-- <link rel="alternate" type="application/rss+xml" title="James Dennis Blog RSS" href="https://jamesdennis.org/rss.xml"> -->
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
         {
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Free WordPress Bot Vulnerability Scanner",
-          "description": "Free tool to scan your WordPress site for AI bot scraping vulnerabilities. Get instant risk assessment and protection recommendations from WordPress security experts.",
-          "mainEntity": {
-            "@type": "Person",
-            "name": "James Dennis",
-            "email": "james@jamesdennis.org",
-            "url": "https://jamesdennis.org"
-          }
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "WordPress Bot Vulnerability Scanner",
+            "description": "Free online tool to scan WordPress websites for AI bot scraping vulnerabilities and provide instant security assessments.",
+            "url": "https://jamesdennis.org/bot-scanner.html",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "permissions": "browser",
+            "browserRequirements": "Requires JavaScript",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "James Dennis",
+                "url": "https://jamesdennis.org",
+                "knowsAbout": ["WordPress Security", "AI Bot Protection", "Web Development", "Performance Optimization"]
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "James Dennis",
+                "url": "https://jamesdennis.org"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jamesdennis.org/bot-scanner.html"
+            },
+            "potentialAction": {
+                "@type": "ScanAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://jamesdennis.org/bot-scanner.html",
+                    "actionPlatform": [
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/MobileWebPlatform"
+                    ]
+                },
+                "result": {
+                    "@type": "ScanResult",
+                    "name": "WordPress Bot Vulnerability Assessment"
+                }
+            }
         }
-    </script>
-</head>
+        </script>
+
+        <!-- Additional FAQ Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What does the WordPress bot scanner check for?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The scanner analyzes your WordPress site for AI bot scraping vulnerabilities, including performance impact, resource usage, exposed APIs, and content scraping risks."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is the bot scanner free to use?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, the WordPress bot vulnerability scanner is completely free. You get instant risk assessment and protection recommendations without any cost."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do I need to install anything to use the scanner?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No installation required. The scanner runs directly in your browser and provides instant results without any software downloads."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What types of bots does the scanner detect?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The scanner identifies vulnerabilities related to AI scraping bots like GPTBot, CCBot, and other content scrapers that can impact your site performance and steal your content."
+                    }
+                }
+            ]
+        }
+        </script>
+
+
+        <!-- External Resources -->
+        <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+        <script src="https://kit.fontawesome.com/1429501f16.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/Styles/lenis.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/Styles/bot-scanner.css">
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="zR0PNkDxR4EToTMJVxbrEw" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    </head>
     <body>
         <div class="loader-container">
             <h3 class="load-text" style="position: fixed; top: 50%; width: 100%; display: none; place-items: center; margin-inline: auto">jamesdennis.org</h3>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
-            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-accent);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--color-background);"></div>
         </div>
         <div id="header-placeholder"></div>
 
