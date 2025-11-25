@@ -511,8 +511,16 @@ h1 {
     font-weight: 900;
     font-size: var(--font-xx-large);
     line-height: 1.1;
+    padding: var(--spacing-triple);
     letter-spacing: 2px;
     text-align: center;
+    
+}
+h1:not(.header-logo) {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(87.82deg, #453783 1.85%, #FCF1E9 60%, #473B92 98%);
+    background-clip: text;
 }
 h2 {
     font-weight: 700;
@@ -2339,7 +2347,7 @@ input:focus-visible, textarea:focus-visible {
 }
 .plugins-title {
     margin-top: var(--spacing-triple);
-    padding-top: var(--spacing-triple);
+    padding: var(--spacing-triple);
 }
 .plugin-nav-list {
     display: flex;
