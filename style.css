@@ -675,6 +675,7 @@ input, textarea, select {
         text-shadow: none;
         padding-left: var(--spacing-half);
         border-left: 1px solid var(--brand);
+        color: var(--brand);
     }
     &:hover {
         .site-logo {
@@ -750,7 +751,8 @@ header {
                     background-color: var(--brand);
                     & .nav-link_p {
                         color: var(--main-bg-color-alt);
-                        font-weight: 600;
+                        color: var(--text-on-brand);
+                        font-weight: 400;
                     }
                 }
                 &:hover {
@@ -779,7 +781,8 @@ header {
                 justify-content: center;
                 align-items: center;
                 min-height: 2.25rem;
-                padding: .1875rem .75rem;
+                padding-inline: .75rem;
+                padding-top: 4px;
                 text-decoration: none;
                 display: flex;
                 position: relative;
@@ -1012,14 +1015,21 @@ header.hidden {
     transition: 0.3s ease-in-out;
 }
 .cta-wrapper-index {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-block: 2em;
     min-height: 100vh;
+    background-image: url(/Assets/Images/Backgrounds/laptop-opening.webp);
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgba(241,248,244,.8)!important;
     h2 {
         margin-bottom: .4em;
+        color: currentColor;
     }
     p {
         font-size: var(--font-large);
@@ -1048,6 +1058,7 @@ header.hidden {
             }
             h4 {
                 margin-bottom: 0;
+                color: currentColor;
             }
             p {
                 font-size: var(--font-large);
@@ -1137,6 +1148,20 @@ header.hidden {
                     }
                 }
             }
+        }
+    }
+    .action-block{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3em;
+        h4 {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: currentColor;
+        }
+        buttons {
+            margin-block: 0;
         }
     }
 }
@@ -2676,7 +2701,7 @@ footer {
             width: 40px;
             padding: 2px;
             aspect-ratio: 1/1;
-            border: 1px solid var(--background-alt-60);
+            border: 1px solid var(--border);
             border-radius: 4px;
             /* fill: currentColor; */
             transition: all .3s ease;
@@ -3068,7 +3093,6 @@ footer {
 
 .reset-font {
     font-family: Arial, sans-serif !important;
-    /* Or use your site's main body font */
     color: inherit !important;
 }
 .main-li{
@@ -3089,17 +3113,5 @@ footer {
         }
     }
 }
-.action-block{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 3em;
-    h4 {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    buttons {
-        margin-block: 0;
-    }
-}
+
     
