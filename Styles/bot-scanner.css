@@ -139,9 +139,6 @@
         }
     }
 }
-.input-section-wrap {
-    /* width: 90%; */
-}
 .input-section {
     display: flex;
     flex-direction: column;
