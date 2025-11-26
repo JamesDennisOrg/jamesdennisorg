@@ -905,10 +905,17 @@ header {
                         align-items: center;
                         gap: var(--spacing-double);
                         i {
-                            font-size: var(--font-xx-large);
-                            width: var(--spacing-triple);
+                            display: flex;
+                            font-size: 32px;
+                            min-width: 50px;
+                            aspect-ratio: 1 / 1;
                             text-align: center;
-                            color: var(--primary);
+                            color: var(--brand);
+                            border-radius: 100%;
+                            padding: 6px;
+                            justify-content: center;
+                            align-items: center;
+                            background: var(--accent-light);
                         }
                         a {
                             font-family: 'Michroma', sans-serif;
@@ -2879,7 +2886,6 @@ footer {
         }
     }
 }
-
 @media (max-width: 990px) {
     .action-group {
         /* flex-direction: column!important; */
