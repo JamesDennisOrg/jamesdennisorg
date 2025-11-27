@@ -492,13 +492,13 @@ pre {
     }
 }
 .metric-card:nth-child(1) {
-    background-image: url(/Assets/Images/page-speed-small.png);
-}
-.metric-card:nth-child(2) {
     background-image: url(/Assets/Images/Bandwidth-limit-small.png);
 }
-.metric-card:nth-child(3) {
+.metric-card:nth-child(2) {
     background-image: url(/Assets/Images/content-small.png);
+}
+.metric-card:nth-child(3) {
+    background-image: url(/Assets/Images/WordCount-small.png);
 }
 .metric-card:nth-child(4) {
     background-image: url(/Assets/Images/API-small.png);
