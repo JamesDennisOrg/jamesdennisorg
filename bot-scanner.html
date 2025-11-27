@@ -576,24 +576,32 @@
                             
                             <div class="metrics-grid">
                                 <div class="metric-card">
-                                    <h4>Performance</h4>
-                                    <div class="metric-value">${report.loadTime}ms</div>
-                                    <div class="metric-status">${report.loadTime > 3000 ? '⚠️ Needs Improvement' : '✅ Good'}</div>
+                                    <div class="card-content">
+                                        <h4>Performance</h4>
+                                        <div class="metric-value">${report.loadTime}ms</div>
+                                        <div class="metric-status">${report.loadTime > 3000 ? '⚠️ Needs Improvement' : '✅ Good'}</div>
+                                    </div>
                                 </div>
                                 <div class="metric-card">
-                                    <h4>Resources</h4>
-                                    <div class="metric-value">${report.resources}</div>
-                                    <div class="metric-status">${report.resources > 50 ? '⚠️ High' : '✅ Normal'}</div>
+                                    <div class="card-content">
+                                        <h4>Resources</h4>
+                                        <div class="metric-value">${report.resources}</div>
+                                        <div class="metric-status">${report.resources > 50 ? '⚠️ High' : '✅ Normal'}</div>
+                                    </div>
                                 </div>
                                 <div class="metric-card">
-                                    <h4>Content Size</h4>
-                                    <div class="metric-value">${report.wordCount} words</div>
-                                    <div class="metric-status">${report.wordCount > 1000 ? '🎯 Scraping Target' : '✅ Normal'}</div>
+                                    <div class="card-content">
+                                        <h4>Content Size</h4>
+                                        <div class="metric-value">${report.wordCount} words</div>
+                                        <div class="metric-status">${report.wordCount > 1000 ? '🎯 Scraping Target' : '✅ Normal'}</div>
+                                    </div>
                                 </div>
                                 <div class="metric-card">
-                                    <h4>WordPress APIs</h4>
-                                    <div class="metric-value">${report.apis}</div>
-                                    <div class="metric-status">${report.apis === 'Exposed' ? '🚨 Vulnerable' : '✅ Secure'}</div>
+                                    <div class="card-content">
+                                        <h4>WordPress APIs</h4>
+                                        <div class="metric-value">${report.apis}</div>
+                                        <div class="metric-status">${report.apis === 'Exposed' ? '🚨 Vulnerable' : '✅ Secure'}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
