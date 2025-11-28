@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/jamewmgq/public_html/
+    - echo "Starting deployment..."
+    - /bin/rm -rf $DEPLOYPATH/*
+    - /bin/cp -R ./* $DEPLOYPATH/
+    - /bin/cp -R ./.[^.]* $DEPLOYPATH/ 2>/dev/null || true
+    - echo "Setting permissions..."
+    - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - echo "Deployment completed successfully"

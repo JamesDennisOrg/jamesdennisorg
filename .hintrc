@@ -1,0 +1,51 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "backdrop-filter",
+          "text-wrap",
+          "text-wrap: balance",
+          "@starting-style",
+          "@starting-style",
+          "@starting-style"
+        ]
+      }
+    ],
+    "no-inline-styles": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 137",
+    "not chrome <= 109",
+    "not firefox <= 138",
+    "not ios_saf <= 16.7",
+    "not samsung <= 27",
+    "not and_ff <= 137",
+    "not chrome <= 109",
+    "not firefox <= 138",
+    "not ios_saf <= 16.7",
+    "not samsung <= 27",
+    "not and_ff <= 137",
+    "not chrome <= 109",
+    "not firefox <= 138",
+    "not ios_saf <= 16.7",
+    "not samsung <= 27",
+    "not and_ff <= 137",
+    "not chrome <= 109",
+    "not firefox <= 138",
+    "not ios_saf <= 16.7",
+    "not samsung <= 27"
+  ]
+}
