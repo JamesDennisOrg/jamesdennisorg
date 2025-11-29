@@ -2,10 +2,23 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/jamewmgq/public_html/
-    - echo "Starting deployment..."
-    - /bin/rm -rf $DEPLOYPATH/*
-    - /bin/cp -R ./* $DEPLOYPATH/
-    - /bin/cp -R ./.[^.]* $DEPLOYPATH/ 2>/dev/null || true
+    - echo "Starting complete deployment..."
+    
+    # Backup only .htaccess (for your redirect rules)
+    - /bin/cp $DEPLOYPATH/.htaccess /tmp/htaccess_backup 2>/dev/null || true
+    
+    # Completely clean the deployment path (except Git data)
+    - /bin/find $DEPLOYPATH -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
+    
+    # Copy ALL content from repository
+    - /bin/cp -R ./* $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp -R .[^.]* $DEPLOYPATH/ 2>/dev/null || true
+    
+    # Restore .htaccess (preserves your redirects)
+    - /bin/cp /tmp/htaccess_backup $DEPLOYPATH/.htaccess 2>/dev/null || true
+    - /bin/rm -f /tmp/htaccess_backup
+    
+    # Set permissions
     - echo "Setting permissions..."
     - /bin/find $DEPLOYPATH -type f -exec chmod 644 {} \;
     - /bin/find $DEPLOYPATH -type d -exec chmod 755 {} \;
