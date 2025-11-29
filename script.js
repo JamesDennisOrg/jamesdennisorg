@@ -25,12 +25,12 @@ async function loadComponents() {
     // 1. Load HTML components
     try {
         // 1. Load the header
-        const headerResponse = await fetch('./Components/header.html');
+        const headerResponse = await fetch('/Components/header.html');
         const headerHtml = await headerResponse.text();
         document.getElementById('header-placeholder').innerHTML = headerHtml;
 
         // 2. Load the footer
-        const footerResponse = await fetch('./Components/footer.html');
+        const footerResponse = await fetch('/Components/footer.html');
         const footerHtml = await footerResponse.text();
         document.getElementById('footer-placeholder').innerHTML = footerHtml;
 
@@ -73,7 +73,6 @@ function startLoadingAnimation() {
     
     let entryTl = gsap.timeline();
     gsap.set(".header", { display: "none" });
-    // gsap.set("nav", { display: "none" });
     entryTl.add("loader")
         .to(".load-text", {
             opacity: 1, yPercent: 0 
