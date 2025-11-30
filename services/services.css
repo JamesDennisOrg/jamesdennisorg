@@ -90,7 +90,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .service-intro-content {
-        padding: 0 1rem;
+        /* padding: 0 1rem; */
     }
     
     .problem-stats {
