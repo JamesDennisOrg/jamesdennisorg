@@ -137,7 +137,7 @@ function initPageAnimations() {
                 
 
                 tl.to(".images-grid h2", {
-                    y: 0,
+                    y: 150,
                     opacity: 1,
                     duration: .7,
                     ease: "bounce.out",

@@ -142,3 +142,67 @@ function addAnimation() {
     })
   });
 }
+
+class StatsCounterGSAP {
+    constructor() {
+        this.animatedSections = new Set();
+        this.init();
+    }
+
+    init() {
+        this.setupIntersectionObserver();
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !this.animatedSections.has(entry.target)) {
+                        this.animatedSections.add(entry.target);
+                        this.animateSectionStats(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
+
+        // Observe ALL stats containers
+        const statsContainers = document.querySelectorAll('.problem-stats, .impact-stats, .seo-stats-highlight');
+        statsContainers.forEach(container => {
+            observer.observe(container);
+        });
+    }
+
+    animateSectionStats(container) {
+        const statNumbers = container.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach((element, index) => {
+            const target = parseFloat(element.getAttribute('data-target'));
+            const isInteger = Number.isInteger(target);
+            
+            gsap.to({ value: 0 }, {
+                value: target,
+                duration: 2,
+                delay: index * 0.2,
+                ease: "power2.out",
+                onUpdate: function() {
+                    if (isInteger) {
+                        element.textContent = Math.floor(this.targets()[0].value);
+                    } else {
+                        element.textContent = this.targets()[0].value.toFixed(1);
+                    }
+                }
+            });
+        });
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap !== 'undefined') {
+        new StatsCounterGSAP();
+    }
+});

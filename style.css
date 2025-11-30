@@ -1243,7 +1243,7 @@ header.hidden {
     min-height: 100vh;
     text-align: center;
     background-color: var(--surface);
-    padding-inline: var(--spacing-half);
+    padding: var(--spacing-double) var(--spacing-half);
     gap: var(--spacing-double);
     & .section-title {
         display: flex;
@@ -1416,6 +1416,7 @@ header.hidden {
             }
         }
         h2 {
+            max-width: 100%;
             grid-column: 1/-1;
             grid-row: 1;
             padding-inline: var(--spacing-double);
