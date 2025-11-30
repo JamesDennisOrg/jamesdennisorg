@@ -39,6 +39,8 @@ async function loadComponents() {
         initScrollHandler();
         setupNavLinks();
         setupModal();
+
+        highlightCurrentPage();
     } catch (error) {
         console.error('Error loading components:', error);
     }
@@ -250,6 +252,29 @@ function setupModal() {
     }
 }
 
+function highlightCurrentPage() {
+    // Wait a tiny bit to ensure DOM is fully ready
+    setTimeout(() => {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            
+            // Remove trailing slashes for comparison
+            const cleanCurrentPath = currentPath.replace(/\/$/, '');
+            const cleanLinkPath = linkPath.replace(/\/$/, '');
+            
+            // Check if this link matches current page
+            if (cleanLinkPath === cleanCurrentPath || 
+                (cleanCurrentPath === '' && cleanLinkPath === '/')) {
+                link.classList.add('current-page');
+            } else {
+                link.classList.remove('current-page');
+            }
+        });
+    }, 100);
+}
 // Initialize everything when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();
