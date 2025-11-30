@@ -1,7 +1,3 @@
-// const pluginContainers = gsap.utils.toArray(".plugin-container");
-// var containerOne = getElementById(plugin-container-2);
-// console.log(containerOne);
-
 gsap.from(".plugin-nav-list", {
     y: 30, opacity: 0, delay: 2.5
 });

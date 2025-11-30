@@ -2417,40 +2417,6 @@ input:focus-visible, textarea:focus-visible {
         gap: var(--spacing-double);
         justify-content: center;
         padding-block: var(--spacing-double);
-        .plugin-info {
-            position:relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-inline: var(--spacing-double);
-            gap: var(--spacing-double);
-            min-width: 450px;
-            span {
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-            P {
-                letter-spacing: 1.1px;
-                line-height: 1.4;
-                text-wrap: balance;
-                a {
-                    color: inherit;
-                    transition: all var(--transition-default);
-                    :hover {
-                        color: var(--brand);
-                    }
-                }
-            }
-            strong {
-                font-family: 'Michroma', sans-serif;
-            }
-            i {
-                margin-left: var(--spacing-half);
-                color: var(--primary);
-                font-size: var(--font-large);
-            }
-        }
         .plugin-images {
             display: flex;
             flex-direction: column;
@@ -2473,6 +2439,24 @@ input:focus-visible, textarea:focus-visible {
         flex-direction: row-reverse;
         border-top: 1px solid var(--border);
         padding: var(--spacing);
+    }
+}
+.plugin-info {
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-inline: var(--spacing-double);
+    gap: var(--spacing-double);
+    min-width: 450px;
+    text-align: center;
+    strong {
+        font-family: 'Michroma', sans-serif;
+    }
+    i {
+        margin-left: var(--spacing-half);
+        color: var(--primary);
+        font-size: var(--font-large);
     }
 }
 .plugin-info-list {
@@ -2500,10 +2484,6 @@ input:focus-visible, textarea:focus-visible {
         content: "✨";
         font-size: 1.5rem;
     }
-}
-.plugin-description {
-    text-align: left;
-    padding-inline: 4px;
 }
 .plugin-image {
     background-image: url(/Assets/Images/Content/rg-screenshot2.png);
@@ -2579,6 +2559,12 @@ input:focus-visible, textarea:focus-visible {
             border-top: 1px solid var(--border);
             padding-top:var(--spacing);
             color: var(--text);
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1em;
+            }
         }
     }
 }
