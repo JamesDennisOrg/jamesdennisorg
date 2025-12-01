@@ -224,6 +224,7 @@ background-color: var(--main-bg-color-alt);
         visibility: hidden;
         transform: translateX(-100%);
         transition: var(--transition-buttons);
+        scale: 0;
     }
     &::after {
         content: "";
@@ -245,6 +246,7 @@ background-color: var(--main-bg-color-alt);
         img {
             visibility: visible;
             transform: translateX(0);
+            scale: 1;
         }
         &::after {
             z-index: -1;
@@ -268,6 +270,7 @@ background-color: var(--main-bg-color-alt);
         visibility: hidden;
         transform: translateX(-100%);
         transition: var(--transition-buttons);
+        scale: 0;
     }
     &:hover, :focus {
         text-indent: 20px;
@@ -278,6 +281,7 @@ background-color: var(--main-bg-color-alt);
         img {
             visibility: visible;
             transform: translateX(0);
+            scale: 1;
         }
     }
 }
@@ -317,6 +321,9 @@ button {
     height: fit-content;
     color: inherit;
     cursor: pointer;
+    &:active {
+        animation: subtlePulseIn .7s forwards;
+    }
 }
 
 /* Explore / Jump-to Buttons */
@@ -1310,7 +1317,7 @@ header.hidden {
 }
 
 /* ================= CONTENT STYLING ================= */
-.content-wrapper {
+.content-wrapper:not(.homepage) {
     margin: 0;
     padding-top: var(--spacing-triple);
     display: flex;
