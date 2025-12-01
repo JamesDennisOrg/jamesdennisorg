@@ -1420,6 +1420,7 @@ footer {
         background-color: var(--border);
         border-radius: 50px;
         bottom: 160px;
+        right: -50px;
         z-index: 9990;
         transition: all .3s ease;
         a {
