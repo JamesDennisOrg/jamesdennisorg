@@ -1415,8 +1415,11 @@ footer {
       }
     #toTop {
         position: fixed;
-        right: 4px;
-        bottom: 80;
+        width: 2rem;
+        height:2rem;
+        background-color: var(--border);
+        border-radius: 50px;
+        bottom: 160px;
         z-index: 9990;
         transition: all .3s ease;
         a {
@@ -2269,6 +2272,7 @@ footer {
         gap: .5em;
         .footer-site-logo {
             grid-column: 1 / -1;
+            grid-row: 2;
             .logo-title {
                 width: 100%;
                 flex-wrap: wrap;
@@ -2279,7 +2283,7 @@ footer {
             justify-items: end;
             grid-template-columns: repeat(8, 1fr);
             grid-column: 1/-1;
-            grid-row: 2;
+            grid-row: 1;
             & .contact-box:nth-child(1) {
                 grid-column: 1/3;
                 justify-self: center;
@@ -2291,6 +2295,14 @@ footer {
             .contact-box:nth-child(3) {
                 grid-column: 5/-1;
                 justify-self: right;
+                .socials {
+                    display: grid;
+                    justify-items: center;
+                    align-items: center;
+                    justify-content: center;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1em;
+                }
             }
         }
         .contact-box {
@@ -2298,9 +2310,6 @@ footer {
         }
         .copyright {
             grid-row: 3;
-        }
-        .social-icon {
-            width: 24px!important;
         }
     }
 }

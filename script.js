@@ -204,11 +204,11 @@ function initScrollHandler() {
         }
 
         if (scrollPercent > 10 && scrollPercent >= 88) {
-            toTop.style.bottom = "80px";
+            toTop.style.right = "4px";
         } else if (scrollPercent > 10 && scrollPercent < 88) {
-            toTop.style.bottom = "0px";
+            toTop.style.right = "-50px";
         } else {
-            toTop.style.bottom = "-80px";                
+            toTop.style.right = "-50px";                
         }
         prevScrollpos = currentScrollPos;  
     });
