@@ -1,0 +1,188 @@
+/* ==================== CONTACT PAGE & FORM ====================== */
+.contact-page {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: opacity 2s;
+}
+.contact-form-container {
+    min-height: 100vh;
+    padding-block: var(--spacing-triple);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing);
+    padding-inline: var(--spacing-half);
+    text-align: center;
+    .contact-container {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 3rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: .2rem;
+        .form-container {
+            .form-header {
+                h3 {
+                    font-size: 120%;
+                    font-weight: 600;
+                }
+                p {
+                    text-align: center;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.problem-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    i {
+        font-size: var(--font-x-large);
+        color: var(--brand);
+    }
+    h4 {
+        margin-top: 0;
+    }
+}
+
+.guarantee-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, var(--background), #2a9d8f);
+    padding: var(--spacing-triple);
+    border-radius: 12px;
+    margin-top: var(--spacing-double);
+    padding-bottom: var(--spacing-triple);
+    h4 {
+        margin: 0;
+        padding-bottom: 1em;
+    }
+    ul {
+        text-align: left;
+        li {
+            padding-left: 1em;
+            color: var(--primary);
+            font-size: var(--font-large);
+            &::marker {
+                content: "✓";
+                color: var(--brand);
+            }
+        }
+    }
+}
+.trust-indicators {
+   margin-top: 1em; 
+}
+
+
+/* .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    input {
+        width: 1.4rem;
+        cursor: pointer;
+    }
+}
+select {
+    appearance: base-select;
+    color: var(--text-alt);
+    background-color: transparent;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: calc(0.5rem - 2px);
+    box-shadow: var(--shadow-bottom);
+    width: 80%;
+    z-index: +1;
+    & > button {
+        display: flex;
+        width: 100%;
+        font-family: inherit;
+        color: currentColor;
+        & > svg {
+        margin: 0 0 0 auto;
+        width: 1.2rem;
+        height: 1.2rem;
+        }
+    }
+    
+    &:has(option:not([hidden]):checked) {
+        color: currentColor;
+        width: 100%;
+    }
+    
+    &:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: -1px;
+    }
+    
+    &::picker-icon {
+        display: none;
+    }
+    
+    &::picker(select) {
+        appearance: base-select;
+        border: 1px solid var(--primary-light);
+        padding: 0.25rem;
+        margin-top: 0.25rem;
+        border-radius: calc(0.5rem - 2px);
+        cursor: pointer;
+        transition: opacity 225ms ease-in-out, transform 225ms ease-in-out;
+        transform-origin: top;
+        transform: translateY(0);
+        opacity: 1;
+        @starting-style {
+        transform: translateY(-2.25rem) scale(0.95);
+        opacity: 0;
+        }
+    }
+    & optgroup label {
+        display: block;
+        padding: 0.375rem 0.5rem;
+    }
+    & option {
+        padding: 0.375rem 0.5rem;
+        border-radius: calc(0.5rem - 4px);
+        outline: none;
+        &::after {
+        content: "\2713";
+        width: 1rem;
+        height: 1.5rem;
+        margin-left: auto;
+        opacity: 0;
+        }
+        &::checkmark {
+        display: none;
+        }
+        &:checked {
+        background-color: transparent;
+        &::after {
+            opacity: 1;
+        }
+        }
+        &:hover,
+        &:focus-visible {
+        background-color: #f4f4f5;
+        color: #18181b;
+        }
+    }
+}
+input[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+} */

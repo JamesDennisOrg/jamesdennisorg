@@ -9,22 +9,18 @@
     padding: 5em 2em;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
-
 .scanner-header {
     text-align: center;
     margin-bottom: 1.5rem;
 }
-
 .scanner-header h1 {
     margin-bottom: 0.5rem;
     /* color: #2c3e50; */
 }
-
 .subtitle {
     font-size: 1.5rem;
     color: #7f8c8d;
 }
-
 .scanner-wizard-container {
     display: grid;
     grid-template-columns: 4em auto;
@@ -32,7 +28,6 @@
     width: 1200px;
     max-width: 96vw;
 }
-
 .scanner-wizard {
     border-radius: 12px;
     /* background: url(/Assets/Images/Cube/Bots-blocked.webp); */
@@ -103,7 +98,6 @@
         margin-block: 2em;
     }
 }
-
 .wizard-step.leaving {
     opacity: 0;
     transform: translateX(-40px);
@@ -117,7 +111,6 @@
     position: relative;
     height: auto;
 }
-
 .step-header {
     display: flex;
     align-items: center;
@@ -129,7 +122,6 @@
         color: var(--accent);
     }
 }
-
 .risk-list {
     margin-bottom: 1em;
     li {
@@ -181,13 +173,11 @@
     justify-content: center;
     font-weight: bold;
 }
-
 /* Progress Bar */
 .wizard-progress {
     width: auto;
     margin-top: 0;
 }
-
 .vertical-progress {
     position: sticky;
     top: 100px;
@@ -199,7 +189,6 @@
     height: 80vh;
     font-size: 1rem;
 }
-
 .progress-line {
     flex: 1;
     width: 2px;
@@ -209,7 +198,6 @@
     overflow: visible;
     margin-left: 1em;
 }
-
 .progress-fill {
     position: absolute;
     top: 1px;
@@ -220,7 +208,6 @@
     transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     height: 0%; /* Start from top */
 }
-
 .step-indicators-vertical {
     display: flex;
     flex-direction: column;
@@ -232,7 +219,6 @@
     height: 100%;
     justify-content: space-between;
 }
-
 .step-indicator-vertical {
     width: 2rem;
     aspect-ratio: 1/1;
@@ -251,7 +237,6 @@
         color: var(--background);
     }
 }
-
 .step-indicator-vertical.active {
     transform: scale(1.1);
     box-shadow: 0 0 12px 4px rgba(52, 152, 219, 0.95);
@@ -259,14 +244,12 @@
         color: var(--accent);
     }
 }
-
 .step-indicator-vertical.completed {
     background: var(--background-alt);
     span {
         color: var(--accent-light);
     }
 }
-
 /* Step labels for better UX */
 .step-label {
     position: absolute;
@@ -279,13 +262,11 @@
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
-
 .step-indicator-vertical.active .step-label,
 .step-indicator-vertical.completed .step-label {
     opacity: 1;
     font-weight: 600;
 }
-
 /* Compact version for mobile */
 @media (max-width: 768px) {
     .step-label {
@@ -297,25 +278,6 @@
         width: 100%;
     }
 }
-/* Buttons */
-/* .see-results-btns {
-    display: flex;
-    align-items: center;
-    gap: 2em;
-} */
-/* button {
-    height: fit-content;
-    width: fit-content;
-    font-size: 1rem;
-    flex: 1;
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-} */
 .action-buttons, .see-results-btns, .report-actions {
     width: 100%;
     display: flex;
@@ -323,55 +285,6 @@
     justify-content: center;
     gap: 2em;
 }
-/* .btn-primary {
-    height: 4em;
-    background: var(--primary);
-    color: var(--text-secondary);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-} */
-
-/* .btn-primary:hover {
-    background: var(--primary-dark);
-} */
-
-/* .btn-secondary {
-    height: 2em;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-    span {
-        color: white!important;
-    }
-    &:hover {
-        text-indent: 0!important;
-    }
-} */
-
-/* .btn-secondary:hover {
-    background: #7f8c8d;
-} */
-
-/* .btn-cta {
-    background: #e74c3c;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.3s;
-} */
-
-/* .btn-cta:hover {
-    background: #c0392b;
-} */
-
 /* Code Section */
 .code-section {
     width: 100%;
@@ -380,7 +293,6 @@
     overflow: hidden;
     margin-block: 2em;
 }
-
 .code-header {
     background: #34495e;
     padding: 0.5rem 1rem;
@@ -405,18 +317,15 @@ code {
     cursor: pointer;
     font-size: 0.9rem;
 }
-
 pre {
     margin: 0;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.65);
     overflow-x: auto;
 }
-
 .hidden {
     display: none;
 }
-
 /* Trust Badges */
 .trust-badges {
     display: flex;
@@ -426,14 +335,12 @@ pre {
     margin: 1em auto 0;
     padding-inline: 2em;
 }
-
 /* Instruction Cards */
 .instruction-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
-
 .instruction-card {
     background: var(--background-alt);
     padding: 1.5rem;
@@ -449,7 +356,6 @@ pre {
         font-size: var(--font-medium);
     }
 }
-
 .card-number {
     background: var(--surface-hover);
     color: white;
@@ -462,7 +368,6 @@ pre {
     margin: 0 auto 1rem;
     font-weight: bold;
 }
-
 /* Report Styles */
 .metrics-grid {
     display: grid;
@@ -470,7 +375,6 @@ pre {
     gap: 1rem;
     margin: 2rem 0;
 }
-
 .metric-card {
     border-radius: 8px;
     box-shadow: 0 0 1px 0px var(--accent) inset, 0 0 1px 0px var(--accent);
@@ -507,24 +411,28 @@ pre {
 .metric-card:nth-child(4) {
     background-image: url(/Assets/Images/API-small.png);
 }
-
 .metric-value {
     font-size: 2rem;
     font-weight: bold;
     margin: 0.5rem 0;
     padding: 7px;
 }
-
 .metric-status {
     color: var(--accent);
     padding: 7px;
 }
-
+.metric-bad {
+    color: #ff4444;
+    font-weight: bold;
+}
+.metric-good {
+    color: #44ff44;
+    font-weight: bold;
+}
 .risk-meter {
     text-align: center;
     margin: 2rem 0;
 }
-
 .risk-score {
     font-size: 3rem;
     font-weight: bold;
@@ -534,7 +442,6 @@ pre {
     border-radius: 8px;
     background: var(--gradient-surface);
 }
-
 .recommendations {
     display: flex;
     flex-direction: column;
@@ -551,7 +458,6 @@ pre {
         } 
     }
 }
-
 .recommendations li {
     margin: 0.5rem 0;
     padding-left: 1em;
@@ -559,14 +465,12 @@ pre {
         content: "⇾"
     }
 }
-
 .action-steps {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin: 1rem 0;
 }
-
 .action-step {
     background: rgba(0,0,0,0.5);
     padding: 1.5rem;
@@ -576,7 +480,6 @@ pre {
         margin-top: 0;
     }
 }
-
 .action-step.urgent {
     border-left: 4px solid #e74c3c;
 }
@@ -610,7 +513,6 @@ pre {
     justify-content: center;
     margin-top: 1rem;
 }
-
 .share-buttons button {
     background: #3498db;
     color: white;
@@ -619,7 +521,6 @@ pre {
     border-radius: 4px;
     cursor: pointer;
 }
-
 .results-input {
     width: 100%;
     textarea {
