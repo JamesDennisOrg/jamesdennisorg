@@ -203,10 +203,8 @@ function initScrollHandler() {
             header.classList.remove("hidden");
         }
 
-        if (scrollPercent > 10 && scrollPercent >= 88) {
+        if (scrollPercent > 20) {
             toTop.style.right = "4px";
-        } else if (scrollPercent > 10 && scrollPercent < 88) {
-            toTop.style.right = "-50px";
         } else {
             toTop.style.right = "-50px";                
         }
