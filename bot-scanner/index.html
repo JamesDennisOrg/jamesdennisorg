@@ -232,7 +232,7 @@
                         <span class="step-number">2</span>
                         <h2>Run the Browser Check</h2>
                     </div>
-                    <p>We'll open your site in a new tab. Follow these simple steps:</p>
+                    
                     <div class="step-content">
                         <div class="instruction-cards">
                             <div class="instruction-card">
@@ -251,10 +251,11 @@
                                 <p>Copy and paste the code below, then press <kbd>Enter</kbd></p>
                             </div>
                         </div>
+                        <p>We'll open your site in a new tab. Follow these simple steps:</p>
 
                         <div class="action-buttons">
-                            <button class="btn-primary button hire-btn" onclick="openTargetSite()"><span><strong>①</strong>  Open My Site in New Tab</span></button>
-                            <button class="btn-primary" onclick="nextStep(3)">I Have My Results</button>
+                            <button class="btn-primary" onclick="openTargetSite()"><img src="/Assets/Images/Icons/arrow-up-right-from-square-solid.svg" alt="open icon"> Open My Site in New Tab</button>
+                            <button class="btn-secondary" onclick="nextStep(3)">I Have My Results</button>
                             
                         </div>
                     </div>
@@ -306,7 +307,7 @@
                         
                         <div class="see-results-btns">
                            <div class="example-toggle">
-                            <button type="button" onclick="toggleExample()">📋 See Example Results</button>
+                            <button class="btn-primary-alt" type="button" onclick="toggleExample()"><img src="/Assets/Images/Icons/eye-regular.svg" alt="open example icon">See Example Results</button>
                             <div id="example-results" class="hidden">
                                 <pre>📊 QUICK RESULTS:
         - Load Time: 2450ms
@@ -317,7 +318,7 @@
                             </div>
                             </div>
 
-                            <button class="btn-primary" onclick="generateReport()">Generate My Protection Report</button> 
+                            <button class="btn-primary" onclick="generateReport()"><img src="/Assets/Images/Icons/right-to-bracket-solid.svg" alt="generate icon">Generate My Protection Report</button> 
                         </div>
                         
                     </div>
@@ -335,14 +336,14 @@
                         </div>
                         
                         <div class="report-actions">
-                            <button class="btn-primary" onclick="downloadProfessionalReport()">📥 Download PDF Report</button>
-                            <a href="/contact.html?service=bot-defense" class="btn-cta">🛡️ Get Professional Protection</a>
+                            <button class="btn-primary" onclick="downloadProfessionalReport()"><img src="/Assets/Images/Icons/file-pdf-regular.svg" alt="pdf download icon">Download PDF Report</button>
+                            <button class="btn-primary" onclick="window.location.href='/contact/'"><img src="/Assets/Images/Icons/building-shield-solid.svg" alt="protection icon">Get Professional Protection</button>
                         </div>
                         
                         <div class="social-share">
                             <div class="share-link">
                                 <p>Share this tool with other WordPress owners:</p>
-                                <button onclick="copyToolLink()">🔗 Copy Link</button>
+                                <button class="btn-secondary" onclick="copyToolLink()">🔗 Copy Link</button>
                             </div>
                             
                             <div class="share-buttons">

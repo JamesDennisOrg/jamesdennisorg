@@ -22,7 +22,7 @@ background-color: var(--main-bg-color-alt);
     
     --text: rgb(248, 250, 252);         /* Primary text */
     --text-secondary: rgb(203, 213, 225); /* Secondary text */
-    --text-muted: rgb(148, 163, 184);   /* Muted/disabled text */
+    --text-muted: rga(148, 163, 184, 0.6);   /* Muted/disabled text */
     --text-on-brand: rgb(255, 255, 255); /* Text on brand colored backgrounds */
     
     /* ===== BRAND & ACCENT COLORS ===== */
@@ -111,11 +111,6 @@ background-color: var(--main-bg-color-alt);
     --fa-style-family-classic: 'Font Awesome 6 Free';
     --fa-font-regular: normal 400 1em/1 'Font Awesome 6 Free';
 }
-/* :root[data-theme="light"] {
-    color-scheme: light;
-    --text: ;
-    --background: ;
-} */
 
 /* COLORS - THEME LIGHT */
 :root[data-theme="light"] {
@@ -151,7 +146,7 @@ background-color: var(--main-bg-color-alt);
         
         --text: rgb(248, 250, 252);
         --text-secondary: rgb(203, 213, 225);
-        --text-muted: rgb(148, 163, 184);
+        --text-muted: rgba(148, 163, 184, .6);
         
         --border: rgba(255, 255, 255, 0.12);
         --border-hover: rgba(255, 255, 255, 0.2);
@@ -173,7 +168,7 @@ background-color: var(--main-bg-color-alt);
         
         --text: rgb(23, 23, 51);
         --text-secondary: rgb(71, 85, 105);
-        --text-muted: rgb(100, 116, 139);
+        --text-muted: rgba(100, 116, 139, .6);
         
         --border: rgba(0, 0, 0, 0.1);
         --border-hover: rgba(0, 0, 0, 0.2);
@@ -213,26 +208,117 @@ background-color: var(--main-bg-color-alt);
 }
 
 /* ================= COMPONENTS: BUTTONS =============== */
+.btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-dark);
+    color: var(--surface);
+    border: none;
+    height: fit-content;
+    padding: .5rem 1.5rem .5rem 0;
+    position: relative;
+    img {
+        width: 1.4rem;
+        aspect-ratio: 1/1;
+        visibility: hidden;
+        transform: translateX(-100%);
+        transition: var(--transition-buttons);
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        border: 1px solid var(--text);
+        border-radius: 4px;
+        animation: ring-btn 1.5s infinite;
+        opacity: 1;
+    }
+    &:hover, :focus {
+        text-indent: 20px;
+        background: var(--primary);
+        columns: var(--surface-hover);
+        padding-left: 1rem;
+        img {
+            visibility: visible;
+            transform: translateX(0);
+        }
+        &::after {
+            z-index: -1;
+            animation-play-state: paused;
+        }
+    }
+}
+.btn-primary-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    height: fit-content;
+    padding: .5rem 1.5rem .5rem 0;
+    position: relative;
+    img {
+        width: 1.4rem;
+        aspect-ratio: 1/1;
+        visibility: hidden;
+        transform: translateX(-100%);
+        transition: var(--transition-buttons);
+    }
+    &:hover, :focus {
+        text-indent: 20px;
+        background: var(--background);
+        columns: var(--surface-hover);
+        padding-left: 1rem;
+        color: var(--text);
+        img {
+            visibility: visible;
+            transform: translateX(0);
+        }
+    }
+}
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    img {
+        width: 1.4rem;
+        aspect-ratio: 1/1;
+        visibility: hidden;
+        transform: translateX(-100%);
+        transition: var(--transition-buttons);
+    }
+    &:hover, :focus {
+        color: var(--text);
+    }
+    &:active {
+        animation: subtlePulseIn .7s forwards;
+    }
+}
 .buttons {
     display: flex;
     flex-wrap: wrap;
-    /* grid-template-columns: repeat( 2, minmax(220px, 1fr) ); */
     justify-items: center;
     gap: var(--spacing-half);
     margin-block: var(--spacing-double);
     justify-content: center;
 }
-.button {
-    text-align: center;
-    position: relative;
-    text-decoration: none;
-    padding: 6px 20px;
+button {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 6px 18px;
+    border: none;
     border-radius: 4px;
     transition: var(--transition-buttons);
-    z-index: 1;
-    font-size: 1rem;
     height: fit-content;
+    color: inherit;
+    cursor: pointer;
 }
+
 /* Explore / Jump-to Buttons */
 .button.explore-btn {
     background-color: var(--primary-light);
@@ -293,7 +379,7 @@ background-color: var(--main-bg-color-alt);
     } 
 }
 /* Call To Action Button */
-.button.hire-btn {
+/* .button.hire-btn {
     background-color: var(--primary);
     position: relative;
     & span {
@@ -347,7 +433,7 @@ background-color: var(--main-bg-color-alt);
         animation: ring-btn 1.5s infinite;
     }
 }
-}
+} */
 /* Form Submit Button */
 button[type="submit"] {
     z-index: 1;
@@ -559,12 +645,12 @@ p {
 }
 a {
     text-decoration: none;
-    font-weight: 500;
-    color: var(--accent);
-    transition: all var(--transition);
+    /* font-weight: 500; */
+    /* color: var(--accent); */
+    /* transition: all var(--transition); */
     &:hover {
         text-decoration: none;
-        color: var(--accent-dark);
+        /* color: var(--accent-dark); */
     }
 }
 input, textarea, select {
@@ -1226,6 +1312,7 @@ header.hidden {
 /* ================= CONTENT STYLING ================= */
 .content-wrapper {
     margin: 0;
+    padding-top: var(--spacing-triple);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -2510,7 +2597,8 @@ input:focus-visible, textarea:focus-visible {
 }
 /* ================= Individual Plugin Page ==================== */
 .plugin-summary {
-    max-width: 80vw;
+    width: 1200px;
+    max-width: 96vw;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-double);
@@ -2982,7 +3070,7 @@ footer {
             }
             .scanner-wizard {
                 .wizard-step {
-                    padding: 8px!important;
+                    padding: 2em!important;
                     .step-header {
                         flex-direction: column;
                         width: 100%;
@@ -2994,6 +3082,7 @@ footer {
                         width:100%!important;
                         display: flex!important;
                         flex-direction: column;
+                        padding: 2em;
                         .action-buttons {
                             flex-direction: column;
                         }
@@ -3329,6 +3418,20 @@ footer {
     }
 }
 /* Subtle Pulse Animation */
+@keyframes subtlePulseIn {
+  0% {
+    transform: scale(1);
+    opacity: .8;
+  }
+  50% {
+    transform: scale(.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 @keyframes subtlePulse {
   0% {
     transform: scale(1);
