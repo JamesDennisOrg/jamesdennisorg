@@ -1067,10 +1067,11 @@ input[type="url"] {
     .performance-content {
         padding: 0 1rem;
     }
-    .impact-stats {
+    .impact-stats, .seo-stats-highlight, .results-showcase {
         grid-template-columns: 1fr;
         padding: 1.5rem;
         gap: 1.5rem;
+        margin: 2rem 0;
     }
     .process-step {
         flex-direction: column;
@@ -1085,12 +1086,12 @@ input[type="url"] {
         padding: 0 1rem;
         margin-bottom: 2rem;
     }
-    .seo-stats-highlight {
+    /* .seo-stats-highlight {
         grid-template-columns: 1fr;
         padding: 1.5rem;
         gap: 1.5rem;
         margin: 2rem 0;
-    }
+    } */
     .stat-main {
         font-size: 2rem;
     }

@@ -1654,12 +1654,12 @@ footer {
 /* ================= CONTENT SECTIONS STYLING ================= */
 .content-wrapper:not(.homepage, .contact-page) {
     margin: 0;
-    padding-top: var(--spacing-triple);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     transition: opacity 2s;
+    overflow: hidden;
 }
 .content-section, .plugins-wrapper, .plugin-content-section {
     container-type: inline-size;
@@ -2338,6 +2338,9 @@ footer {
     }
     .cta-section {
         height: unset!important;
+    }
+    .content-section:not(.seo-container) {
+        /* margin-bottom: 0; */
     }
     .content-section:nth-of-type(even) {
         background-color: unset;
