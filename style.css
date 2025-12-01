@@ -2425,9 +2425,9 @@ input:focus-visible, textarea:focus-visible {
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, var(--background), #2a9d8f);
-    padding: 1.5rem;
+    padding: var(--spacing-triple);
     border-radius: 12px;
-    margin-top: 2rem;
+    margin-top: var(--spacing-double);
     padding-bottom: var(--spacing-triple);
     h4 {
         margin: 0;
@@ -3016,9 +3016,6 @@ footer {
             max-width: unset;
         }
     }
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
 }
 @media (max-width: 990px) {
     .action-group {
@@ -3236,6 +3233,9 @@ footer {
     }
     .content-section:nth-of-type(even) {
         background-color: unset;
+    }
+    .contact-container {
+        grid-template-columns: 1fr;
     }
 }
 @media (max-width: 630px) {
