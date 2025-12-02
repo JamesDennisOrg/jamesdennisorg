@@ -170,7 +170,7 @@ class StatsCounterGSAP {
         );
 
         // Observe ALL stats containers
-        const statsContainers = document.querySelectorAll('.problem-stats, .impact-stats, .seo-stats-highlight');
+        const statsContainers = document.querySelectorAll('.problem-stats, .impact-stats, .seo-stats-highlight, .hero-stats');
         statsContainers.forEach(container => {
             observer.observe(container);
         });

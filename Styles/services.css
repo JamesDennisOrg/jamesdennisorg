@@ -387,7 +387,7 @@ ul {
     color: var(--accent-dark);
 }
 
-.problem-stats, .impact-stats, .results-showcase, .seo-stats-highlight {
+.problem-stats, .impact-stats, .results-showcase, .seo-stats-highlight, .hero-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
@@ -415,7 +415,7 @@ ul {
     line-height: 1;
 }
 
-.solution-highlights, .process-steps, .seo-process-overview, .wordpress-path-container {
+.solution-highlights, .process-steps, .seo-process-overview, .wordpress-path-container, .problem-cards, .trust-container, .trust-cards {
     max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
@@ -423,7 +423,7 @@ ul {
     margin-block: 3rem;
 }
 
-.highlight-card, .process-step, .process-card, .path-card {
+.highlight-card, .process-step, .process-card, .path-card, .problem-card, .trust-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -438,7 +438,7 @@ ul {
     box-sizing: border-box;
 }
 
-.highlight-card:hover, .process-step:hover, .process-card:hover {
+.highlight-card:hover, .process-step:hover, .process-card:hover, .problem-card:hover, .trust-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     background: var(--surface-hover);
@@ -1043,6 +1043,160 @@ input[type="url"] {
     border: none;
     padding: 0;
 }
+
+/* BOT-DEFENSE AUDIT PAGE */
+.contact-container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+/* Field Notes */
+.field-note {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Form Rows */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Symptom Tips */
+.symptom-tip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: var(--brand-light);
+    border-radius: 6px;
+    color: var(--brand-dark);
+}
+
+.symptom-tip i {
+    font-size: 1.25rem;
+}
+
+.symptom-tip span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Symptom Cards Enhancement */
+.symptom-card .card-content small {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Audit Preview */
+.audit-preview {
+    margin-bottom: 2rem;
+}
+
+.preview-card {
+    background: linear-gradient(135deg, var(--brand-light) 0%, var(--card-bg) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.preview-card h4 {
+    margin-bottom: 1rem;
+    color: var(--accent-dark);
+}
+
+.preview-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-self: center;
+}
+
+.preview-card li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.preview-card li i {
+    color: var(--success);
+}
+
+/* Checkbox Groups */
+.checkbox-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Error States */
+input.error,
+select.error,
+textarea.error {
+    border-color: #e74c3c;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-message i {
+    font-size: 4rem;
+    color: #2ecc71;
+    margin-bottom: 1rem;
+}
+
+.success-message h3 {
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .problem-stats .stat-number,
@@ -1089,12 +1243,6 @@ input[type="url"] {
         padding: 0 1rem;
         margin-bottom: 2rem;
     }
-    /* .seo-stats-highlight {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-        gap: 1.5rem;
-        margin: 2rem 0;
-    } */
     .stat-main {
         font-size: 2rem;
     }

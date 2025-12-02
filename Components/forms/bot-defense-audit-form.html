@@ -1,0 +1,169 @@
+<!-- Bot Defense Audit Form Component -->
+<div class="form-container" id="bot-defense-form-container">
+    <form id="bot-defense-form" 
+          class="multi-step-form" 
+          data-multistep="true" 
+          data-total-steps="3" 
+          data-service="bot-defense">
+        
+        <!-- Step 1: Symptoms -->
+        <div class="form-step active" data-step="1">
+            <h3>Is your WordPress site showing these signs?</h3>
+            
+            <div class="symptom-grid">
+                <!-- Checkbox cards -->
+                <label class="symptom-card">
+                    <input type="checkbox" name="symptoms[]" value="slow-peak">
+                    <div class="card-content">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Slowdowns during specific hours</span>
+                        <small>High visitor traffic at unusual times</small>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="symptoms[]" value="traffic-spikes">
+                    <div class="card-content">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Traffic spikes without conversions</span>
+                        <small>Visitors don't engage or convert</small>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="symptoms[]" value="hosting-alerts">
+                    <div class="card-content">
+                        <i class="fas fa-server"></i>
+                        <span>Hosting resource limit alerts</span>
+                        <small>CPU/Memory limits being hit</small>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="symptoms[]" value="cost-increase">
+                    <div class="card-content">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Unexplained hosting cost increases</span>
+                        <small>Bills going up without traffic growth</small>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="symptoms[]" value="scraping-concern">
+                    <div class="card-content">
+                        <i class="fas fa-robot"></i>
+                        <span>Content appearing on AI platforms</span>
+                        <small>Your content in AI summaries/answers</small>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="symptoms[]" value="not-sure">
+                    <div class="card-content">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Not sure - just want to check</span>
+                        <small>Proactive assessment</small>
+                    </div>
+                </label>
+            </div>
+            
+            <button type="button" class="btn btn-next">Next →</button>
+        </div>
+        
+        <!-- Step 2: Site Details -->
+        <div class="form-step" data-step="2">
+            <h3>Tell us about your WordPress site</h3>
+            
+            <div class="form-group">
+                <label for="website">Your WordPress Site URL *</label>
+                <input type="url" id="website" name="website" required 
+                       data-validate="url" placeholder="https://yoursite.com">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bot-traffic">Estimated Monthly Traffic *</label>
+                    <select id="bot-traffic" name="traffic" required>
+                        <option value="">Select range...</option>
+                        <option value="under-10k">Under 10,000 visits</option>
+                        <option value="10k-50k">10,000 - 50,000 visits</option>
+                        <option value="50k-100k">50,000 - 100,000 visits</option>
+                        <option value="100k-250k">100,000 - 250,000 visits</option>
+                        <option value="250k-plus">250,000+ visits</option>
+                    </select>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="bot-hosting">Current Hosting Type</label>
+                    <select id="bot-hosting" name="hosting">
+                        <option value="">Select type...</option>
+                        <option value="shared">Shared Hosting</option>
+                        <option value="vps">VPS / Cloud Server</option>
+                        <option value="managed">Managed WordPress</option>
+                        <option value="dedicated">Dedicated Server</option>
+                        <option value="not-sure">Not Sure</option>
+                    </select>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label for="bot-issues">Main Concerns (optional)</label>
+                <textarea id="bot-issues" name="concerns" placeholder="Any specific issues you've noticed with bot traffic, performance drops, or security concerns..."></textarea>
+            </div>
+            <div class="form-navigation">
+                <button type="button" class="btn btn-prev">← Back</button>
+                <button type="button" class="btn btn-next">Next →</button>
+            </div>
+        </div>
+        
+        <!-- Step 3: Contact Info -->
+        <div class="form-step" data-step="3">
+            <h3>Where should we send your bot defense audit?</h3>
+            
+            <div class="audit-preview">
+                <div class="preview-card">
+                    <h4>Your Bot Defense Audit Will Include:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Bot traffic analysis report</li>
+                        <li><i class="fas fa-check"></i> Resource consumption assessment</li>
+                        <li><i class="fas fa-check"></i> Impact on performance metrics</li>
+                        <li><i class="fas fa-check"></i> Custom protection strategy</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bot-name">Your Name *</label>
+                    <input type="text" id="bot-name" name="name" placeholder="First & Last Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bot-email">Email Address *</label>
+                    <input type="email" id="bot-email" name="email" placeholder="you@example.com" required>
+                    <small class="field-note">Audit will be sent here within 24 hours</small>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="bot-phone">Phone Number (optional)</label>
+                <input type="tel" id="bot-phone" name="phone" placeholder="For consultation scheduling">
+            </div>
+            
+            <div class="form-group">
+                <label class="checkbox-label subscribe">
+                    <input type="checkbox" name="newsletter" checked>
+                    <span>Send me WordPress security tips and updates (unsubscribe anytime)</span>
+                </label>
+            </div>
+            <div class="form-navigation">
+                <button type="button" class="btn-prev">← Back</button>
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <button type="submit" class="btn-submit">Get My Free Audit</button>
+            </div>
+        </div>
+
+        
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
+            <span class="step-text">Step 1 of 3</span>
+        </div>
+    </form>
+</div>

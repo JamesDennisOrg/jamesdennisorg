@@ -33,6 +33,9 @@ async function loadComponents() {
         const footerHtml = await footerResponse.text();
         document.getElementById('footer-placeholder').innerHTML = footerHtml;
 
+        // 3. LOAD FORM COMPONENTS
+        await loadFormComponents();
+
         // 3. DOM Dependent global functions
         dateTime();
         initScrollHandler();
@@ -178,6 +181,54 @@ function dateTime() {
     const copyrightEl = document.querySelector('.copyright p');
     if (copyrightEl) {
         copyrightEl.innerHTML = `© ${years} James Dennis`;
+    }
+}
+
+async function loadFormComponents() {
+    // Find all form placeholders on the page
+    const formPlaceholders = document.querySelectorAll('[data-form-component]');
+    
+    for (const placeholder of formPlaceholders) {
+        const formType = placeholder.getAttribute('data-form-component');
+        const formId = placeholder.id || `form-${formType}-${Date.now()}`;
+        
+        try {
+            // Load the form HTML
+            const response = await fetch(`/Components/forms/${formType}.html`);
+            if (!response.ok) {
+                throw new Error(`Failed to load form: ${formType}`);
+            }
+            
+            const formHtml = await response.text();
+            placeholder.innerHTML = formHtml;
+            
+            console.log(`Loaded form component: ${formType}`);
+            
+            // Initialize the form if it has multi-step attributes
+            const form = placeholder.querySelector('form[data-multistep]');
+            if (form) {
+                // Wait a bit for DOM to settle
+                setTimeout(() => {
+                    if (window.initMultiStepForm) {
+                        const totalSteps = form.getAttribute('data-total-steps') || 3;
+                        const serviceType = form.getAttribute('data-service') || 'general';
+                        
+                        window.initMultiStepForm(form.id, {
+                            totalSteps: parseInt(totalSteps),
+                            serviceType: serviceType
+                        });
+                    }
+                }, 100);
+            }
+            
+        } catch (error) {
+            console.error(`Error loading form component "${formType}":`, error);
+            placeholder.innerHTML = `
+                <div class="form-error">
+                    <p>Unable to load the form. Please <a href="/contact/">contact me directly</a>.</p>
+                </div>
+            `;
+        }
     }
 }
 
