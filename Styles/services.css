@@ -588,7 +588,7 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 40vh;
     width: 100%;
     position: sticky;
     top: 0;
@@ -605,6 +605,9 @@ p {
         background: var(--gradient-brand);
         gap: var(--spacing-triple);
     }
+}
+.cta-wrapper.last {
+    height: 100vh;
 }
 
 /* ---------- QUIZ MODAL FORMS --------- */

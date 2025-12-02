@@ -950,19 +950,20 @@ input:focus-visible, textarea:focus-visible {
 .nav-link.current-page::after {
     content: '⮛';
     position: absolute;
+    top: 1.5em;
     left: 50%;
     transform: translateX(-50%);
     height: 6px;
     border-radius: 50%;
-    color: var(--brand);
+    color: var(--accent-light);
 }
 .nav-link.current-page .nav-link_p {
-    color: var(--brand) !important;
+    color: var(--accent) !important;
     font-weight: 600;
 
 }
 #nav-link-cta .nav-link.current-page .nav-link_p {
-    color: var(--brand) !important;
+    color: var(--accent) !important;
 }
 .nav-link.current-page {
     pointer-events: none;
@@ -1069,15 +1070,15 @@ header {
                 &#nav-link-cta {
                     background-color: var(--brand);
                     & .nav-link_p {
-                        color: var(--main-bg-color-alt);
-                        color: var(--text-on-brand);
+                        color: var(--background-alt);
+                        color: var(--accent);
                         font-weight: 400;
                     }
                 } 
             }
             #nav-link-cta {
                 .nav-link_bg {
-                    background-color: var(--main-bg-color-alt);
+                    background-color: transparent;
                 }   
             }
             .nav-link_bg {
@@ -1699,11 +1700,10 @@ footer {
         text-wrap: balance;
     }
 }
-.content-section:not(:nth-of-type(1)) {
-    margin-top: 100vh;
-}
-.content-section:not(.seo-container) {
-    margin-bottom: -100vh;
+
+.section:not(.last-section) {
+    min-height: 100vh;
+    /* margin-bottom: -100vh; */
 }
 .highlighted-text {
     color: var(--accent);
@@ -2338,22 +2338,8 @@ footer {
     .metrics-grid {
         grid-template-columns: 1fr!important;
     }
-    .cta-wrapper:not(.last) {
-        display: none;
-    }
-    .cta-wrapper.last {
-        display: unset;
-        height: unset;
-
-    }
     .cta-section {
         height: unset!important;
-    }
-    .content-section:not(.seo-container) {
-        /* margin-bottom: 0; */
-    }
-    .content-section:nth-of-type(even) {
-        background-color: unset;
     }
     .contact-container {
         grid-template-columns: 1fr!important;
