@@ -101,61 +101,94 @@ function startLoadingAnimation() {
 
 function initPageAnimations() {
     const page = document.body.dataset.page; // Set via <body data-page="services">
-    gsap.set(".hero-title", {y: 100, opacity: 0});
-    gsap.set(".hero-subtitle", {y: 100, opacity: 0});
+    const sections = gsap.utils.toArray(".content-section");
+
+    sections.forEach((section, i) => {
+        gsap.from(section, {
+            scrollTrigger:{
+                trigger: section,
+                start: "top 85%",
+                end: "top 30%",
+                scrub: false,
+            },
+            y: 200, scale: .85, opacity: 0, ease: "power4.out", duration: 1.5
+        })
+    })
+
+    // console.log(heroTitle);
+
+    // gsap.set(".hero-title", {y: 100, opacity: 0});
+    // gsap.set(".hero-subtitle", {y: 100, opacity: 0});
     
     // Common animations (runs on all pages)
-    gsap.to(".hero-title", {
-        y: 0,
-        opacity: 1,
-        ease: "slow(0.7,0.7,false)",
-        delay: 1.2
-    });
+    // gsap.to(heroTitle, {
+    //     y: 0,
+    //     opacity: 1,
+    //     ease: "slow(0.7,0.7,false)",
+    //     delay: 1.2
+    // });
     
-    gsap.to(".hero-subtitle", {
-        y: 0,
-        opacity: 1,
-        ease: "slow(0.7,0.7,false)",
-    },"<+.2");
+    // gsap.to(".hero-subtitle", {
+    //     y: 0,
+    //     opacity: 1,
+    //     ease: "slow(0.7,0.7,false)",
+    // },"<+.5");
 
     // Page-specific animations - (Above the fold only - see page specific Scripts/page.js for below the fold)
     switch(page) {
         case "index":
             gsap.set('.logo-char', {opacity:0, yPercent: 100});
-
             gsap.to('.logo-char', {opacity: 1, yPercent: 0, stagger: {each: 0.02, from: "center", duration: 0.03}, delay: 1.3});
-            
             break;
         case "services":
-            const content = document.querySelector('.marquee-container');
             function serviceLoadingAnimation() {
-                gsap.set(".images-grid h2", {y: 60,opacity: 0});
-
                 let tl = gsap.timeline();
 
                 let targets = gsap.utils.toArray(".images-grid .item");
                 targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
-
                 
+                setTimeout(() => {
+                    const content = document.querySelector('.marquee-container');
+                    content.style.display = "flex"; 
+                }, 1250);
+            }
+            
 
-                tl.to(".images-grid h2", {
+            let mm = gsap.matchMedia();
+
+            mm.add("(min-width: 900px)", () => {
+                gsap.set(".images-grid h2", {y: 200,opacity: 0});
+                gsap.to(".images-grid h2", {
                     y: 150,
                     opacity: 1,
                     duration: .7,
                     ease: "bounce.out",
                     delay: 2
                 })
-                .to(".images-grid .item", {
+                // gsap.set(".images-grid h2", {y: 60,opacity: 0});
+                gsap.to(".images-grid h2", {
+                    y: 150,
+                    opacity: 1,
+                    duration: .7,
+                    ease: "bounce.out",
+                    delay: 2
+                })
+                gsap.to(".images-grid .item", {
                     clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
                     duration: 1,
                     stagger: .075,
                     ease: "power4.out",
                 }, "<");
-            }
-            setTimeout(() => {
-               content.style.display = "flex"; 
-            }, 1250);
-            
+            })
+
+            mm.add("(max-width: 899px)", () => {
+                gsap.to(".images-grid .item", {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+                    duration: 1,
+                    stagger: .075,
+                    ease: "power4.out",
+                }, "<");
+            })
             serviceLoadingAnimation();
             break;
         case "plugins":

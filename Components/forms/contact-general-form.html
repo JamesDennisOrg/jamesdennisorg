@@ -1,0 +1,196 @@
+<form id="contact-general-form" 
+      class="multi-step-form" 
+      data-multistep="true" 
+      data-total-steps="3" 
+      data-service="general-contact"
+      onsubmit="return false;">
+    
+    <!-- Step 1: Website & Issues -->
+    <div class="form-step active" data-step="1">
+        <h3>Tell Us About Your WordPress Site</h3>
+        
+        <div class="form-group">
+            <label for="website-url">Your WordPress Site URL</label>
+            <input type="url" 
+                   id="website-url" 
+                   name="website_url" 
+                   placeholder="https://yoursite.com" 
+                   required
+                   data-validate="url">
+            <small class="field-note">I'll analyze this for bot traffic patterns</small>
+        </div>
+        
+        <div class="form-group">
+            <p>What issues are you experiencing? *</p>
+            <div class="symptom-grid compact">
+                <label class="symptom-card">
+                    <input type="checkbox" name="issues[]" value="slow-performance">
+                    <div class="card-content">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Slow website performance</span>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="issues[]" value="high-cpu">
+                    <div class="card-content">
+                        <i class="fas fa-server"></i>
+                        <span>High CPU/bandwidth usage</span>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="issues[]" value="traffic-drop">
+                    <div class="card-content">
+                        <i class="fas fa-chart-line-down"></i>
+                        <span>Unexplained traffic drops</span>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="issues[]" value="bot-concern">
+                    <div class="card-content">
+                        <i class="fas fa-robot"></i>
+                        <span>Suspect bot activity</span>
+                    </div>
+                </label>
+                <label class="symptom-card">
+                    <input type="checkbox" name="issues[]" value="other">
+                    <div class="card-content">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Other issues</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        
+        <button type="button" class="btn btn-next">Next →</button>
+    </div>
+    
+    <!-- Step 2: Traffic & Hosting -->
+    <div class="form-step" data-step="2">
+        <h3>Your Site's Technical Details</h3>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="monthly-traffic">Estimated Monthly Traffic</label>
+                <select id="monthly-traffic" name="monthly_traffic" required>
+                    <option value="">Select range...</option>
+                    <option value="under-10k">Under 10,000 visits</option>
+                    <option value="10k-50k">10,000 - 50,000 visits</option>
+                    <option value="50k-100k">50,000 - 100,000 visits</option>
+                    <option value="100k-plus">100,000+ visits</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="hosting-type">Current Hosting Type</label>
+                <select id="hosting-type" name="hosting_type" required>
+                    <option value="">Select type...</option>
+                    <option value="shared">Shared Hosting</option>
+                    <option value="vps">VPS / Cloud Server</option>
+                    <option value="managed-wp">Managed WordPress</option>
+                    <option value="dedicated">Dedicated Server</option>
+                    <option value="other">Other / Not Sure</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="concerns">Specific Concerns or Questions</label>
+            <textarea id="concerns" 
+                      name="user_message" 
+                      rows="4"
+                      placeholder="Tell me about your current challenges with bot traffic, performance issues, or specific concerns..."></textarea>
+        </div>
+        
+        <div class="form-navigation">
+            <button type="button" class="btn btn-prev">← Back</button>
+            <button type="button" class="btn btn-next">Next →</button>
+        </div>
+    </div>
+    
+    <!-- Step 3: Contact Information -->
+    <div class="form-step" data-step="3">
+        <h3>Your Contact Information</h3>
+        
+        <div class="audit-preview">
+            <div class="preview-card">
+                <h4>Your Free Audit Includes:</h4>
+                <ul>
+                    <li><i class="fas fa-check"></i> Bot traffic analysis</li>
+                    <li><i class="fas fa-check"></i> Performance assessment</li>
+                    <li><i class="fas fa-check"></i> Security vulnerability scan</li>
+                    <li><i class="fas fa-check"></i> 15-minute consultation call</li>
+                    <li><i class="fas fa-check"></i> Custom action plan</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" 
+                       id="contact-name" 
+                       name="user_name" 
+                       placeholder="First & Last Name" 
+                       required
+                       data-validate="minLength(2)">
+            </div>
+            
+            <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" 
+                       id="contact-email" 
+                       name="user_email" 
+                       placeholder="you@example.com" 
+                       required
+                       data-validate="email">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number (optional)</label>
+            <input type="tel" 
+                   id="phone" 
+                   name="phone" 
+                   placeholder="For consultation scheduling">
+        </div>
+        
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="newsletter" checked>
+                <span>Send me WordPress security tips and updates (unsubscribe anytime)</span>
+            </label>
+        </div>
+        
+        <!-- Honeypot Field -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        
+        <div class="form-navigation">
+            <button type="button" class="btn btn-prev">← Back</button>
+            <button type="submit" class="btn btn-submit">Get My Free Bot Audit</button>
+        </div>
+        
+        <p class="form-footer">No credit card required • 100% confidential • No obligation</p>
+    </div>
+    
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+        <span class="step-text">Step 1 of 3</span>
+    </div>
+</form>
+
+<script>
+// Ensure all navigation buttons are type="button"
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-general-form');
+    if (form) {
+        form.querySelectorAll('.btn-next, .btn-prev').forEach(btn => {
+            if (btn.type !== 'button') {
+                btn.type = 'button';
+            }
+        });
+    }
+});
+</script>

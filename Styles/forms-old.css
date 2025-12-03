@@ -1,0 +1,655 @@
+/* ===== LOADING STATES ===== */
+.btn-submit .fa-spinner {
+    margin-right: 0.5rem;
+}
+.btn-submit.error {
+    background: var(--error);
+    animation: pulseError 1s infinite;
+}
+
+/* ===== FORM STEPS ===== */
+.form-step {
+    display: none;
+    animation: fadeInUp 0.5s ease;
+}
+.form-step.active {
+    display: block;
+}
+
+/* ===== STEP INDICATOR ===== */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+}
+.step-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.3s ease;
+    position: relative;
+}
+.step-dot.active {
+    background: var(--brand);
+    transform: scale(1.2);
+}
+.step-dot.completed {
+    background: var(--success);
+}
+.step-dot.completed::after {
+    content: '✓';
+    position: absolute;
+    top: -14px;
+    left: 2px;
+    font-size: 1.5rem;
+    color: white;
+}
+.step-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+/* ===== FORM NAVIGATION ===== */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+.btn-prev,
+.btn-next,
+.btn-submit {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+}
+.btn-prev {
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+.btn-prev:hover:not(:disabled) {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+.btn-next,
+.btn-submit {
+    background: var(--brand);
+    color: white;
+}
+.btn-next:hover:not(:disabled),
+.btn-submit:hover:not(:disabled) {
+    background: var(--brand);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.btn-prev:disabled,
+.btn-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ===== FORM GROUPS ===== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--accent-dark);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--brand);
+    border-radius: 6px;
+    background: var(--surface);
+    color: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.1);
+}
+input[type="url"] {
+    appearance: base-select;
+    opacity: .8;
+    font-weight: 300;
+}
+/* ===== FORM ROWS ===== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: start;
+}
+
+/* ===== SYMPTOM CARDS ===== */
+.symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.symptom-card {
+    display: block;
+    cursor: pointer;
+    height: max-content;
+}
+.symptom-card input[type="checkbox"] {
+    display: none;
+}
+.symptom-card .card-content {
+    position: relative;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 2px solid var(--brand);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.symptom-card input[type="checkbox"]:checked + .card-content {
+    border-color: var(--brand);
+    background: rgba(41, 128, 185, 0.05);
+    transform: translateY(-2px);
+}
+.symptom-card .card-content::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background: white;
+    transition: all 0.3s ease;
+}
+.symptom-card input[type="checkbox"]:checked + .card-content::before {
+    background: var(--brand);
+    border-color: var(--brand);
+    content: '✓';
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+.symptom-card .card-content i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--brand);
+    display: block;
+}
+.symptom-card .card-content span {
+    display: block;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* ===== FORM VALIDATION ===== */
+.field-error {
+    color: var(--error);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    animation: slideIn 0.3s ease;
+}
+.step-error {
+    background: var(--error-bg);
+    border: 1px solid var(--error);
+    color: var(--error);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    animation: slideIn 0.3s ease;
+}
+input.error,
+select.error,
+textarea.error {
+    border-color: var(--error) !important;
+    animation: shake 0.5s;
+}
+.form-error-alert {
+    background: var(--error-bg);
+    border: 1px solid var(--error-border);
+    color: var(--error);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: slideIn 0.3s ease;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+.form-success {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 2px solid var(--success);
+    animation: fadeIn 0.5s ease;
+}
+.success-icon {
+    font-size: 4rem;
+    color: var(--success);
+    margin-bottom: 1.5rem;
+}
+.form-success h3 {
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+.form-success p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+.success-details {
+    text-align: left;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--brand);
+}
+.success-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+.success-details li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+.success-details li:before {
+    content: '✓';
+    color: var(--success);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+.success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background: var(--brand);
+    color: white;
+}
+.btn-primary:hover {
+    background: var(--brand);
+}
+.btn-secondary {
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* ===== CHECKBOX & RADIO STYLES ===== */
+.checkbox-group,
+.radio-group {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+.checkbox-label,
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+.checkbox-label:hover,
+.radio-label:hover {
+    background: var(--card-bg);
+}
+.checkbox-label input[type="checkbox"],
+.radio-label input[type="radio"] {
+    margin: 0;
+}
+.checkbox-label.subscribe {
+    span {
+        display:flex;
+        justify-content: center;
+    }
+}
+.form-guarantee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-header-list {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+
+/* Compact symptom grid for contact form */
+.symptom-grid.compact {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+.symptom-grid.compact .card-content {
+    padding: 1.25rem 1rem;
+}
+.symptom-grid.compact .card-content i {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+.symptom-grid.compact .card-content span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Preview card for step 3 */
+.audit-preview {
+    margin-bottom: 2rem;
+}
+.preview-card {
+    background: linear-gradient(135deg, rgba(41, 128, 185, 0.05) 0%, rgba(41, 128, 185, 0.02) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--brand);
+}
+.preview-card h4 {
+    color: var(--accent-dark);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.preview-card ul {
+    list-style: "\2713"!important;
+    padding: 0;
+    margin: 0;
+}
+.preview-card li {
+    padding: 0.4rem 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    &::marker {
+        font-size: inherit;
+        color: var(--brand);
+    }
+}
+.preview-card li i {
+    color: var(--success);
+    font-size: 0.9rem;
+}
+
+/* Form footer */
+.form-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+    
+    .symptom-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn-prev,
+    .btn-next,
+    .btn-submit {
+        width: 100%;
+    }
+    
+    .step-indicator {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .success-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+@keyframes pulseError {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* FORM STYLES (GLOBALLY SCOPED FOR ALL FORMS) */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5em;
+    margin-top: 2em;
+    padding: var(--spacing) var(--spacing-double);
+    background-image: url(/Assets/Images/Content/code.jpg);
+    background-size: cover;
+    background: linear-gradient(315deg, rgba(179, 0, 255, 0.1), rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(20px);
+    border-radius: 1em;
+    -webkit-box-shadow: var(--shadow-bottom);
+    -moz-box-shadow: var(--shadow-bottom);
+    box-shadow: var(--shadow-bottom);
+}
+textarea {
+    vertical-align: top;
+    height: 12em;
+    width: 100%;
+}
+.form-group.selection {
+    flex-direction: column;
+    width: 100%;
+    & select {
+        width: 100%;
+        font-size: 1.2rem;
+        background-color: var(--primary);
+        color: var(--main-text-color);
+        border-radius: 6px;
+        outline: none;
+        border: none;
+    }
+}
+.form-group:has([required]) label::after {
+    content: "*";
+}
+select {
+    appearance: base-select;
+    cursor:pointer;
+    color: var(--text-alt);
+    background-color: var(--surface);
+    box-sizing: border-box;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    box-shadow: var(--shadow-bottom);
+    width: 100%;
+    z-index: +1;
+    & > button {
+        display: flex;
+        width: 100%;
+        font-family: inherit;
+        color: currentColor;
+        & > svg {
+        margin: 0 0 0 auto;
+        width: 1.2rem;
+        height: 1.2rem;
+        }
+    }
+    
+    &:has(option:not([hidden]):checked) {
+        color: currentColor;
+        width: 100%;
+    }
+    
+    &:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: -1px;
+    }
+    
+    &::picker-icon {
+        display: none;
+    }
+    
+    &::picker(select) {
+        appearance: base-select;
+        border: 1px solid var(--primary-light);
+        padding: 0.25rem;
+        margin-top: 0.25rem;
+        border-radius: calc(0.5rem - 2px);
+        cursor: pointer;
+        transition: opacity 225ms ease-in-out, transform 225ms ease-in-out;
+        transform-origin: top;
+        transform: translateY(0);
+        opacity: 1;
+        @starting-style {
+        transform: translateY(-2.25rem) scale(0.95);
+        opacity: 0;
+        }
+    }
+    & optgroup label {
+        display: block;
+        padding: 0.375rem 0.5rem;
+    }
+    & option {
+        padding: 0.375rem 0.5rem;
+        border-radius: calc(0.5rem - 4px);
+        outline: none;
+        &::after {
+        content: "\2713";
+        width: 1rem;
+        height: 1.5rem;
+        margin-left: auto;
+        opacity: 0;
+        }
+        &::checkmark {
+        display: none;
+        }
+        &:checked {
+        background-color: transparent;
+        &::after {
+            opacity: 1;
+        }
+        }
+        &:hover,
+        &:focus-visible {
+        background-color: #f4f4f5;
+        color: #18181b;
+        }
+    }
+}
+input[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+input:focus, textarea:focus {
+    outline-style: solid;
+    outline-color: var(--brand);
+    outline-width: 1px;
+}
+input:focus-visible, textarea:focus-visible {
+    outline-style: solid;
+    outline-color: var(--brand);
+    outline-width: 1px;
+}
+ul {
+    list-style: "\2713"!important;
+    li {
+        padding: 0.25rem 0;
+        color: var(--primary-dark);
+        position: relative;
+        text-align: left;
+        padding-left: 1.5rem;
+        font-size: inherit;
+        &::marker {
+            font-size: inherit;
+            color: var(--brand);
+        }
+    }
+}

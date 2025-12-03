@@ -130,6 +130,7 @@
         <link rel="stylesheet" href="/Styles/lenis.css">
         <link rel="stylesheet" href="/style.css">
         <link rel="stylesheet" href="/Styles/contact.css">
+        <link rel="stylesheet" href="/Styles/forms.css">
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="zR0PNkDxR4EToTMJVxbrEw" async></script>
     </head>
     <body>
@@ -159,15 +160,22 @@
         <div id="header-placeholder"></div>
 
         <div class="content-wrapper contact-page" id="top">
-            <div class="contact-form-container overlay">
-                <h1 class="page-title hero-title"><span><img src="/Assets/Images/Icons/envelope-open-text-solid.svg" alt=""></span> Stop AI Bots from Draining Your Resources</h1>
-                <h2 class="hero-subtitle">Is Your WordPress Site Under Attack?</h2>
-                <h3 class="page-subtitle">Get a free security audit and discover how to protect your WordPress site</h3>
-
-                <div class="contact-container">
-                    <!-- Left Column: Value Proposition -->
+            <section class="content-section">
+                <h1 class="page-title hero-title"><span><img src="/Assets/Images/Icons/envelope-open-text-solid.svg" alt=""></span> Contact Me</h1>
+                <div class="section-title">
+                    <h2 class="heading">Is Your WordPress Site Under Attack?</h2>
+                    <p>Get a free security audit and discover how to protect your WordPress site</p>
+                </div>
+                
+                <div class="contact-intro-content">
+                    <div class="form-header">
+                        <h3>Free WordPress Security Audit</h3>
+                        <p>Complete this form and I'll analyze your site within 24 hours</p>
+                    </div>
+                </div>
+                
+                <container class="content-container-grid">
                     <div class="contact-hero">
-                        
                         <div class="problem-list">
                             <div class="problem-item">
                                 <i class="fas fa-server"></i>
@@ -201,117 +209,51 @@
                                 <li>15-minute consultation call</li>
                             </ul>
                         </div>
+                    </div>
 
-                        <!-- Trust Indicators -->
-                        <div class="trust-indicators">
-                            <div class="trust-item">
-                                <i class="fas fa-shield-check"></i>
-                                <span>WordPress Security Specialist</span>
-                            </div>
-                            <div class="trust-item">
-                                <i class="fas fa-clock"></i>
-                                <span>24-Hour Response Time</span>
-                            </div>
-                            <div class="trust-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Performance-Focused Solutions</span>
-                            </div>
+                    <div class="form-container">
+                        <div id="contact-form-container" 
+                            data-form-component="contact-general-form">
+                            <!-- Form will be loaded here -->
                         </div>
+                    </div>
+                    <!-- Trust Indicators -->
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-check"></i>
+                            <span>WordPress Security Specialist</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-clock"></i>
+                            <span>24-Hour Response Time</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Performance-Focused Solutions</span>
+                        </div>
+                    </div>
 
-                        <!-- Social Proof Section -->
-                        <div class="social-proof">
-                            <h4>Trusted by WordPress Site Owners</h4>
-                            <div class="testimonial-preview">
+                    <!-- Social Proof Section -->
+                    <div class="social-proof cards-wrapper">
+                        <h4>Trusted by WordPress Site Owners</h4>
+                        <div class="testimonial-cards cards-row">
+                            <div class="testimonial-preview card">
                                 <p>"James reduced our server costs by 60% by blocking aggressive AI bots and stopped host server throttling due to resource limit breaches. Our site performance is now back to optimal levels."</p>
                                 <span>- Sarah K., E-commerce Store Owner</span>
                             </div>
+                            <div class="testimonial-preview card">
+                                <p>"After implementing the bot mitigation rules, our page load times dropped by 2.3 seconds. The difference in customer experience and our search engine rankings was noticeable within a week. It was like removing invisible sandbags from our site."</p>
+                                <span>- Mark T., CTO of a SaaS Platform</span>
+                            </div>
+                            <div class="testimonial-preview card">
+                                <p>"We were bleeding ad spend on fraudulent traffic and losing product data to scrapers. The solution not only secured our analytics and protected our IP but also improved our advertising ROI by 35% almost instantly."</p>
+                                <span>- Priya L., Head of Digital Marketing</span>
+                            </div>
                         </div>
-                    
+                        
                     </div>
-
-                    <!-- Right Column: Optimized Form -->
-                    <div class="form-container">
-                        <div class="form-header">
-                            <h3>Free WordPress Security Audit</h3>
-                            <p>Complete this form and I'll analyze your site within 24 hours</p>
-                        </div>
-                        <!-- Form goes here -->
-                        <form action="https://api.web3forms.com/submit" method="POST" class="button-form">
-                            <input type="hidden" name="access_key" value="096b2d6f-de61-436d-9ab7-280d6a71396e">
-                            <input type="hidden" name="service_type" value="ai-bot-defense">
-
-                            <!-- Qualified Lead Questions -->
-                            <div class="form-group">
-                                <label for="website-url">Your WordPress Site URL</label>
-                                <input type="url" name="website_url" id="website-url" placeholder="https://yoursite.com" required>
-                                <small>I'll analyze this for bot traffic patterns</small>
-                            </div>
-                            <!-- Contact Information -->
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Your Name </label>
-                                    <input type="text" name="user_name" id="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email </label>
-                                    <input type="email" name="user_email" id="email" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="monthly-traffic">Estimated Monthly Traffic</label>
-                                    <select name="monthly_traffic" id="monthly-traffic">
-                                        <option value="">Select range...</option>
-                                        <option value="under-10k">Under 10,000 visits</option>
-                                        <option value="10k-50k">10,000 - 50,000 visits</option>
-                                        <option value="50k-100k">50,000 - 100,000 visits</option>
-                                        <option value="100k-plus">100,000+ visits</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="hosting-type">Current Hosting</label>
-                                    <select name="hosting_type" id="hosting-type">
-                                        <option value="">Select type...</option>
-                                        <option value="shared">Shared Hosting</option>
-                                        <option value="vps">VPS/Cloud</option>
-                                        <option value="managed-wp">Managed WordPress</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Current Issues (Checkboxes) -->
-                            <div class="form-group">
-                                <p>What issues are you experiencing? *</p>
-                                <div class="checkbox-group">
-                                    <label><input type="checkbox" name="issues[]" value="slow-performance"> Slow website performance</label>
-                                    <label><input type="checkbox" name="issues[]" value="high-cpu"> High CPU/bandwidth usage</label>
-                                    <label><input type="checkbox" name="issues[]" value="traffic-drop"> Unexplained traffic drops</label>
-                                    <label><input type="checkbox" name="issues[]" value="bot-concern"> Suspect bot activity</label>
-                                    <label><input type="checkbox" name="issues[]" value="other"> Other issues</label>
-                                </div>
-                            </div>
-
-                            <!-- Optional Company Info -->
-                            <div class="form-group">
-                                <label for="message">Specific Concerns or Questions</label>
-                                <textarea name="user_message" id="message" placeholder="Tell me about your current challenges with bot traffic, performance issues, or specific concerns..."></textarea>
-                            </div>
-
-                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                            <!-- Custom Confirmation / Success Page -->
-                            <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks/"> -->
-                            <button type="submit" class="contact-button">
-                                <span class="btn-text">Get My Free Bot Audit</span>
-                                <span class="btn-loading" style="display: none;">Analyzing...</span>
-                            </button>
-                            
-                            <p class="form-footer">No credit card required • 100% confidential • No obligation</p>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                </container>
+            </section>
         </div>
         
         <div id="footer-placeholder"></div>
@@ -321,6 +263,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="/script.js"></script>
         <script src="/Scripts/gsap.js"></script>
-        <script src="/Scripts/contact.js"></script>
+        <script src="/Scripts/form-handler.js"></script>
+        <!-- <script src="/Scripts/contact.js"></script> -->
     </body>
 </html>

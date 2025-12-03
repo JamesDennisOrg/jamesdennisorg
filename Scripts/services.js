@@ -102,26 +102,26 @@ function hideDetails() {
 gsap.utils.toArray('.item').forEach(item => item.addEventListener('click', () => showDetails(item)));
 
 // 	WEB DEVELOPMENT SECTION //
-gsap.utils.toArray(".section-title").forEach((title, i) => { 
-	gsap.set(title, {
-		yPercent: 50,
-		opacity: 0,
-	})
-	gsap.to(title, {
-		scrollTrigger: {
-			trigger: title,
-			start: "top 90%",
-			end: "top 60%",
-			toggleActions: "play none reverse reset",
-			ease: "power4.inOut",
-			scrub: 2,
-			// markers: true,
-		},
-		opacity: 1,
-		yPercent: 0,
-		duration: .5,
-	});
-});
+// gsap.utils.toArray(".section-title").forEach((title, i) => { 
+// 	gsap.set(title, {
+// 		yPercent: 50,
+// 		opacity: 0,
+// 	})
+// 	gsap.to(title, {
+// 		scrollTrigger: {
+// 			trigger: title,
+// 			start: "top 90%",
+// 			end: "top 60%",
+// 			toggleActions: "play none reverse reset",
+// 			ease: "power4.inOut",
+// 			scrub: 2,
+// 			// markers: true,
+// 		},
+// 		opacity: 1,
+// 		yPercent: 0,
+// 		duration: .5,
+// 	});
+// });
 const scrollers = document.querySelectorAll(".marquee-horizontal");
 
 if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

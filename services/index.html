@@ -256,7 +256,7 @@
                     <p class="page-subtitle hero-subtitle">Protecting WordPress sites from aggressive AI scraping bots.</p >
                 </div>
                 
-                <div class="service-intro-content">
+                <div class="service-intro-content cards-wrapper">
                     <div class="intro-text">
                         <h3 class="core-title">Your Content Is Under Attack</h3>
                         <p>AI scraping bots are systematically harvesting your valuable content, driving up server costs by 40-60%, and stealing the organic traffic you worked hard to earn. These automated crawlers—like GPTBot, CCBot, and others—consume your resources without providing any value to your business.</p>
@@ -291,18 +291,18 @@
                         <p>I provide comprehensive AI bot defense that identifies, blocks, and manages these automated threats while ensuring legitimate visitors experience faster load times and better performance.</p>
                     </div>
                     
-                    <div class="solution-highlights">
-                        <div class="highlight-card">
+                    <div class="solution-highlights cards-row">
+                        <div class="highlight-card card">
                             <div class="highlight-icon">🛡️</div>
                             <h4>Intelligent Detection</h4>
                             <p>Advanced pattern recognition to distinguish between legitimate users and AI scrapers</p>
                         </div>
-                        <div class="highlight-card">
+                        <div class="highlight-card card">
                             <div class="highlight-icon">⚡</div>
                             <h4>Performance First</h4>
                             <p>Defense strategies that actually improve site speed for real visitors</p>
                         </div>
-                        <div class="highlight-card">
+                        <div class="highlight-card card">
                             <div class="highlight-icon">📊</div>
                             <h4>Real-time Analytics</h4>
                             <p>Clear reporting on blocked threats and performance improvements</p>
@@ -432,23 +432,21 @@
                         </div>
                         <h3 class="core-title">Core capabilities and services</h3>
                         <!-- Performance Process -->
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <div class="step-number">01</div>
-                                <div class="step-content">
+                        <div class="process-steps cards-wrapper">
+                            <div class="cards-row">
+                                <div class="process-step card">
+                                    <div class="step-number highlight-icon">01</div>
                                     <h4>Comprehensive Audit</h4>
                                     <p>Deep analysis of Core Web Vitals, server response times, and resource loading patterns</p>
                                     <ul class="step-details">
-                                        <li>LCP, FID, CLS measurements</li>
                                         <li>Database query optimization</li>
+                                        <li>LCP, FID, CLS measurements (Page Speed Insights)</li>
                                         <li>Plugin performance impact</li>
                                     </ul>
                                 </div>
-                            </div>
-                            
-                            <div class="process-step">
-                                <div class="step-number">02</div>
-                                <div class="step-content">
+                                
+                                <div class="process-step card">
+                                    <div class="step-number highlight-icon">02</div>
                                     <h4>Strategic Optimization</h4>
                                     <p>Implementation of caching strategies, asset optimization, and server configuration</p>
                                     <ul class="step-details">
@@ -457,18 +455,16 @@
                                         <li>CDN integration</li>
                                     </ul>
                                 </div>
-                            </div>
-                            
-                            <div class="process-step">
-                                <div class="step-number">03</div>
-                                <div class="step-content">
+                                
+                                <div class="process-step card">
+                                    <div class="step-number highlight-icon">03</div>
                                     <h4>Ongoing Monitoring</h4>
-                                    <p>Continuous performance tracking and optimization adjustments</p>
-                                    <ul class="step-details">
-                                        <li>Real-user monitoring</li>
-                                        <li>Performance budget enforcement</li>
-                                        <li>Regular optimization updates</li>
-                                    </ul>
+                                        <p>Continuous performance tracking and optimization adjustments</p>
+                                        <ul class="step-details">
+                                            <li>Real-user monitoring</li>
+                                            <li>Performance budget enforcement</li>
+                                            <li>Regular optimization updates</li>
+                                        </ul>
                                 </div>
                             </div>
                         </div>
@@ -532,40 +528,37 @@
                 <h3 class="core-title hero-subtitle">Starting fresh or optimizing an existing site...</h3>
                 
                 <!-- Dual-Path Cards -->
-                <div class="wordpress-path-container">
-                    <!-- Path 1: New Site -->
-                    <div class="path-card new-site-card" style="position: relative">
-                    <div class="path-header">
-                        <i class="fa-solid fa-plus fa-2xl path-icon" style="color: #89d4cf;"></i>
-                        <!-- <svg class="path-icon" viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg> -->
-                        <h4>New WordPress Site</h4>
+                <div class="wordpress-path-container cards-wrapper">
+                    <div class="cards-row">
+                        <!-- Path 1: New Site -->
+                        <div class="path-card new-site-card card" style="position: relative">
+                            <i class="fa-solid fa-plus fa-2xl path-icon highlight-icon"></i>
+                            <h4>New WordPress Site</h4>
+                            <p>Let's build your site right from the start with:</p>
+                            <ul>
+                                <li>Strategic planning</li>
+                                <li>Brand-aligned design</li>
+                                <li>Future-proof architecture</li>
+                                <li>Maintainability</li>
+                            </ul>
+                            <button class="path-button btn-primary" id="new-site-btn"><img src="/Assets/Images/Icons/wordpress-simple-brands-solid.svg" alt=""> Plan My Site</button>
+                        </div>
+                    
+                        <!-- Path 2: Existing Site -->
+                        <div class="path-card existing-site-card card" style="position: relative">
+                            <i class="fa-solid fa-shield-virus fa-2xl path-icon" style="color: #89d4cf;"></i>
+                            <h4>Fix an Existing Site</h4>
+                            <p>Rescue your WordPress site from:</p>
+                            <ul>
+                                <li>Slow performance</li>
+                                <li>Security vulnerabilities</li>
+                                <li>Plugin conflicts</li>
+                                <li>Broken Dependencies</li>
+                            </ul>
+                            <button class="path-button btn-primary" id="existing-site-btn"><img src="/Assets/Images/Icons/wordpress-brands-solid.svg" alt=""> Diagnose My Site</button>
+                        </div>
                     </div>
-                    <p>Let's build your site right from the start with:</p>
-                    <ul>
-                        <li>Strategic planning</li>
-                        <li>Brand-aligned design</li>
-                        <li>Future-proof architecture</li>
-                        <li>Maintainability</li>
-                    </ul>
-                    <button class="path-button" id="new-site-btn">Plan My Site →</button>
-                    </div>
-                
-                    <!-- Path 2: Existing Site -->
-                    <div class="path-card existing-site-card" style="position: relative">
-                    <div class="path-header">
-                        <i class="fa-solid fa-shield-virus fa-2xl path-icon" style="color: #89d4cf;"></i>
-                        <!-- <svg class="path-icon" viewBox="0 0 24 24"><path d="M12,2L4,5V11.09C4,16.14 7.41,20.85 12,22C16.59,20.85 20,16.14 20,11.09V5L12,2M14.5,15.5L12,13L9.5,15.5L8,14L10.5,11.5L8,9L9.5,7.5L12,10L14.5,7.5L16,9L13.5,11.5L16,14L14.5,15.5Z" /></svg> -->
-                        <h4>Fix an Existing Site</h4>
-                    </div>
-                    <p>Rescue your WordPress site from:</p>
-                    <ul>
-                        <li>Slow performance</li>
-                        <li>Security vulnerabilities</li>
-                        <li>Plugin conflicts</li>
-                        <li>Broken Dependencies</li>
-                    </ul>
-                    <button class="path-button" id="existing-site-btn">Diagnose My Site →</button>
-                    </div>
+                    
                 </div>
                 
                 <!-- Quiz Modals -->
@@ -707,14 +700,6 @@
                 <input type="hidden" name="details" id="web3-details">
                 <input type="email" name="email" id="web3-email" required>
                 </form>
-                <!-- <form id="wordpress-quiz-form" style="display:none;">
-                <input type="hidden" name="quiz-type" id="quiz-type">
-                <input type="hidden" name="site-url" id="form-site-url">
-                <input type="hidden" name="issues" id="form-issues">
-                <input type="hidden" name="maintenance" id="form-maintenance">
-                <input type="hidden" name="answers" id="form-answers">
-                <input type="email" name="email" required id="form-email">
-                </form> -->
             </section>
 
             <div class="cta-wrapper">
@@ -816,23 +801,26 @@
                     </div>
                 </div>
 
-                <div class="seo-process-overview">
-                    <div class="process-card">
-                        <div class="process-icon">📈</div>
-                        <h4>Data-Driven Approach</h4>
-                        <p>Every recommendation is backed by analytics and competitive intelligence, not guesswork.</p>
-                    </div>
-                    <div class="process-card">
-                        <div class="process-icon">⚡</div>
-                        <h4>Speed-First Methodology</h4>
-                        <p>Performance optimization is built into every SEO strategy from the ground up.</p>
-                    </div>
-                    <div class="process-card">
-                        <div class="process-icon">🔄</div>
-                        <h4>Continuous Improvement</h4>
-                        <p>SEO isn't a one-time fix—it's an ongoing process of testing and optimization.</p>
+                <div class="cards-wrapper">
+                    <div class="seo-process-overview cards-row">
+                        <div class="process-card card">
+                            <div class="process-icon highlight-icon">📈</div>
+                            <h4>Data-Driven Approach</h4>
+                            <p>Every recommendation is backed by analytics and competitive intelligence, not guesswork.</p>
+                        </div>
+                        <div class="process-card card">
+                            <div class="process-icon highlight-icon">⚡</div>
+                            <h4>Speed-First Methodology</h4>
+                            <p>Performance optimization is built into every SEO strategy from the ground up.</p>
+                        </div>
+                        <div class="process-card card">
+                            <div class="process-icon highlight-icon">🔄</div>
+                            <h4>Continuous Improvement</h4>
+                            <p>SEO isn't a one-time fix—it's an ongoing process of testing and optimization.</p>
+                        </div>
                     </div>
                 </div>
+                
             </section>
 
             <div class="cta-wrapper last">
