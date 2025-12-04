@@ -39,46 +39,66 @@
     }
 }
 .contact-hero {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 2em;
+    width: 96%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    justify-items: center;
+    gap: 3em;
+    margin-bottom: 3rem;
+    padding: 1em;
+    .problem-list {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 24px;
+    }
     .guarantee-box {
+        width: fit-content;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background: linear-gradient(45deg, var(--background), #2a9d8f);
-        padding: var(--spacing-triple);
-        border-radius: 12px;
-        padding-bottom: var(--spacing-triple);
+        padding: 1em 3em;
+        border-radius: 1em;
     }
 }
 .problem-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    justify-content: space-between;
     padding: 1rem;
+    gap: .5em;
     background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    i {
-        font-size: var(--font-x-large);
-        color: var(--brand);
+    border-radius: 1em;
+    img {
+        width: var(--font-x-large);
+        aspect-ratio: 1/1;
     }
-    h4 {
-        margin-top: 0;
+    .item-info {
+        display: flex;
+        flex-direction: column;
+        padding-block: .5rem;
+        h4 {
+            margin-top: 0;
+            columns: var(--brand);
+            height: 3em;
+            color: var(--warning);
+        }
+        p {
+            text-wrap: balance;
+            padding: .5rem;
+        }
     }
 }
 .testimonial-preview.card {
-    background: linear-gradient(135deg, var(--surface) 50%, var(--brand) 100%)!important;
+    background: linear-gradient(165deg, var(--surface) 50%, var(--brand) 100%)!important;
     border-radius: 10px!important;
-    padding: 2.5rem;
     margin: 2rem 0;
-    border: 1px solid #f1eef8!important;
+    border: none!important;
     position: relative;
-    /* overflow: hidden; */
+    box-shadow: var(--shadow-bottom);
     &::before {
         content:"‟";
         position: absolute;
@@ -96,9 +116,10 @@
     }
     span {
         width: 100%;
-        opacity: .4;
+        opacity: .7;
         text-align: left;
         font-size: var(--font-small);
+        color: var(--background);
     }
 }
 .form-wrapper {
@@ -106,4 +127,20 @@
 }
 .trust-indicators {
    margin-top: 1em; 
+}
+
+@media (max-width: 480px) {
+    .contact-hero {
+        grid-template-columns: 1fr;
+    }
+    
+    .problem-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .problem-item i {
+        margin: 0 auto;
+    }
 }

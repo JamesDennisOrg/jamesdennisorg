@@ -12,7 +12,6 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     border: 1px solid var(--border);
     position: relative;
-    /* overflow: hidden; */
 }
 #contact-general-form {
     margin-top: 0;
@@ -775,12 +774,6 @@ textarea:disabled {
    ============================================ */
 
 @media (max-width: 768px) {
-    .form-container {
-        padding: 1.5rem;
-        margin: 0 1rem;
-        border-radius: 12px;
-    }
-    
     .form-row {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -814,8 +807,8 @@ textarea:disabled {
     }
     
     .step-dot {
-        width: 36px;
-        height: 36px;
+        width: 1rem;
+        height: 1rem;
         font-size: 0.9rem;
     }
     
@@ -837,12 +830,7 @@ textarea:disabled {
 }
 
 /* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .form-container {
-        max-width: 90%;
-        padding: 2rem;
-    }
-    
+@media (min-width: 769px) and (max-width: 1024px) {    
     .symptom-grid {
         grid-template-columns: repeat(2, 1fr);
     }

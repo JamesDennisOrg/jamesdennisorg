@@ -1431,6 +1431,7 @@ ul {
 }
 .content-wrapper:not(.homepage, .contact-page) {
     margin: 0;
+    padding-top: var(--spacing-quadruple);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1462,6 +1463,7 @@ ul {
     flex-direction: column;
     position: relative;
     margin-bottom: 2em;
+    padding-block: var(--spacing-double);
     h2 {
         font-size: var(--font-xx-large);
         text-shadow: 0px 19px 20px #000000;
@@ -1542,6 +1544,9 @@ ul {
 .plugins-wrapper {
     background-color: transparent;
 }
+.plugin-list {
+    padding-block: var(--spacing-triple);
+}
 .plugin-nav-list {
     display: flex;
     column-count: 2;
@@ -1567,7 +1572,6 @@ ul {
 }
 .plugin-container, .plugin-summary {
     max-width: 1200px;
-    margin-block: var(--spacing-quadruple);
     margin-inline: var(--spacing-double);
     padding: var(--spacing-double);
     border: 1px solid var(--border);
@@ -2170,6 +2174,9 @@ ul {
     .contact-container {
         grid-template-columns: 1fr!important;
         padding: 1em!important;
+    }
+    .contact-hero {
+        /* flex-direction: column; */
     }
 }
 @media (max-width: 630px) {

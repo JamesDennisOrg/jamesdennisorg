@@ -107,9 +107,10 @@ function initPageAnimations() {
         gsap.from(section, {
             scrollTrigger:{
                 trigger: section,
-                start: "top 85%",
+                start: "top bottom",
                 end: "top 30%",
                 scrub: false,
+                // markers: true
             },
             y: 200, scale: .85, opacity: 0, ease: "power4.out", duration: 1.5
         })
@@ -121,18 +122,18 @@ function initPageAnimations() {
     // gsap.set(".hero-subtitle", {y: 100, opacity: 0});
     
     // Common animations (runs on all pages)
-    // gsap.to(heroTitle, {
-    //     y: 0,
-    //     opacity: 1,
-    //     ease: "slow(0.7,0.7,false)",
-    //     delay: 1.2
-    // });
+    gsap.from(".hero-title", {
+        y: 50,
+        opacity: 0,
+        ease: "slow(0.7,0.7,false)",
+        delay: 1.5
+    });
     
-    // gsap.to(".hero-subtitle", {
-    //     y: 0,
-    //     opacity: 1,
-    //     ease: "slow(0.7,0.7,false)",
-    // },"<+.5");
+    gsap.from(".hero-subtitle", {
+        y: -10,
+        opacity: 0,
+        ease: "slow(0.7,0.7,false)",
+    },"<+.5");
 
     // Page-specific animations - (Above the fold only - see page specific Scripts/page.js for below the fold)
     switch(page) {
