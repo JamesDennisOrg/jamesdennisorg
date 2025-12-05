@@ -531,7 +531,7 @@
                 <div class="wordpress-path-container cards-wrapper">
                     <div class="cards-row">
                         <!-- Path 1: New Site -->
-                        <div class="path-card new-site-card card" style="position: relative">
+                        <div class="path-card new-site-card card clickable-parent path-button" style="position: relative" id="new-site-btn">
                             <i class="fa-solid fa-plus fa-2xl path-icon highlight-icon"></i>
                             <h4>New WordPress Site</h4>
                             <p>Let's build your site right from the start with:</p>
@@ -541,11 +541,11 @@
                                 <li>Future-proof architecture</li>
                                 <li>Maintainability</li>
                             </ul>
-                            <button class="path-button btn-primary" id="new-site-btn"><img src="/Assets/Images/Icons/wordpress-simple-brands-solid.svg" alt=""> Plan My Site</button>
+                            <button class="btn-primary-path"><img src="/Assets/Images/Icons/wordpress-simple-brands-solid.svg" alt=""> Plan My Site</button>
                         </div>
                     
                         <!-- Path 2: Existing Site -->
-                        <div class="path-card existing-site-card card" style="position: relative">
+                        <div class="path-card existing-site-card card clickable-parent path-button" style="position: relative" id="existing-site-btn">
                             <i class="fa-solid fa-shield-virus fa-2xl path-icon" style="color: #89d4cf;"></i>
                             <h4>Fix an Existing Site</h4>
                             <p>Rescue your WordPress site from:</p>
@@ -555,7 +555,7 @@
                                 <li>Plugin conflicts</li>
                                 <li>Broken Dependencies</li>
                             </ul>
-                            <button class="path-button btn-primary" id="existing-site-btn"><img src="/Assets/Images/Icons/wordpress-brands-solid.svg" alt=""> Diagnose My Site</button>
+                            <button class="btn-primary-path"><img src="/Assets/Images/Icons/wordpress-brands-solid.svg" alt=""> Diagnose My Site</button>
                         </div>
                     </div>
                     
@@ -630,12 +630,6 @@
                                 <p>Where should we send your custom site plan?</p>
                                 <input type="email" class="quiz-input" placeholder="your@email.com" required>
                                 <div class="quiz-feedback"></div>
-                                
-                                <!-- <div class="quiz-summary">
-                                <h4>Your Selections:</h4>
-                                <div id="purpose-summary"></div>
-                                <div id="branding-summary"></div>
-                                </div> -->
                             </div>
                         </div>   
                         <!-- Navigation -->

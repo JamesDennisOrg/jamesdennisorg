@@ -27,6 +27,7 @@
     align-items: start;
     width: 1200px;
     max-width: 96vw;
+    margin-block: var(--spacing-quadruple);
 }
 .scanner-wizard {
     border-radius: 12px;
@@ -78,8 +79,8 @@
     justify-content: space-around;
     align-items: center;
     .step-content {
-        width: 80%;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         grid-template-columns: auto auto;
         gap: 2em;
     }
@@ -127,8 +128,25 @@
     li {
         font-size: 1.5rem;
         margin-block: .6em;
+    }
+    li:nth-of-type(1) {
         &::marker {
-            content: "";
+            content: "📈"
+        }
+    }
+    li:nth-of-type(2) {
+        &::marker {
+            content: "⌛"
+        }
+    }
+    li:nth-of-type(3) {
+        &::marker {
+            content: "🕵"
+        }
+    }
+    li:nth-of-type(4) {
+        &::marker {
+            content: "📉"
         }
     }
 }

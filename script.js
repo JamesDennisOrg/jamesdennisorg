@@ -115,13 +115,6 @@ function initPageAnimations() {
             y: 200, scale: .85, opacity: 0, ease: "power4.out", duration: 1.5
         })
     })
-
-    // console.log(heroTitle);
-
-    // gsap.set(".hero-title", {y: 100, opacity: 0});
-    // gsap.set(".hero-subtitle", {y: 100, opacity: 0});
-    
-    // Common animations (runs on all pages)
     gsap.from(".hero-title", {
         y: 50,
         opacity: 0,
@@ -140,6 +133,7 @@ function initPageAnimations() {
         case "index":
             gsap.set('.logo-char', {opacity:0, yPercent: 100});
             gsap.to('.logo-char', {opacity: 1, yPercent: 0, stagger: {each: 0.02, from: "center", duration: 0.03}, delay: 1.3});
+            gsap.from('.scroll-icon-container', { y: 60, duration: .6, delay: 3 });
             break;
         case "services":
             function serviceLoadingAnimation() {
@@ -297,6 +291,47 @@ function initScrollHandler() {
     });
 }
 
+function initToTopButton() {
+    const toTopLink = document.getElementById('toTopLink');
+    const toTopContainer = document.getElementById('toTop');
+    const toTopImg = document.querySelector('.scroll-to-top');
+    
+    if (!toTopLink || !toTopContainer || !toTopImg) return;
+    
+    // Remove default onclick from HTML and handle it here
+    toTopLink.onclick = null;
+    
+    toTopLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // 1. Add animation class to trigger the animation
+        toTopImg.style.animation = 'none'; // Reset animation
+        void toTopImg.offsetWidth; // Trigger reflow
+        toTopImg.style.animation = 'subtlePulseIn 0.3s ease forwards';
+        
+        // 2. Scroll to top with Lenis (with slight delay for animation to start)
+        setTimeout(() => {
+            if (typeof lenis !== 'undefined' && lenis.scrollTo) {
+                lenis.scrollTo('#top');
+            } else {
+                // Fallback if Lenis isn't available
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }, 150); // Start scroll halfway through animation
+        
+        // 3. Hide the button with delay
+        setTimeout(() => {
+            toTopContainer.style.right = "-50px";
+        }, 400); // Hide after scroll starts
+        
+        // 4. Prevent the default anchor behavior
+        return false;
+    });
+}
+
 //---------------------------------------------------------------------
 //--------------------Navigation and Modal Setup----------------------
 // --------------------------------------------------------------------
@@ -360,4 +395,6 @@ function highlightCurrentPage() {
 // Initialize everything when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
     loadComponents();
+    initScrollHandler();
+    initToTopButton();
 });
