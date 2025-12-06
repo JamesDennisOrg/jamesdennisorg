@@ -20,38 +20,201 @@ requestAnimationFrame(raf);
 //---------------------------------------------------------------------
 //------------------------- Load Components ---------------------------
 // --------------------------------------------------------------------
+// async function loadFormComponents() {
+//     // Find all form placeholders on the page
+//     const formPlaceholders = document.querySelectorAll('[data-form-component]');
+    
+//     for (const placeholder of formPlaceholders) {
+//         const formType = placeholder.getAttribute('data-form-component');
+//         const formId = placeholder.id || `form-${formType}-${Date.now()}`;
+        
+//         try {
+//             // Load the form HTML
+//             const response = await fetch(`/Components/forms/${formType}.html`);
+//             if (!response.ok) {
+//                 throw new Error(`Failed to load form: ${formType}`);
+//             }
+            
+//             const formHtml = await response.text();
+//             placeholder.innerHTML = formHtml;
+            
+//             console.log(`Loaded form component: ${formType}`);
+            
+//             // Initialize the form if it has multi-step attributes
+//             const form = placeholder.querySelector('form[data-multistep]');
+//             if (form) {
+//                 // Wait a bit for DOM to settle
+//                 setTimeout(() => {
+//                     if (window.initMultiStepForm) {
+//                         const totalSteps = form.getAttribute('data-total-steps') || 3;
+//                         const serviceType = form.getAttribute('data-service') || 'general';
+                        
+//                         window.initMultiStepForm(form.id, {
+//                             totalSteps: parseInt(totalSteps),
+//                             serviceType: serviceType
+//                         });
+//                     }
+//                 }, 100);
+//             }
+            
+//         } catch (error) {
+//             console.error(`Error loading form component "${formType}":`, error);
+//             placeholder.innerHTML = `
+//                 <div class="form-error">
+//                     <p>Unable to load the form. Please <a href="/contact/">contact me directly</a>.</p>
+//                 </div>
+//             `;
+//         }
+//     }
+// }
+// Unified component loader that handles all component types
+// MAIN COMPONENT LOADER - Replaces BOTH old functions
 async function loadComponents() {
-    // 1. Load HTML components
     try {
-        // 1. Load the header
+        // 1. Load static components (header/footer)
         const headerResponse = await fetch('/Components/header.html');
         const headerHtml = await headerResponse.text();
         document.getElementById('header-placeholder').innerHTML = headerHtml;
 
-        // 2. Load the footer
         const footerResponse = await fetch('/Components/footer.html');
         const footerHtml = await footerResponse.text();
         document.getElementById('footer-placeholder').innerHTML = footerHtml;
 
-        // 3. LOAD FORM COMPONENTS
-        await loadFormComponents();
+        // 2. Load ALL dynamic components (forms, carousels, etc.)
+        await loadDynamicComponents();
 
-        // 3. DOM Dependent global functions
+        // 3. Initialize global functionality
         dateTime();
         initScrollHandler();
         setupNavLinks();
         setupModal();
-
         highlightCurrentPage();
     } catch (error) {
         console.error('Error loading components:', error);
     }
 
-    // 2. Run loading animation
+    // 4. UI/UX enhancements
     startLoadingAnimation();
+    initPageAnimations();
+}
 
-    // 3. Initialize page-specific animations
-    initPageAnimations(); 
+// UNIFIED DYNAMIC COMPONENT LOADER
+async function loadDynamicComponents() {
+    // CONFIGURATION OBJECT: Maps component types to their settings
+    const componentConfig = {
+        'form': {                                   // Type 1: Forms
+            directory: '/Components/forms/',        // Where these files live
+            initializer: initFormComponent          // Function to run after loading
+        },
+        'carousel': {                               // Type 2: Carousels  
+            directory: '/Components/carousels/',    // Where these files live
+            initializer: initCarouselComponent      // Function to run after loading
+        }
+        // ADD NEW TYPES HERE EXAMPLE:
+        // 'testimonial': {
+        //     directory: '/Components/testimonials/',
+        //     initializer: initTestimonialComponent
+        // }
+    };
+
+    // STEP 1: Find ALL component placeholders on the page
+    // Creates selector: [data-form-component], [data-carousel-component]
+    const componentSelectors = Object.keys(componentConfig)
+        .map(type => `[data-${type}-component]`)
+        .join(', ');
+    
+    const placeholders = document.querySelectorAll(componentSelectors);
+    
+    // STEP 2: Load each component in parallel for better performance
+    const loadPromises = Array.from(placeholders).map(async (placeholder) => {
+        // DETECT component type from data attribute
+        let componentType, componentName;
+        
+        // Check each possible attribute (form, carousel, etc.)
+        for (const type of Object.keys(componentConfig)) {
+            const attrName = `data-${type}-component`;
+            const name = placeholder.getAttribute(attrName);
+            if (name) {
+                componentType = type;
+                componentName = name;
+                break; // Found it, stop checking
+            }
+        }
+        
+        // ERROR CHECK: No valid component found
+        if (!componentType || !componentName) {
+            console.warn('Invalid component placeholder:', placeholder);
+            return; // Skip this placeholder
+        }
+        
+        const config = componentConfig[componentType];
+        const componentPath = `${config.directory}${componentName}.html`;
+        const componentId = placeholder.id || `${componentType}-${componentName}-${Date.now()}`;
+        
+        try {
+            // STEP 3: Fetch the component HTML from server
+            const response = await fetch(componentPath);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${componentName}`);
+            }
+            
+            const componentHtml = await response.text();
+            placeholder.innerHTML = componentHtml; // Inject into DOM
+            
+            // STEP 4: Initialize component-specific functionality
+            if (config.initializer) {
+                // Brief delay ensures DOM is ready
+                setTimeout(() => {
+                    config.initializer(placeholder, componentName, componentId);
+                }, 100);
+            }
+            
+        } catch (error) {
+            // STEP 5: Graceful error handling
+            console.error(`✗ Failed to load ${componentType} "${componentName}":`, error);
+            placeholder.innerHTML = `
+                <div class="component-error" style="padding: 20px; background: #fee; border: 1px solid #f99;">
+                    <p>Unable to load the ${componentType} component. Please try again later.</p>
+                </div>
+            `;
+        }
+    });
+    
+    // STEP 6: Wait for ALL components to finish loading
+    await Promise.all(loadPromises);
+}
+
+// FORM INITIALIZER
+function initFormComponent(container, formType, formId) {
+    const form = container.querySelector('form[data-multistep]');
+    if (form && window.initMultiStepForm) {
+        const totalSteps = form.getAttribute('data-total-steps') || 3;
+        const serviceType = form.getAttribute('data-service') || 'general';
+        
+        window.initMultiStepForm(form.id, {
+            totalSteps: parseInt(totalSteps),
+            serviceType: serviceType
+        });
+    }
+}
+
+// CAROUSEL INITIALIZER
+function initCarouselComponent(container, carouselName, carouselId) {
+    const carousel = container.querySelector('.marquee-wrapper');
+    if (!carousel) return;
+    
+    // Add hover pause/resume functionality
+    carousel.addEventListener('mouseenter', () => {
+        carousel.querySelectorAll('.marquee-text').forEach(item => {
+            item.style.animationPlayState = 'paused';
+        });
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        carousel.querySelectorAll('.marquee-text').forEach(item => {
+            item.style.animationPlayState = 'running';
+        });
+    });
 }
 
 //---------------------------------------------------------------------
@@ -141,11 +304,6 @@ function initPageAnimations() {
 
                 let targets = gsap.utils.toArray(".images-grid .item");
                 targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
-                
-                setTimeout(() => {
-                    const content = document.querySelector('.marquee-container');
-                    content.style.display = "flex"; 
-                }, 1250);
             }
             
 
@@ -209,54 +367,6 @@ function dateTime() {
     const copyrightEl = document.querySelector('.copyright p');
     if (copyrightEl) {
         copyrightEl.innerHTML = `© ${years} James Dennis`;
-    }
-}
-
-async function loadFormComponents() {
-    // Find all form placeholders on the page
-    const formPlaceholders = document.querySelectorAll('[data-form-component]');
-    
-    for (const placeholder of formPlaceholders) {
-        const formType = placeholder.getAttribute('data-form-component');
-        const formId = placeholder.id || `form-${formType}-${Date.now()}`;
-        
-        try {
-            // Load the form HTML
-            const response = await fetch(`/Components/forms/${formType}.html`);
-            if (!response.ok) {
-                throw new Error(`Failed to load form: ${formType}`);
-            }
-            
-            const formHtml = await response.text();
-            placeholder.innerHTML = formHtml;
-            
-            console.log(`Loaded form component: ${formType}`);
-            
-            // Initialize the form if it has multi-step attributes
-            const form = placeholder.querySelector('form[data-multistep]');
-            if (form) {
-                // Wait a bit for DOM to settle
-                setTimeout(() => {
-                    if (window.initMultiStepForm) {
-                        const totalSteps = form.getAttribute('data-total-steps') || 3;
-                        const serviceType = form.getAttribute('data-service') || 'general';
-                        
-                        window.initMultiStepForm(form.id, {
-                            totalSteps: parseInt(totalSteps),
-                            serviceType: serviceType
-                        });
-                    }
-                }, 100);
-            }
-            
-        } catch (error) {
-            console.error(`Error loading form component "${formType}":`, error);
-            placeholder.innerHTML = `
-                <div class="form-error">
-                    <p>Unable to load the form. Please <a href="/contact/">contact me directly</a>.</p>
-                </div>
-            `;
-        }
     }
 }
 

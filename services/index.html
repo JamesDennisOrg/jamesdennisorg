@@ -163,6 +163,7 @@
         <link rel="stylesheet" href="/Styles/lenis.css">
         <link rel="stylesheet" href="/style.css">
         <link rel="stylesheet" href="/Styles/services.css">
+        <link rel="stylesheet" href="/Styles/carousels.css">
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="zR0PNkDxR4EToTMJVxbrEw" async></script>
     </head>
     <body data-page="services">
@@ -311,61 +312,10 @@
                 </div>
 
                 <h3 class="core-title">Core capabilities and services</h3>
-                <div class="services-wrapper marquee-container" data-reversed="false" style="display: none;">
-                    <div class="service-list marquee-horizontal">
-                    <div class="left-container track-horizontal">
-                        <div class="item-left marquee-text">
-                        <div class="service-info">
-                            <span class="number">01</span>
-                            <h4 class="headline">Comprehensive Bot Audit</h4> 
-                        </div>  
-                        </div>
-                        <div class="item-left marquee-text">
-                        <div class="service-info">
-                            <span class="number">02</span>
-                            <h4 class="headline">Custom Defense Strategy</h4> 
-                        </div>
-                        </div>
-                        <div class="item-left marquee-text">
-                        <div class="service-info">
-                            <span class="number">03</span>
-                            <h4 class="headline">Performance Optimization</h4> 
-                        </div>
-                        </div>
-                        <div class="item-left marquee-text">
-                        <div class="service-info">
-                            <span class="number">04</span>
-                            <h4 class="headline">Ongoing Monitoring</h4> 
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="service-list marquee-horizontal">
-                    <div class="right-container track-horizontal" data-direction="right">
-                        <div class="item-right marquee-text 1">
-                            <div class="item-content">
-                                <p>I analyze your server logs and traffic patterns to identify all AI scraping bots and their impact on your site performance.</p>
-                            </div>
-                        </div>
-                        <div class="item-right marquee-text 2">
-                            <div class="item-content">
-                                <p>Implement tailored WAF rules, rate limiting, and blocking strategies specifically for known AI crawlers like GPTBot and CCBot.</p>
-                            </div>
-                        </div>
-                        <div class="item-right marquee-text 4">
-                            <div class="item-content">
-                                <p>Configure smart caching and resource management to ensure real visitors get fast load times while bots are efficiently managed.</p>
-                            </div>
-                        </div>
-                        <div class="item-right marquee-text 3">
-                            <div class="item-content">
-                                <p>Continuous monitoring and strategy adjustments to adapt to new AI bot patterns and threats.</p>
-                            </div>
-                        </div> 
-                    </div>
-                    </div>
+                <div id="services-carousel-container" 
+                    data-carousel-component="services-carousel">
+                    <!-- Carousel will be loaded here -->
                 </div>
-                
             </section>
 
             <div class="cta-wrapper">
@@ -740,61 +690,11 @@
                 </div>
 
                 <h3 class="core-title">Core SEO Capabilities</h3>
-                <div class="services-wrapper marquee-container" data-reversed="false">
-                    <div class="service-list marquee-horizontal">
-                        <div class="left-container track-horizontal">
-                            <div class="item-left marquee-text">
-                                <div class="service-info">
-                                    <span class="number">01</span>
-                                    <h4 class="headline">Technical Audit</h4> 
-                                </div>  
-                            </div>
-                            <div class="item-left marquee-text">
-                                <div class="service-info">
-                                    <span class="number">02</span>
-                                    <h4 class="headline">Core Web Vitals</h4> 
-                                </div>
-                            </div>
-                            <div class="item-left marquee-text">
-                                <div class="service-info">
-                                    <span class="number">03</span>
-                                    <h4 class="headline">Content Strategy</h4> 
-                                </div>
-                            </div>
-                            <div class="item-left marquee-text">
-                                <div class="service-info">
-                                    <span class="number">04</span>
-                                    <h4 class="headline">Ongoing Optimization</h4> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="service-list marquee-horizontal">
-                        <div class="right-container track-horizontal" data-direction="right">
-                            <div class="item-right marquee-text 1">
-                                <div class="item-content">
-                                    <p>Comprehensive analysis of 200+ SEO factors including site structure, indexing status, and mobile optimization.</p>
-                                </div>
-                            </div>
-                            <div class="item-right marquee-text 2">
-                                <div class="item-content">
-                                    <p>Optimize LCP, FID, and CLS scores to meet Google's Core Web Vitals requirements for better rankings.</p>
-                                </div>
-                            </div>
-                            <div class="item-right marquee-text 3">
-                                <div class="item-content">
-                                    <p>Develop keyword strategies and content gaps analysis to target high-value search opportunities.</p>
-                                </div>
-                            </div>
-                            <div class="item-right marquee-text 4">
-                                <div class="item-content">
-                                    <p>Continuous monitoring and optimization based on performance data and algorithm updates.</p>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
+                <div id="seo-carousel-container"
+                    data-carousel-component="seo-carousel">
+                    <!-- Carousel will be loaded here -->
                 </div>
-
+                
                 <div class="cards-wrapper">
                     <div class="seo-process-overview cards-row">
                         <div class="process-card card">
@@ -863,6 +763,7 @@
         <script src="/Scripts/services.js"></script>
         <script src="/Scripts/gsap.js"></script>
         <script src="/script.js"></script>
+        <script src="/Scripts/carousels.js"></script>
         <script src="/Scripts/wordpress-quiz.js"></script>
     </body>
 </html>
