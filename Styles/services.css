@@ -1064,6 +1064,10 @@ textarea.error {
 }
 
 @media (max-width: 480px) {
+    .service-intro-content, .performance-content, .seo-content {
+        margin: unset;
+        padding: unset;
+    }
     h3 {
         font-size: 1.75rem;
     }

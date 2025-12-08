@@ -96,6 +96,8 @@ async function loadComponents() {
     // 4. UI/UX enhancements
     startLoadingAnimation();
     initPageAnimations();
+    setTimeout(initMarqueeInteraction, 100);
+    setTimeout(initMobileMarqueeInteraction, 100);
 }
 
 // UNIFIED DYNAMIC COMPONENT LOADER

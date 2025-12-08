@@ -7,31 +7,11 @@
     gap: 1em;
     max-width: 1200px;
     overflow: hidden;
-    padding-block: var(--spacing-double);
+    padding-block: var(--spacing-half);
     margin: 0;
     position: relative;
-    -webkit-mask-image: radial-gradient(
-        ellipse at 50% 50%,
-        rgba(0, 0, 0, 1) 30%,
-        rgba(0, 0, 0, 0.3) 60%,
-        rgba(0, 0, 0, 0) 80%
-    );
-    mask-image: radial-gradient(
-        ellipse at 50% 50%,
-        rgba(0, 0, 0, 1) 30%,
-        rgba(0, 0, 0, 0.3) 60%,
-        rgba(0, 0, 0, 0) 80%
-    );
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    &:hover {
-        .marquee-tooltip {
-            opacity: 1 !important;
-        }
-        .container1 .item, .container2 .item {
-            animation-play-state: paused;
-        }
-    }
+    -webkit-mask-image: linear-gradient(to right, transparent 20%, black, black 50%, transparent), linear-gradient(to left, transparent 20%, black, black 50%, transparent);
+    mask-image: linear-gradient(to right, transparent 20%, black, black 50%, transparent), linear-gradient(to left, transparent 20%, black, black 50%, transparent);
 }
 
 /* Radial blur overlay */
@@ -43,7 +23,7 @@
   bottom: 0;
   z-index: +1;
   pointer-events: none;
-  
+  display: none;
     /* Radial mask for the blur effect */
   -webkit-mask-image: radial-gradient(
     ellipse at 50% 50%,
@@ -65,12 +45,12 @@
   -webkit-backdrop-filter: blur(10px);
 }
 .container1, .container2 {
-    --s: 300px; /* size of the item */
+    --s: 400px; /* size of the item */
     --n: 3; /* number of visible items */
     --d: 42s; /* animation duration */
     height: 100%;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding-block: 5px;
 }
 .marquee-text {
@@ -81,9 +61,11 @@
         text-align: left!important;
         padding: 0!important;
         color: inherit;
+        font-size: unset;
     }
     p {
         color: inherit;
+        text-wrap: balance;
     }
     span {
         font-family: "Michroma", sans-serif;
@@ -91,29 +73,108 @@
     }
 }
 .container1 .item, .container2 .item {
-    border-left: 3px solid;
     width: var(--s);
     offset: shape(from calc(var(--s)/-2) 50%, hline by calc(sibling-count() * max(100%/var(--n),var(--s) + 10px)));
     animation: x var(--d) linear infinite calc(-1*sibling-index()*var(--d)/sibling-count());
 }
 .container1 .item {
     animation-direction: reverse;
+    border-left: 3px solid;
 }
-@keyframes x { 
-  to {offset-distance: 100%};
-}
+
 /* Marquee color styling */
 .item-left:nth-of-type(1), .item-right:nth-of-type(1) {
-    color: red;
+    color: rgb(254, 35, 35);
 }
 .item-left:nth-of-type(2), .item-right:nth-of-type(2) {
-    color: blue;
+    color: rgb(39, 39, 253);
 }
 .item-left:nth-of-type(3), .item-right:nth-of-type(3) {
     color: green;
 }
 .item-left:nth-of-type(4), .item-right:nth-of-type(4) {
-    color: purple;
+    color: rgb(170, 5, 170);
+}
+
+
+/* ===== Marquee Interaction ===== */
+.item {
+    transition: transform 0.5s ease-out, scale 0.3s ease, opacity 0.3s ease;
+    will-change: transform;
+}
+
+.marquee-wrapper.snapping .item.aligned {
+    animation-play-state: paused;
+}
+
+/* Highlight aligned items with background */
+.item.aligned {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), scale 0.3s ease, opacity 0.3s ease;
+    border-left-color: transparent;
+    margin: 0!important;
+    padding: 0!important;
+    animation-play-state: paused;
+}
+
+/* Color-specific backgrounds for aligned items */
+.item-left.aligned:nth-of-type(1),
+.item-right.aligned:nth-of-type(1) {
+    /* background: linear-gradient(135deg, black, green) !important; */
+}
+
+.item-left.aligned:nth-of-type(2),
+.item-right.aligned:nth-of-type(2) {
+    /* background: linear-gradient(135deg, black, green) !important; */
+}
+
+.item-left.aligned:nth-of-type(3),
+.item-right.aligned:nth-of-type(3) {
+    /* background: linear-gradient(135deg, black, green) !important; */
+}
+
+.item-left.aligned:nth-of-type(4),
+.item-right.aligned:nth-of-type(4) {
+    /* background: linear-gradient(135deg, black, green) !important; */
+}
+
+/* Mobile tooltip specific styles */
+.marquee-tooltip-mobile {
+    /* These will override the inline styles if needed */
+    font-size: 13px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Different positioning for different screen sizes */
+@media (max-width: 480px) {
+    .marquee-wrapper {
+        -webkit-mask-image: unset;
+        mask-image: unset;
+        overflow: visible;
+    }
+    .marquee-tooltip-mobile {
+        font-size: 12px !important;
+        padding: 8px 16px !important;
+        top: -25px !important;
+    }
+}
+
+/* Hide desktop tooltip on mobile */
+@media (hover: none) and (pointer: coarse) {
+    .marquee-tooltip-desktop {
+        display: none !important;
+    }
+}
+
+/* Hide mobile tooltip on desktop */
+@media (hover: hover) and (pointer: fine) {
+    .marquee-tooltip-mobile {
+        display: none !important;
+    }
+}
+
+@keyframes x { 
+  to {offset-distance: 100%};
 }
 
 @keyframes fadeInOut {
