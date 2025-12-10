@@ -360,7 +360,7 @@ pre {
     max-width: 1200px;
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-end;
     margin: 1em auto 0;
     padding-inline: 2em;

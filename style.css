@@ -1586,13 +1586,16 @@ ul {
                 animation: unstable-spin 16s infinite;
             }
             .action-block{
-                display: flex;
-                flex-direction: column;
-                gap: 3em;
-                h4 {
-                    margin-top: 0;
-                    margin-bottom: 0;
-                    color: currentColor;
+                width: 100%;
+                .cta-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--spacing-double);
+                }
+                .cube-section {
+                    max-width: 96vw!important;
                 }
             }
         }
@@ -2114,20 +2117,26 @@ ul {
     }
 }
 
-/* ========== CTA-OPTIONS BUTTONS ========== */
-.cta-options {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    gap: var(--spacing-double);
-}
-
-
 /* =================== MEDIA QUERIES ==================== */
 @media (max-width: 1200px) {
     .the-plugin {
         flex-wrap: wrap;
+    }
+    .cube-section {
+        max-width: 96vw!important;
+        flex-wrap: wrap;
+    }
+    .cube-link {
+        transform: scale(.8);
+    }
+    .problem-list {
+        flex-direction: column!important;
+    }
+    .contact-hero {
+        flex-direction: column!important;
+    }
+    .guarantee-box {
+        width: unset!important;
     }
 }
 
@@ -2174,9 +2183,15 @@ ul {
     .cube-wrapper {
         flex-direction: column-reverse!important;
         width: 100%!important;
-        & .cube-link {
-            padding-block: 0!important;
-        }
+    }
+    .cta-cube-info {
+        width: 80%!important;
+    }
+    .cube-container {
+        width: 100%;
+    }
+    .cube-link {
+        transform: scale(1.4);
     }
     .problem-cube {
         scale: .6;
@@ -2204,6 +2219,13 @@ ul {
     .risk-list {
         margin-left: 2em;
     }
+    .trust-badges {
+        padding-inline: 0!important;
+    }
+    .step-content ul {
+        column-count: unset!important;
+    }
+
 }
 @media (max-width: 990px) {
     .action-group {
@@ -2260,9 +2282,7 @@ ul {
                     top: -16px;
                 }
                 .step-indicator-vertical.active {
-                    width: 30px;
-                    height: 30px;
-                    top: -10px;
+                    scale: 1.2;
                 }
                 .step-indicator-vertical.completed {
                     width: 24px;
@@ -2437,15 +2457,9 @@ ul {
     .metrics-grid {
         grid-template-columns: 1fr!important;
     }
-    .cta-section {
-        height: unset!important;
-    }
     .contact-container {
         grid-template-columns: 1fr!important;
         padding: 1em!important;
-    }
-    .contact-hero {
-        /* flex-direction: column; */
     }
 }
 @media (max-width: 630px) {
@@ -2475,8 +2489,9 @@ ul {
         }
     }
     .input-section {
+        align-items: center!important;
         flex-direction: column;
-        url-input-group {
+        .url-input-group {
             align-items: center;
             width: 96%;
         }

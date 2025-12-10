@@ -2,7 +2,7 @@
 // -------------Lenis Smooth Scroll-----------------
 // -------------------------------------------------
 const lenis = new Lenis({
-    lerp: 0.035,
+    lerp: 0.05,
     direction: "vertical",
     gestureDirection: "vertical",
     smooth: true,

@@ -433,6 +433,7 @@
         color: var(--accent);
         background: var(--gradient-brand);
         gap: var(--spacing-triple);
+        margin-bottom: 0;
     }
 }
 
@@ -880,14 +881,6 @@ input[type="email"] {
     margin-top: 0.25rem;
 }
 
-
-
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Symptom Tips */
 .symptom-tip {
     display: flex;
@@ -1060,6 +1053,9 @@ textarea.error {
     }
     .process-card {
         padding: 1.5rem;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
     }
 }
 
