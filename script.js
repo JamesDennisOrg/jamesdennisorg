@@ -2,11 +2,12 @@
 // -------------Lenis Smooth Scroll-----------------
 // -------------------------------------------------
 const lenis = new Lenis({
-    lerp: 0.05,
+    lerp: 0.035,
     direction: "vertical",
     gestureDirection: "vertical",
     smooth: true,
     smoothTouch: false,
+    wheelMultiplier: 0.8,
     touchMultiplier: 2,
 });
 
@@ -96,8 +97,6 @@ async function loadComponents() {
     // 4. UI/UX enhancements
     startLoadingAnimation();
     initPageAnimations();
-    setTimeout(initMarqueeInteraction, 100);
-    setTimeout(initMobileMarqueeInteraction, 100);
 }
 
 // UNIFIED DYNAMIC COMPONENT LOADER
@@ -349,7 +348,15 @@ function initPageAnimations() {
         case "plugins":
             // Plugins page animations
             break;
-        // Add other pages as needed
+        case "contact":
+            // console.log("Contact Page animations loaded");
+            // function contactLoadingAnimations() {
+            //     const heading = document.querySelector(".section-title");
+            //     console.log(heading);
+            //     gsap.from(".heading", { opacity: 0, y: 60, delay: 5 });
+            // }
+            // contactLoadingAnimations();
+            break;
     }
 }
 

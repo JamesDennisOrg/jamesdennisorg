@@ -164,6 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         new StatsCounterGSAP();
     }
 
-    // initMarqueeScrubbing();
-    // initMarqueeScrubbingEnhanced();
+    setTimeout(initMobileMarqueeInteraction, 500);
+    setTimeout(initMarqueeInteraction, 500);
 });

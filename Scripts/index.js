@@ -32,7 +32,7 @@ ctaTl.from(ctaHeading, {
 .from(".action-block h4", {
     y: 30, opacity: 0, duration: 1.5, ease: "bounce.out", delay: 1.3,
 }, "<-.15")
-.from(".action-block buttons", {
+.from(".action-block .cta-options", {
     y: 30, opacity: 0, duration: .5, ease: "bounce.out",
-}, "<-.1")
+}, "<+.5")
             

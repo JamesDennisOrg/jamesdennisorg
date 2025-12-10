@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector('.button-form').addEventListener('submit', function(e) {
-        const submitBtn = this.querySelector('.contact-button');
-        submitBtn.querySelector('.btn-text').style.display = 'none';
-        submitBtn.querySelector('.btn-loading').style.display = 'inline';
-        submitBtn.disabled = true;
-    });
+    function contactLoadingAnimations() {
+        gsap.from(".heading", { opacity: 0, y: 60, delay: 2 });
+        gsap.from(".problem-item", { opacity: 0, y:60, delay: 2.2, stagger: .2 });
+        gsap.from(".form-header", { opacity: 0, y: 60, delay: 2.5 });
+    }
+    contactLoadingAnimations();
 });

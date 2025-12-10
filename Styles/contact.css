@@ -39,30 +39,31 @@
     }
 }
 .contact-hero {
+    max-width: 1200px;
     width: 96%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    display: flex;
     justify-items: center;
     gap: 3em;
     margin-bottom: 3rem;
     padding: 1em;
-    .problem-list {
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 0 24px;
-    }
     .guarantee-box {
         width: fit-content;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        gap: var(--spacing-triple);
         align-items: center;
-        background: linear-gradient(45deg, var(--background), #2a9d8f);
-        padding: 1em 3em;
+        /* background: linear-gradient(45deg, var(--background), #2a9d8f); */
+        padding: 1em;
         border-radius: 1em;
     }
+}
+.problem-list {
+    display: flex;
+    max-width: 1200px;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 0 24px;
 }
 .problem-item {
     display: flex;
@@ -111,15 +112,17 @@
     }
     p {
         font-family: 'Georgia', serif;
+        font-size: var(--font-small);
         height: max-content!important;
         text-align: left;
+        color: var(--text-on-brand);
     }
     span {
         width: 100%;
         opacity: .7;
         text-align: left;
         font-size: var(--font-small);
-        color: var(--background);
+        color: var(--text-on-brand);
     }
 }
 .form-wrapper {

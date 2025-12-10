@@ -635,7 +635,7 @@ input[disabled] {
     cursor: not-allowed;
 }
 .quiz-options {
-    column-count: 2;
+    /* column-count: 2; */
     label {
         display: flex;
         align-items: center;
@@ -709,13 +709,13 @@ input[disabled] {
     position: absolute;
     bottom: 1em;
     width: 100%;
-    height: var(--spacing-double);
+    padding-inline: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     gap: 1em;
     button {
-        width: 7em;
+        flex-grow: 1;
         cursor: alias;
         background-color: var(--primary-light);
         border: none;
