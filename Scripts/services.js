@@ -101,6 +101,7 @@ function hideDetails() {
 // Add click listeners for services grid items
 gsap.utils.toArray('.item').forEach(item => item.addEventListener('click', () => showDetails(item)));
 
+
 class StatsCounterGSAP {
     constructor() {
         this.animatedSections = new Set();

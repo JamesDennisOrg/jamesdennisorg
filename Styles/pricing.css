@@ -29,7 +29,8 @@ section {
 }
 .filter-tab {
     padding: 0.75rem 1.5rem;
-    background: rgba(38, 38, 62, 0.3);
+    /* background: rgba(38, 38, 62, 0.3); */
+    background: var(--text-secondary);
     border: 1px solid rgba(120, 120, 120, 0.2);
     border-radius: 50px;
     color: #fff;
@@ -43,6 +44,7 @@ section {
     background: rgba(56, 189, 104, 0.1);
     border-color: rgba(56, 189, 104, 0.3);
     transform: translateY(-2px);
+    color: var(--success);
 }
 .filter-tab.active {
     background: linear-gradient(135deg, rgba(56, 189, 104, 0.2), rgba(102, 217, 232, 0.2));
@@ -205,11 +207,11 @@ section {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background: rgba(38, 38, 62, 0.3);
+    padding: 4px;
+    padding-left: 8px;
+    background: var(--text-secondary);
     border-radius: 12px;
-    border: 1px solid rgba(120, 120, 120, 0.2);
+    border: 1px solid var(--border);
 }
 .currency-label {
     color: #fff;
@@ -237,12 +239,12 @@ section {
     white-space: nowrap;
 }
 .currency-option:hover {
-    color: #fff;
-    background: rgba(56, 189, 104, 0.1);
+    background: var(--border);
 }
 .currency-option.active {
-    background: linear-gradient(135deg, rgba(56, 189, 104, 0.2), rgba(102, 217, 232, 0.2));
-    color: #38bd68;
+    /* background: linear-gradient(135deg, rgba(56, 189, 104, 0.2), rgba(102, 217, 232, 0.2)); */
+    background: var(--gradient-brand);
+    color: var(--surface-hover);
     box-shadow: 0 2px 8px rgba(56, 189, 104, 0.1);
 }
 .price {

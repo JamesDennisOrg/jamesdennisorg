@@ -279,35 +279,24 @@ function initPageAnimations() {
             y: 200, scale: .85, opacity: 0, ease: "power4.out", duration: 1.5
         })
     })
-    gsap.from(".hero-title", {
-        y: 50,
-        opacity: 0,
-        ease: "slow(0.7,0.7,false)",
-        delay: 1.5
-    });
-    
-    gsap.from(".hero-subtitle", {
-        y: -10,
-        opacity: 0,
-        ease: "slow(0.7,0.7,false)",
-    },"<+.5");
 
+    gsap.from(".hero-title", { y: 10, opacity: 0, delay: 1.6 });
+    gsap.from(".hero-subtitle", { y: -10, opacity: 0, ease: "slow(0.7,0.7,false)", },"<+.25");
     // Page-specific animations - (Above the fold only - see page specific Scripts/page.js for below the fold)
     switch(page) {
         case "index":
             gsap.set('.logo-char', {opacity:0, yPercent: 100});
             gsap.to('.logo-char', {opacity: 1, yPercent: 0, stagger: {each: 0.02, from: "center", duration: 0.03}, delay: 1.3});
-            gsap.from('.scroll-icon-container', { y: 60, duration: .6, delay: 3 });
+            gsap.from('.header-strapline', { opacity: 0, y: -10 }, "<+.5");
+            gsap.from('.home-hero-cta', { opacity: 0, y: -20, duration: 1 }, "<+.6")
+            gsap.from('.scroll-icon-container', { y: 60, duration: .6 }, "<");
             break;
         case "services":
             function serviceLoadingAnimation() {
                 let tl = gsap.timeline();
-
                 let targets = gsap.utils.toArray(".images-grid .item");
-                targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",})});
+                targets.forEach(target => {gsap.set(target, {clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)"})});
             }
-            
-
             let mm = gsap.matchMedia();
 
             mm.add("(min-width: 900px)", () => {
@@ -345,17 +334,16 @@ function initPageAnimations() {
             })
             serviceLoadingAnimation();
             break;
+        case "pricing":
+            gsap.fromTo('.hero-card', { opacity: 0, y: 60 },{ y: 0, opacity: 1, delay: 1.4, stagger: .04 });
+            // gsap.from(".hero-card", { opacity: 0, y:60, delay: 1.4, stagger: .2 });
+            gsap.from('.service-filter', { y: 50, opacity: 0, }, "<+.5");
+            break;
         case "plugins":
             // Plugins page animations
             break;
         case "contact":
-            // console.log("Contact Page animations loaded");
-            // function contactLoadingAnimations() {
-            //     const heading = document.querySelector(".section-title");
-            //     console.log(heading);
-            //     gsap.from(".heading", { opacity: 0, y: 60, delay: 5 });
-            // }
-            // contactLoadingAnimations();
+            // Contact page animations
             break;
     }
 }

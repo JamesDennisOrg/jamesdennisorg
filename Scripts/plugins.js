@@ -1,9 +1,9 @@
 gsap.from(".plugin-nav-list", {
-    y: 30, opacity: 0, delay: 2.5
+    y: 30, opacity: 0, delay: 2
 });
 gsap.from("#plugin-container-1", {
-    y: 60, opacity: 0, delay: 2.5,
-});
+    y: 60, opacity: 0,
+}, "<");
 
 let container = ("#plugin-container-2")
 let tl = gsap.timeline({

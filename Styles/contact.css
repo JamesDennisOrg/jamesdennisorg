@@ -71,7 +71,7 @@
     justify-content: space-between;
     padding: 1rem;
     gap: .5em;
-    background: rgba(255,255,255,0.05);
+    background: var(--surface);
     border-radius: 1em;
     img {
         width: var(--font-x-large);
@@ -115,14 +115,14 @@
         font-size: var(--font-small);
         height: max-content!important;
         text-align: left;
-        color: var(--text-on-brand);
+        color: var(--info);
     }
     span {
         width: 100%;
         opacity: .7;
         text-align: left;
         font-size: var(--font-small);
-        color: var(--text-on-brand);
+        color: var(--text-secondary);
     }
 }
 .form-wrapper {

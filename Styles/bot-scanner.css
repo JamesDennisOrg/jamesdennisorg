@@ -211,9 +211,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2em 1em;
+    padding: 1em;
     height: 100%;
-    max-height: 400px;
+    max-height: 440px;
     font-size: 1rem;
 }
 .progress-line {
@@ -231,7 +231,7 @@
     top: 1px;
     left: 0;
     width: 100%;
-    background: var(--primary);
+    background: #0080003d;
     border-radius: 2px;
     transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     height: 0%; /* Start from top */
@@ -387,8 +387,8 @@ pre {
     }
 }
 .card-number {
-    background: var(--surface-hover);
-    color: white;
+    background: var(--accent);
+    color: var(--background-alt);
     width: 30px;
     height: 30px;
     border-radius: 50%;

@@ -19,7 +19,7 @@ html {
     --surface: rgb(32, 34, 36);         /* Cards, modals, elevated elements */
     --surface-hover: rgb(44, 44, 70);   /* Hover states for surfaces */
     
-    --text: rgb(248, 250, 252);         /* Primary text */
+    --text: rgb(248, 248, 255);         /* Primary text */
     --text-secondary: rgb(203, 213, 225); /* Secondary text */
     --text-muted: rga(148, 163, 184, 0.6);   /* Muted/disabled text */
     --text-on-brand: rgb(250, 235, 215); /* Text on brand colored backgrounds */
@@ -56,7 +56,8 @@ html {
     /* ===== GRADIENTS ===== */
     --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
     --gradient-surface: linear-gradient(135deg, rgba(38,38,62,0.2), rgba(32,32,54,0.5));
-    --gradient-brand: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    --gradient-brand: linear-gradient(135deg, var(--brand), var(--brand-dark)); /* For Theme Dark */
+    --gradient-brand-light: linear-gradient(135deg, var(--primary), var(--accent)); /* For Theme Light */
     
     /* ===== RGB VALUES FOR ALPHA CHANNELS ===== */
     --background-rgb: 28, 28, 51;
@@ -160,12 +161,12 @@ html {
 
 @media (prefers-color-scheme: light) {
     :root:not([data-theme="dark"]) {
-        --background: rgb(250, 250, 255);
-        --background-alt: rgb(245, 245, 255);
-        --surface: rgb(255, 255, 255);
-        --surface-hover: rgb(240, 250, 252);
+        --background: rgb(248, 248, 255);
+        --background-alt: rgb(214, 244, 254);
+        --surface: rgb(210, 210, 212);
+        --surface-hover: rgb(240, 240, 250);
         
-        --text: rgb(23, 23, 51);
+        --text: rgb(32, 32, 32);
         --text-secondary: rgb(71, 85, 105);
         --text-muted: rgba(100, 116, 139, .6);
         
@@ -176,7 +177,7 @@ html {
         --shadow-lg: rgba(0, 0, 0, 0.15);
 
         --logo-text: var(--text);
-        --gradient-brand: linear-gradient(135deg, var(--brand), Var(--surface));
+        --gradient-brand: linear-gradient(135deg, var(--primary), var(--accent));
     }
 }
 
@@ -335,7 +336,7 @@ p {
     font-weight: 400;
     font-size: var(--font-medium);
     line-height: 1.2;
-    color: var(--text-secondary);
+    color: var(--text);
 }
 a {
     text-decoration: none;
@@ -1362,9 +1363,12 @@ ul {
         font-size: inherit;
         &::marker {
             font-size: inherit;
-            color: var(--brand);
+            color: var(--accent-dark);
         }
     }
+}
+ul.step-details {
+    height: 12em;
 }
 /* =================== Home/Index Page ================ */
 .hero-container {
@@ -1409,6 +1413,18 @@ ul {
         }
     }
 }
+.header-logo-wrapper {
+    position: relative;
+    .header-strapline {
+        position: absolute;
+        bottom: 86px;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: var(--font-x-small);
+        color: var(--brand);
+        letter-spacing: 16px;
+    }
+}
 .hero-overlay {
     border-image: fill 1 var(--overlay);
     transition: 0.3s ease-in-out;
@@ -1422,11 +1438,11 @@ ul {
     padding-block: 2em;
     min-height: 100vh;
     /* background-image: url(/Assets/Images/Backgrounds/laptop-opening.webp); */
-    background: rgb(32,32,32);
+    /* background: rgb(32,32,32); */
     background-origin: border-box;
     background-repeat: no-repeat;
     background-size: cover;
-    color: rgba(241,248,244,.8)!important;
+    /* color: rgba(241,248,244,.8)!important; */
     .index-cta-intro-wrapper {
         max-width: 1200px;
         display: flex;
@@ -1649,6 +1665,9 @@ ul {
         }
     }
 }
+.home-hero-cta {
+    box-shadow: var(--shadow-bottom);
+}
 .scroll-down-icon {
     position: fixed;
     bottom: 0;
@@ -1757,7 +1776,7 @@ ul {
             }
             h4 {
             font-size: 1.6rem;
-            color: rgb(102, 217, 232);
+            color: var(--accent-dark);
             font-weight: 400;
             line-height: 1.3;
             min-height: fit-content;
