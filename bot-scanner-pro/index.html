@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="color-scheme" content="light dark" />
+        <link rel="icon" type="image/x-icon" href="/Assets/Images/favicon.ico">
+        <title>WordPress Bot Scanner Pro | Check AI Scraping Vulnerability | jamesdennis.org</title>
+        <meta name="description" content="Free tool to scan your WordPress site for AI bot scraping vulnerabilities. Get instant risk assessment and protection recommendations from WordPress security experts.">
+        <meta name="keywords" content="wordpress bot scanner, ai scraping detection, chatgpt bot protection, wordpress security scan, bot vulnerability check">
+        <meta name="author" content="James Dennis">
+        <meta name="publisher" content="jamesdennis.org">
+        <link rel="canonical" href="https://jamesdennis.org/bot-scanner-pro/">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://jamesdennis.org/bot-scanner-pro/">
+        <meta property="og:title" content="Free WordPress Bot Vulnerability Scanner - Check AI Scraping Risk">
+        <meta property="og:description" content="Scan your WordPress site for AI bot vulnerabilities. Get instant risk assessment and professional protection recommendations.">
+        <meta property="og:image" content="https://jamesdennis.org/Assets/Images/Cube/Bots-blocked.webp">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:site_name" content="James Dennis - WordPress Security">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://jamesdennis.org/bot-scanner-pro/">
+        <meta property="twitter:title" content="Free WordPress Bot Scanner | Check AI Scraping Vulnerability">
+        <meta property="twitter:description" content="Scan your WordPress site for AI bot vulnerabilities. Instant risk assessment + protection plan.">
+        <meta property="twitter:image" content="https://jamesdennis.org/Assets/Images/Cube/Bots-blocked.webp">
+        <meta name="twitter:creator" content="@JamesDennis_web">
+
+        <!-- Additional SEO Meta Tags -->
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+        <meta name="theme-color" content="#2980b9">
+        <!-- <link rel="alternate" type="application/rss+xml" title="James Dennis Blog RSS" href="https://jamesdennis.org/rss.xml"> -->
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "WordPress Bot Vulnerability Scanner",
+            "description": "Free online tool to scan WordPress websites for AI bot scraping vulnerabilities and provide instant security assessments.",
+            "url": "https://jamesdennis.org/bot-scanner-pro/",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "permissions": "browser",
+            "browserRequirements": "Requires JavaScript",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "James Dennis",
+                "url": "https://jamesdennis.org",
+                "knowsAbout": ["WordPress Security", "AI Bot Protection", "Web Development", "Performance Optimization"]
+            },
+            "publisher": {
+                "@type": "Person",
+                "name": "James Dennis",
+                "url": "https://jamesdennis.org"
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://jamesdennis.org/bot-scanner-pro/"
+            },
+            "potentialAction": {
+                "@type": "ScanAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://jamesdennis.org/bot-scanner-pro/",
+                    "actionPlatform": [
+                        "http://schema.org/DesktopWebPlatform",
+                        "http://schema.org/MobileWebPlatform"
+                    ]
+                },
+                "result": {
+                    "@type": "ScanResult",
+                    "name": "WordPress Bot Vulnerability Assessment"
+                }
+            }
+        }
+        </script>
+
+        <!-- Additional FAQ Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What does the WordPress bot scanner check for?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The scanner analyzes your WordPress site for AI bot scraping vulnerabilities, including performance impact, resource usage, exposed APIs, and content scraping risks."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is the bot scanner free to use?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, the WordPress bot vulnerability scanner is completely free. You get instant risk assessment and protection recommendations without any cost."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do I need to install anything to use the scanner?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No installation required. The scanner runs directly in your browser and provides instant results without any software downloads."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What types of bots does the scanner detect?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The scanner identifies vulnerabilities related to AI scraping bots like GPTBot, CCBot, and other content scrapers that can impact your site performance and steal your content."
+                    }
+                }
+            ]
+        }
+        </script>
+
+
+        <!-- External Resources -->
+        <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+        <script src="https://kit.fontawesome.com/1429501f16.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/Styles/lenis.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/Styles/bot-scanner.css">
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="zR0PNkDxR4EToTMJVxbrEw" async></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    </head>
+    <body>
+        <div class="loader-container">
+            <h3 class="load-text" style="position: fixed; top: 50%; width: 100%; display: none; place-items: center; margin-inline: auto; color:var(--accent-dark)">jamesdennis.org</h3>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+            <div class="bar" style="width: 5vw; height: 105vh; background-color: var(--brand);"></div>
+        </div>
+        <div id="header-placeholder"></div>
+
+        <div class="bot-scanner-container" id="top">
+            <div class="scanner-header">
+                <h1 class="hero-title"><span><img src="/Assets/Images/Icons/shield-halved-solid.svg" alt=""></span> WordPress Bot Vulnerability Scanner</h1>
+                <p class="subtitle hero-subtitle">Free tool to detect AI scraping risks and protect your WordPress site</p>
+                <div class="trust-badges">
+                    <div class="badge">🔒 No Installation Required</div>
+                    <div class="badge">⚡ 30-Second Check</div>
+                    <div class="badge">📊 Instant Results</div>
+                </div>
+            </div>
+
+            <div class="scanner-wizard-container">
+                <!-- Vertical Progress Bar -->
+                <div class="vertical-progress">
+                    <div class="progress-line">
+                        <div class="progress-fill" style="height: 25%"></div>
+                        <div class="step-indicators-vertical">
+                            <div class="step-indicator-vertical active" data-step="1">
+                                <span>1</span>
+                            </div>
+                            <div class="step-indicator-vertical" data-step="2">
+                                <span>2</span>
+                            </div>
+                            <div class="step-indicator-vertical" data-step="3">
+                                <span>3</span>
+                            </div>
+                            <div class="step-indicator-vertical" data-step="4">
+                                <span>4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scanner-wizard">
+                <!-- Step 1: Introduction -->
+                <div class="wizard-step active" data-step="1">
+                    <div class="step-header">
+                        <span class="step-number">1</span>
+                        <h2>Start Your Free Bot Risk Assessment</h2>
+                    </div>
+                    <!-- <p>AI Bots bombarding your server with hundreds of queries per minute...</p> -->
+                    <div class="step-content">
+                        <div class="input-section-wrap">
+                            <div class="input-section">
+                            <div class="url-input-group">
+                                <label for="site-url">Enter your WordPress site URL:</label>
+                                <input type="url" id="site-url" placeholder="https://yourwordpresssite.com" />
+                            </div>
+                            <button class="btn-primary" onclick="startAnalysis()"><img src="/Assets/Images/Icons/building-shield-solid.svg" alt=""> Start Analysis</button>
+                            </div>   
+                        </div>
+                        <ul class="risk-list">
+                            <li>Increase server costs by as much as 400%+</li>
+                            <li>Slow down your site for real visitors</li>
+                            <li>Steal your content and traffic</li>
+                            <li>Reduce your ad revenue and conversions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 2: Guided Analysis -->
+                <div class="wizard-step" data-step="2">
+                    <div class="step-header">
+                        <span class="step-number">2</span>
+                        <h2>Run the Browser Check</h2>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="instruction-cards">
+                            <div class="instruction-card">
+                                <div class="card-number">1</div>
+                                <h4>Open Developer Tools</h4>
+                                <p>Right-click on your site and select <strong>"Inspect"</strong> or press <kbd>F12</kbd></p>
+                            </div>
+                            <div class="instruction-card">
+                                <div class="card-number">2</div>
+                                <h4>Go to Console Tab</h4>
+                                <p>Click on the <strong>"Console"</strong> tab in Developer Tools</p>
+                            </div>
+                            <div class="instruction-card">
+                                <div class="card-number">3</div>
+                                <h4>Run the Script</h4>
+                                <p>Copy and paste the code below, then press <kbd>Enter</kbd></p>
+                            </div>
+                        </div>
+                        <p>We'll open your site in a new tab. Follow these simple steps:</p>
+
+                        <div class="action-buttons">
+                            <button class="btn-primary" onclick="openTargetSite()"><img src="/Assets/Images/Icons/arrow-up-right-from-square-solid.svg" alt="open icon"> Open My Site in New Tab</button>
+                            <button class="btn-secondary" onclick="nextStep(3)">I Have My Results</button>
+                            
+                        </div>
+                    </div>
+                    <div class="code-section">
+                            <div class="code-header">
+                                <span>Analysis Script</span>
+                                <button class="btn-copy" onclick="copyCode()">Copy Code</button>
+                            </div>
+                            <pre id="analysis-code" style="text-wrap: auto"><code>// WordPress Bot Vulnerability Scanner
+        console.log('🔍 Scanning for bot vulnerabilities...');
+        const analysis = {
+            performance: {
+                loadTime: performance.timing.loadEventEnd - performance.timing.navigationStart,
+                resources: performance.getEntriesByType('resource').length,
+                largeFiles: performance.getEntriesByType('resource').filter(r =&gt; r.transferSize &gt; 50000).length
+            },
+            content: {
+                wordCount: document.body.innerText.split(/\s+/).length,
+                articles: document.querySelectorAll('article, .post, .entry').length,
+                images: document.querySelectorAll('img').length
+            },
+            wordpress: {
+                detected: document.querySelector('[href*="wp-content"], [src*="wp-content"]') ? 'Yes' : 'No',
+                apis: document.querySelector('link[rel="https://api.w.org/"]') ? 'Exposed' : 'Hidden'
+            }
+        };
+        console.log('📊 QUICK RESULTS:');
+        console.log('- Load Time:', analysis.performance.loadTime + 'ms');
+        console.log('- Resources:', analysis.performance.resources);
+        console.log('- Content Size:', analysis.content.wordCount + ' words');
+        console.log('- WordPress:', analysis.wordpress.detected);
+        console.log('- APIs:', analysis.wordpress.apis);
+        console.log('💡 Copy these results and return to the scanner for your full report!');</code></pre>
+                        </div>
+                </div>
+
+                <!-- Step 3: Results Input -->
+                <div class="wizard-step" data-step="3">
+                    <div class="step-header">
+                        <span class="step-number">3</span>
+                        <h2>Enter Your Results</h2>
+                    </div>
+                    <div class="step-content">
+                        <p>Paste your console results below to generate your customized bot protection report:</p>
+                        
+                        <div class="results-input">
+                            <textarea id="console-results" placeholder="Paste your console output here...&#10;Example:&#10;- Load Time: 2450ms&#10;- Resources: 67&#10;- Content Size: 1200 words&#10;- WordPress: Yes&#10;- APIs: Exposed"></textarea>
+                        </div>
+                        
+                        <div class="see-results-btns">
+                           <div class="example-toggle">
+                            <button class="btn-primary-alt" type="button" onclick="toggleExample()"><img src="/Assets/Images/Icons/eye-regular.svg" alt="open example icon">See Example Results</button>
+                            <div id="example-results" class="hidden">
+                                <pre>📊 QUICK RESULTS:
+        - Load Time: 2450ms
+        - Resources: 67
+        - Content Size: 1200 words
+        - WordPress: Yes
+        - APIs: Exposed</pre>
+                            </div>
+                            </div>
+
+                            <button class="btn-primary" onclick="generateReport()"><img src="/Assets/Images/Icons/right-to-bracket-solid.svg" alt="generate icon">Generate My Protection Report</button> 
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Step 4: Customized Report -->
+                <div class="wizard-step" data-step="4">
+                    <div class="step-header">
+                        <span class="step-number">4</span>
+                        <h2>Your Bot Protection Report</h2>
+                    </div>
+                    <div class="step-content">
+                        <div id="report-content">
+                            <!-- Dynamic report will be generated here -->
+                        </div>
+                        
+                        <div class="report-actions">
+                            <button class="btn-primary" onclick="downloadProfessionalReport()"><img src="/Assets/Images/Icons/file-pdf-regular.svg" alt="pdf download icon">Download PDF Report</button>
+                            <button class="btn-primary" onclick="window.location.href='/services/bot-defense-audit/'"><img src="/Assets/Images/Icons/building-shield-solid.svg" alt="protection icon">Get Professional Protection</button>
+                        </div>
+                        
+                        <div class="social-share">
+                            <div class="share-link">
+                                <p>Share this tool with other WordPress owners:</p>
+                                <button class="btn-secondary" onclick="copyToolLink()">🔗 Copy Link</button>
+                            </div>
+                            
+                            <div class="share-buttons">
+                                
+                                <button class="twitter-btn"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjamesdennis.org%2Fbot-scanner%2F&text=Check%20out%20this%20awesome%20free%20AI%20Bot%20scraping%20checker..." target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; color: #fff; background-color: #000000; text-decoration: none; border-radius: 5px; font-family: sans-serif; font-weight: bold; font-size: 1rem;">
+                                <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                <span>Share on X (Twitter)</span>
+                                </a></button>
+                                <button class="linkedin-btn"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjamesdennis.org%2Fbot-scanner%2F" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; color: #fff; background-color: #0A66C2; text-decoration: none; border-radius: 5px; font-family: sans-serif; font-weight: bold; font-size: 1rem;">
+                                <svg width="24" height="24" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z" /></svg>
+                                <span>Share on LinkedIn</span>
+                                </a></button>
+                                <button class="pinterest-btn"><a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fjamesdennis.org%2Fbot-scanner%2F&media=&description=Check%20out%20this%20awesome%20free%20AI%20Bot%20scraping%20checker..." target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px; color: #fff; background-color: #E60023; text-decoration: none; border-radius: 5px; font-family: sans-serif; font-weight: bold; font-size: 1rem;">
+                                <svg width="24" height="24" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.04,21.54C10,21.83 10.97,22 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12C2,16.25 4.67,19.9 8.44,21.34C8.35,20.56 8.26,19.27 8.44,18.38L9.59,13.44C9.59,13.44 9.3,12.86 9.3,11.94C9.3,10.56 10.16,9.53 11.14,9.53C12,9.53 12.4,10.16 12.4,10.97C12.4,11.83 11.83,13.06 11.54,14.24C11.37,15.22 12.06,16.08 13.06,16.08C14.84,16.08 16.22,14.18 16.22,11.5C16.22,9.1 14.5,7.46 12.03,7.46C9.21,7.46 7.55,9.56 7.55,11.77C7.55,12.63 7.83,13.5 8.29,14.07C8.38,14.13 8.38,14.21 8.35,14.36L8.06,15.45C8.06,15.62 7.95,15.68 7.78,15.56C6.5,15 5.76,13.18 5.76,11.71C5.76,8.55 8,5.68 12.32,5.68C15.76,5.68 18.44,8.15 18.44,11.43C18.44,14.87 16.31,17.63 13.26,17.63C12.29,17.63 11.34,17.11 11,16.5L10.33,18.87C10.1,19.73 9.47,20.88 9.04,21.57V21.54Z" /></svg>
+                                <span>Share on Pinterest</span>
+                                </a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer-placeholder"></div>
+
+        <script src="https://unpkg.com/split-type"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/script.js"></script>
+        <script>
+            gsap.set(".scanner-wizard-container", { y: 40, opacity: 0 });
+            gsap.to(".scanner-wizard-container", { y: 0, opacity: 1, duration: .5, delay: 1.5, ease: "back.out(1)" });
+        </script>
+        <script>
+                // Enhanced Wizard Navigation with Vertical Progress Support
+                function nextStep(step) {
+                    const currentStep = document.querySelector('.wizard-step.active');
+                    const nextStepElement = document.querySelector(`.wizard-step[data-step="${step}"]`);
+                    
+                    if (!currentStep || !nextStepElement) return;
+                    // Track step completion
+                    if (step === 2) {
+                        trackStepCompletion(1, 'url_entered');
+                    } else if (step === 3) {
+                        trackStepCompletion(2, 'code_copied');
+                    } else if (step === 4) {
+                        trackStepCompletion(3, 'results_submitted');
+                    }
+                    
+                    // Start exit animation
+                    currentStep.classList.add('leaving');
+                    
+                    // Wait for exit animation to complete
+                    setTimeout(() => {
+                        // Remove all state classes from ALL steps
+                        document.querySelectorAll('.wizard-step').forEach(s => {
+                            s.classList.remove('active', 'leaving');
+                        });
+                        
+                        // Activate new step - THIS WAS MISSING!
+                        nextStepElement.classList.add('active');
+                        
+                        // Update progress with vertical support
+                        updateProgress(step);
+                        
+                    }, 600); // Match the CSS transition duration (0.6s)
+                }
+
+                function prevStep(step) {
+                    const currentStep = document.querySelector('.wizard-step.active');
+                    const prevStepElement = document.querySelector(`.wizard-step[data-step="${step}"]`);
+                    
+                    if (!currentStep || !prevStepElement) return;
+                    
+                    if (currentStep.classList.contains('leaving')) return;
+                    
+                    // For going backwards, slide from left
+                    currentStep.classList.add('leaving');
+                    
+                    setTimeout(() => {
+                        // Remove all state classes from ALL steps
+                        document.querySelectorAll('.wizard-step').forEach(s => {
+                            s.classList.remove('active', 'leaving');
+                        });
+                        
+                        // Activate previous step
+                        prevStepElement.classList.add('active');
+                        updateProgress(step);
+                        
+                    }, 600);
+                }
+
+                // Enhanced Progress Update for Vertical Progress Bar
+                function updateProgress(step) {
+                    const progressFill = document.querySelector('.progress-fill');
+                    const indicators = document.querySelectorAll('.step-indicator-vertical, .step-indicator');
+                    
+                    // Calculate progress percentage (0% to 100%)
+                    const progressPercentage = ((step - 1) / 3) * 100;
+                    
+                    // Update progress fill - support both horizontal and vertical
+                    if (progressFill) {
+                        if (window.innerWidth <= 768 && progressFill.parentElement.classList.contains('progress-line')) {
+                            // Mobile vertical progress: fill width
+                            progressFill.style.width = `${progressPercentage}%`;
+                            progressFill.style.height = '100%';
+                        } else if (progressFill.parentElement.classList.contains('progress-line')) {
+                            // Desktop vertical progress: fill height
+                            progressFill.style.height = `${progressPercentage}%`;
+                            progressFill.style.width = '100%';
+                        } else {
+                            // Horizontal progress (fallback)
+                            progressFill.style.width = `${(step / 4) * 100}%`;
+                        }
+                    }
+                    
+                    // Update step indicators - support both vertical and horizontal
+                    indicators.forEach((indicator, index) => {
+                        const stepNumber = index + 1;
+                        
+                        // For vertical indicators with completed state
+                        if (indicator.classList.contains('step-indicator-vertical')) {
+                            indicator.classList.remove('active', 'completed');
+                            
+                            if (stepNumber === step) {
+                                indicator.classList.add('active');
+                            } else if (stepNumber < step) {
+                                indicator.classList.add('completed');
+                            }
+                        } else {
+                            // For horizontal indicators (original behavior)
+                            indicator.classList.toggle('active', stepNumber <= step);
+                        }
+                    });
+                }
+
+                // Analysis Functions
+                function startAnalysis() {
+                    const url = document.getElementById('site-url').value;
+                    if (!url) {
+                        alert('Please enter your website URL');
+                        return;
+                    }
+                    localStorage.setItem('targetSite', url);
+                    nextStep(2);
+                }
+
+                function openTargetSite() {
+                    const url = localStorage.getItem('targetSite') || document.getElementById('site-url').value;
+                    window.open(url, '_blank');
+                }
+
+                function copyCode() {
+                    const code = document.getElementById('analysis-code').textContent;
+                    navigator.clipboard.writeText(code).then(() => {
+                        const btn = document.querySelector('.btn-copy');
+                        btn.textContent = '✓ Copied!';
+                        setTimeout(() => btn.textContent = 'Copy Code', 2000);
+                    });
+                }
+
+                function toggleExample() {
+                    const example = document.getElementById('example-results');
+                    example.classList.toggle('hidden');
+                }
+
+                // Report Generation
+                function generateReport() {
+                    const results = document.getElementById('console-results').value;
+                    const email = document.getElementById('user-email') ? document.getElementById('user-email').value : '';
+                    
+                    if (!results) {
+                        alert('Please paste your console results');
+                        return;
+                    }
+                    
+                    // Store email if provided
+                    if (email) {
+                        localStorage.setItem('userEmail', email);
+                    }
+                    
+                    // Generate basic report
+                    const basicReport = generateBasicReport(results);
+                    
+                    // Display basic report
+                    displayBasicReport(basicReport);
+                    
+                    // Hide professional PDF download initially
+                    const pdfBtn = document.querySelector('.btn-primary[onclick*="downloadProfessionalReport"]');
+                    if (pdfBtn) {
+                        pdfBtn.style.display = 'none';
+                    }
+                    
+                    // Show email capture for professional report ONLY if no email provided
+                    if (!email) {
+                        const emailCaptureHTML = `
+                            <div class="email-capture-card">
+                                <h3><i class="fas fa-lock"></i> Get Your Professional Security Report</h3>
+                                <p>Unlock your personalized PDF report with:</p>
+                                <ul>
+                                    <li>Detailed vulnerability analysis with priority scores</li>
+                                    <li>Custom protection strategies for your specific setup</li>
+                                    <li>Implementation timeline and cost estimates</li>
+                                    <li>Free 15-minute consultation with a security expert</li>
+                                    <li>Comparison against industry standards</li>
+                                </ul>
+                                
+                                <div class="email-form">
+                                    <input type="email" id="report-email" placeholder="Your professional email" required>
+                                    <button onclick="requestProfessionalReport()" class="btn-primary">
+                                        <i class="fas fa-paper-plane"></i> Send My Professional Report
+                                    </button>
+                                </div>
+                                
+                                <p class="privacy-note">
+                                    <i class="fas fa-shield-alt"></i> Your email is safe with us. We respect your privacy and never share your data.
+                                </p>
+                            </div>
+                        `;
+                        
+                        document.getElementById('report-content').insertAdjacentHTML('beforeend', emailCaptureHTML);
+                    } else {
+                        // If email already provided, show option to get professional report
+                        const professionalOfferHTML = `
+                            <div class="email-capture-card">
+                                <h3><i class="fas fa-file-pdf"></i> Professional Report Ready</h3>
+                                <p>We'll send your detailed security report to <strong>${email}</strong>.</p>
+                                
+                                <div style="text-align: center; margin: 20px 0;">
+                                    <button onclick="requestProfessionalReport()" class="btn-primary" style="padding: 12px 30px;">
+                                        <i class="fas fa-download"></i> Send My Professional Report Now
+                                    </button>
+                                </div>
+                                
+                                <p style="text-align: center; font-size: 14px; opacity: 0.9;">
+                                    Includes free consultation offer
+                                </p>
+                            </div>
+                        `;
+                        
+                        document.getElementById('report-content').insertAdjacentHTML('beforeend', professionalOfferHTML);
+                    }
+                    
+                    nextStep(4);
+                }
+
+                // NEW: Basic report generator
+                function generateBasicReport(resultsText) {
+                    // Simple parsing of the console output
+                    const loadTimeMatch = resultsText.match(/Load Time:\s*([\d,]+)/);
+                    const resourcesMatch = resultsText.match(/Resources:\s*([\d,]+)/);
+                    const wordpressMatch = resultsText.match(/WordPress:\s*(Yes|No)/i);
+                    const apiMatch = resultsText.match(/APIs?:\s*(Exposed|Hidden)/i);
+                    
+                    const loadTime = loadTimeMatch ? parseInt(loadTimeMatch[1].replace(',', '')) : 0;
+                    const resources = resourcesMatch ? parseInt(resourcesMatch[1].replace(',', '')) : 0;
+                    const isWordPress = wordpressMatch ? wordpressMatch[1].toLowerCase() === 'yes' : false;
+                    const apiExposed = apiMatch ? apiMatch[1].toLowerCase() === 'exposed' : false;
+                    
+                    // Calculate risk score
+                    let riskScore = 0;
+                    const findings = [];
+                    
+                    if (loadTime > 3000) {
+                        riskScore += 2;
+                        findings.push({
+                            icon: '⏱️',
+                            text: 'Slow load time may attract bots',
+                            severity: 'warning'
+                        });
+                    } else {
+                        findings.push({
+                            icon: '✅',
+                            text: 'Good load time',
+                            severity: 'good'
+                        });
+                    }
+                    
+                    if (resources > 50) {
+                        riskScore += 1;
+                        findings.push({
+                            icon: '📦',
+                            text: 'High resource count increases bot surface',
+                            severity: 'warning'
+                        });
+                    }
+                    
+                    if (isWordPress) {
+                        findings.push({
+                            icon: '🏗️',
+                            text: 'WordPress detected (common bot target)',
+                            severity: 'info'
+                        });
+                        
+                        if (apiExposed) {
+                            riskScore += 3;
+                            findings.push({
+                                icon: '🚨',
+                                text: 'WordPress APIs exposed to bots',
+                                severity: 'danger'
+                            });
+                        }
+                    }
+                    
+                    return {
+                        riskScore: Math.min(riskScore, 10),
+                        findings,
+                        isWordPress,
+                        loadTime,
+                        resources
+                    };
+                }
+
+                // NEW: Display basic report
+                function displayBasicReport(report) {
+                    const riskLevel = report.riskScore >= 7 ? 'HIGH' : report.riskScore >= 4 ? 'MEDIUM' : 'LOW';
+                    const riskColor = report.riskScore >= 7 ? '#ff4444' : report.riskScore >= 4 ? '#ffaa00' : '#44ff44';
+                    const riskClass = report.riskScore >= 7 ? 'risk-high' : report.riskScore >= 4 ? 'risk-medium' : 'risk-low';
+                    
+                    document.getElementById('report-content').innerHTML = `
+                        <div class="basic-report">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h3 style="margin: 0;">Quick Security Assessment</h3>
+                                <span class="risk-badge ${riskClass}">${riskLevel} RISK</span>
+                            </div>
+                            
+                            <div style="text-align: center; margin: 25px 0;">
+                                <div style="font-size: 48px; font-weight: bold; color: ${riskColor};">${report.riskScore}/10</div>
+                                <div style="color: #666; margin-top: 5px;">Risk Score</div>
+                            </div>
+                            
+                            <div style="margin: 20px 0;">
+                                <h4>Key Findings:</h4>
+                                ${report.findings.map(finding => `
+                                    <div class="finding-item">
+                                        <span class="finding-icon finding-${finding.severity}">${finding.icon}</span>
+                                        <span>${finding.text}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <div style="background: #f0f7ff; padding: 15px; border-radius: 6px; margin-top: 20px;">
+                                <h4 style="margin-top: 0; color: #2980b9;">💡 Immediate Action Recommended</h4>
+                                <p>Based on your ${riskLevel.toLowerCase()} risk level, we recommend implementing bot protection measures.</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // NEW: Email validation helper
+                function validateEmail(email) {
+                    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    return re.test(String(email).toLowerCase());
+                }
+
+                function analyzeResults(resultsText) {
+                    // Parse the console results and generate insights
+                    const loadTime = resultsText.match(/Load Time:\s*(\d+)/)?.[1] || 'Unknown';
+                    const resources = resultsText.match(/Resources:\s*(\d+)/)?.[1] || 'Unknown';
+                    const wordCount = resultsText.match(/Content Size:\s*(\d+)/)?.[1] || 'Unknown';
+                    const wordpress = resultsText.match(/WordPress:\s*(Yes|No)/)?.[1] || 'Unknown';
+                    const apis = resultsText.match(/APIs:\s*(Exposed|Hidden)/)?.[1] || 'Unknown';
+                    
+                    // Risk calculation
+                    let riskScore = 0;
+                    let recommendations = [];
+                    
+                    // Convert strings to numbers for comparison
+                    const loadTimeNum = parseInt(loadTime) || 0;
+                    const resourcesNum = parseInt(resources) || 0;
+                    const wordCountNum = parseInt(wordCount) || 0;
+                    
+                    if (loadTimeNum > 3000) {
+                        riskScore += 2;
+                        recommendations.push('Optimize site performance to reduce bot attraction');
+                    }
+                    
+                    if (resourcesNum > 50) {
+                        riskScore += 1;
+                        recommendations.push('Reduce resource count to minimize bot scanning surface');
+                    }
+                    
+                    if (wordCountNum > 1000) {
+                        riskScore += 1;
+                        recommendations.push('Implement content protection strategies');
+                    }
+                    
+                    if (apis === 'Exposed') {
+                        riskScore += 2;
+                        recommendations.push('Secure WordPress REST API endpoints');
+                    }
+                    
+                    return {
+                        loadTime: loadTimeNum || 'Unknown',
+                        resources: resourcesNum || 'Unknown',
+                        wordCount: wordCountNum || 'Unknown',
+                        wordpress,
+                        apis,
+                        riskScore: Math.min(riskScore, 10),
+                        recommendations
+                    };
+                }
+
+                async function requestProfessionalReport() {
+                    let email = document.getElementById('report-email') ? document.getElementById('report-email').value : '';
+                    
+                    // If no email in the capture form, check if we have it from step 3
+                    if (!email) {
+                        email = localStorage.getItem('userEmail');
+                    }
+                    
+                    const results = document.getElementById('console-results').value;
+                    const url = localStorage.getItem('targetSite') || document.getElementById('site-url').value;
+                    
+                    if (!email || !validateEmail(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+                    
+                    // Show loading
+                    const btn = document.querySelector('.email-form button') || 
+                                document.querySelector('.email-capture-card button');
+                    const originalText = btn ? btn.innerHTML : '';
+                    
+                    if (btn) {
+                        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating Report...';
+                        btn.disabled = true;
+                    }
+                    
+                    try {
+                        // For now, simulate server call - replace with real API
+                        console.log('Sending request:', { email, url, resultsLength: results.length });
+                        
+                        // Simulate API delay
+                        await new Promise(resolve => setTimeout(resolve, 1500));
+                        
+                        // Show success message
+                        const emailCaptureCard = document.querySelector('.email-capture-card');
+                        if (emailCaptureCard) {
+                            emailCaptureCard.innerHTML = `
+                                <div class="success-message">
+                                    <div style="font-size: 48px; color: #2ecc71; margin-bottom: 15px;">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <h3>✅ Report Successfully Sent!</h3>
+                                    <p>Your professional security report has been sent to:</p>
+                                    <p style="font-weight: bold; font-size: 18px; margin: 10px 0;">${email}</p>
+                                    
+                                    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 6px;">
+                                        <p><i class="fas fa-clock"></i> Please check your inbox within <strong>5 minutes</strong></p>
+                                        <p><i class="fas fa-exclamation-triangle"></i> Don't forget to check your spam/junk folder</p>
+                                    </div>
+                                    
+                                    <div class="bonus-offer">
+                                        <p><strong>🎁 Exclusive Bonus Included:</strong></p>
+                                        <p>Your report includes a <strong>free 15-minute consultation</strong> offer with James Dennis, WordPress Security Specialist.</p>
+                                    </div>
+                                    
+                                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
+                                        <p style="font-size: 14px; color: #666;">
+                                            <i class="fas fa-shield-alt"></i> This is an automated service from <strong>jamesdennis.org</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        
+                        // Track conversion
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'professional_report_requested', {
+                                'email_provided': !!email,
+                                'website': url,
+                                'event_category': 'lead_generation'
+                            });
+                        }
+                        
+                        // Send data to your backend (REPLACE WITH YOUR ACTUAL ENDPOINT)
+                        sendToBackend(email, url, results);
+                        
+                    } catch (error) {
+                        console.error('Report generation failed:', error);
+                        
+                        const emailCaptureCard = document.querySelector('.email-capture-card');
+                        if (emailCaptureCard) {
+                            emailCaptureCard.innerHTML = `
+                                <div style="text-align: center; padding: 20px; color: #e74c3c;">
+                                    <div style="font-size: 48px; margin-bottom: 15px;">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <h3>⚠️ Something went wrong</h3>
+                                    <p>We couldn't send your report automatically.</p>
+                                    <p>Please email us directly at:</p>
+                                    <p style="font-weight: bold; font-size: 18px; margin: 15px 0;">
+                                        <a href="mailto:james@jamesdennis.org" style="color: #2980b9;">
+                                            james@jamesdennis.org
+                                        </a>
+                                    </p>
+                                    <p>Include your website URL and we'll send your report manually.</p>
+                                </div>
+                            `;
+                        }
+                    } finally {
+                        if (btn) {
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                        }
+                    }
+                }
+
+                // Helper function to send data to backend
+                function sendToBackend(email, url, results) {
+                    // Replace this with your actual backend endpoint
+                    const backendUrl = 'https://your-backend.com/api/submit-report';
+                    
+                    fetch(backendUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            website: url,
+                            scan_results: results.substring(0, 1000), // Limit size
+                            timestamp: new Date().toISOString(),
+                            source: 'bot_scanner_tool'
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            console.warn('Backend submission failed, but user got report');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Backend error:', error);
+                        // User still gets the success message even if backend fails
+                    });
+                }
+
+                // Add to your script to track tool usage
+                function trackStepCompletion(step, data) {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', `step_${step}_completed`, {
+                            'event_category': 'bot_scanner',
+                            'event_label': data
+                        });
+                    }
+                }
+
+
+
+
+                // function displayReport(report) {
+                //     const riskLevel = report.riskScore >= 5 ? 'HIGH' : report.riskScore >= 3 ? 'MEDIUM' : 'LOW';
+                //     const riskColor = report.riskScore >= 5 ? '#ff4444' : report.riskScore >= 3 ? '#ffaa00' : '#44ff44';
+                    
+                //     document.getElementById('report-content').innerHTML = `
+                //         <div class="report-summary">
+                //             <div class="risk-meter">
+                //                 <h3>Bot Risk Level: <span style="color: ${riskColor}">${riskLevel}</span></h3>
+                //                 <div class="risk-score">${report.riskScore}/10</div>
+                //             </div>
+                            
+                //             <div class="metrics-grid">
+                //                 <div class="metric-card">
+                //                     <div class="card-content">
+                //                         <h4>Performance</h4>
+                //                         <div class="metric-value">${report.loadTime}ms</div>
+                //                         <div class="metric-status">${report.loadTime > 3000 ? '⚠️ Needs Improvement' : '✅ Good'}</div>
+                //                     </div>
+                //                 </div>
+                //                 <div class="metric-card">
+                //                     <div class="card-content">
+                //                         <h4>Resources</h4>
+                //                         <div class="metric-value">${report.resources}</div>
+                //                         <div class="metric-status">${report.resources > 50 ? '⚠️ High' : '✅ Normal'}</div>
+                //                     </div>
+                //                 </div>
+                //                 <div class="metric-card">
+                //                     <div class="card-content">
+                //                         <h4>Content Size</h4>
+                //                         <div class="metric-value">${report.wordCount} words</div>
+                //                         <div class="metric-status">${report.wordCount > 1000 ? '🎯 Scraping Target' : '✅ Normal'}</div>
+                //                     </div>
+                //                 </div>
+                //                 <div class="metric-card">
+                //                     <div class="card-content">
+                //                         <h4>WordPress APIs</h4>
+                //                         <div class="metric-value">${report.apis}</div>
+                //                         <div class="metric-status">${report.apis === 'Exposed' ? '🚨 Vulnerable' : '✅ Secure'}</div>
+                //                     </div>
+                //                 </div>
+                //             </div>
+                //         </div>
+                        
+                //         <div class="recommendations">
+                //             <h3>Recommended Protection Strategies</h3>
+                //             <ul>
+                //                 ${report.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                //                 <li>Block known AI crawlers (GPTBot, CCBot, etc.)</li>
+                //                 <li>Implement rate limiting and WAF rules</li>
+                //                 <li>Configure proper caching strategies</li>
+                //                 <li>Monitor server logs for suspicious activity</li>
+                //             </ul>
+                //         </div>
+                        
+                //         <div class="next-steps">
+                //             <h3>Next Steps</h3>
+                //             <p>Based on your ${riskLevel.toLowerCase()} risk level, we recommend:</p>
+                //             <div class="action-steps">
+                //                 ${report.riskScore >= 5 ? `
+                //                 <div class="action-step urgent">
+                //                     <h4>🚨 Immediate Action Required</h4>
+                //                     <p>Your site shows significant bot vulnerability. Contact us for emergency protection.</p>
+                //                 </div>
+                //                 ` : ''}
+                //                 <div class="action-step">
+                //                     <h4>🛡️ Professional Bot Defense</h4>
+                //                     <p>Get complete protection with our specialized WordPress AI Bot Defense service.</p>
+                //                 </div>
+                //                 <div class="action-step">
+                //                     <h4>📚 Educational Resources</h4>
+                //                     <p>Learn more about bot threats and protection strategies on our blog.</p>
+                //                 </div>
+                //             </div>
+                //         </div>
+                //     `;
+                // }
+
+                // Utility Functions
+                
+                
+                async function downloadProfessionalReport() {
+                    try {
+                        const downloadBtn = document.querySelector('.btn-primary');
+                        const originalText = downloadBtn.innerHTML;
+                        downloadBtn.innerHTML = '📊 Creating Report...';
+                        downloadBtn.disabled = true;
+
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF();
+                        const pageWidth = doc.internal.pageSize.getWidth();
+                        const pageHeight = doc.internal.pageSize.getHeight();
+                        
+                        // ===== COVER PAGE =====
+                        // Background
+                        doc.setFillColor(41, 128, 185);
+                        doc.rect(0, 0, pageWidth, 140, 'F');
+                        
+                        // Main title (matches your report style)
+                        doc.setTextColor(255, 255, 255);
+                        doc.setFontSize(24);
+                        doc.setFont('helvetica', 'bold');
+                        doc.text('WordPress Bot Vulnerability Report', pageWidth / 2, 50, { align: 'center' });
+                        
+                        doc.setFontSize(16);
+                        doc.setFont('helvetica', 'normal');
+                        doc.text('Security Assessment & Protection Plan', pageWidth / 2, 70, { align: 'center' });
+                        
+                        // Prepared For in the header
+                        doc.setFontSize(12);
+                        const siteUrl = localStorage.getItem('targetSite') || 'Your WordPress Site';
+                        doc.text(`Prepared for: ${siteUrl}`, pageWidth / 2, 90, { align: 'center' });
+                        
+                        doc.text(`Generated: ${new Date().toLocaleDateString()}`, pageWidth / 2, 105, { align: 'center' });
+                        
+                        // Your branding
+                        doc.setFontSize(14);
+                        doc.setFont('helvetica', 'bold');
+                        doc.text('jamesdennis.org', pageWidth / 2, 125, { align: 'center' });
+                        
+                        // ===== PAGE 2: RISK ASSESSMENT =====
+                        doc.addPage();
+                        addPageHeader(doc, 'Risk Assessment Summary');
+                        
+                        // Capture only the risk assessment section
+                        const riskSection = document.querySelector('.report-summary');
+                        const riskCanvas = await html2canvas(riskSection, {
+                            scale: 1.8,
+                            useCORS: true,
+                            backgroundColor: '#ffffff'
+                        });
+
+                        const riskImgData = riskCanvas.toDataURL('image/png');
+                        const riskImgWidth = pageWidth - 40;
+                        const riskImgHeight = (riskCanvas.height * riskImgWidth) / riskCanvas.width;
+                        
+                        doc.addImage(riskImgData, 'PNG', 20, 50, riskImgWidth, riskImgHeight);
+                        
+                        // ===== PAGE 3: RECOMMENDATIONS =====
+                        doc.addPage();
+                        addPageHeader(doc, 'Protection Recommendations');
+                        
+                        // Capture only the recommendations section
+                        const recommendationsSection = document.querySelector('.recommendations');
+                        const recCanvas = await html2canvas(recommendationsSection, {
+                            scale: 1.8,
+                            useCORS: true,
+                            backgroundColor: '#ffffff'
+                        });
+
+                        const recImgData = recCanvas.toDataURL('image/png');
+                        const recImgWidth = pageWidth - 40;
+                        const recImgHeight = (recCanvas.height * recImgWidth) / recCanvas.width;
+                        
+                        doc.addImage(recImgData, 'PNG', 20, 50, recImgWidth, recImgHeight);
+                        
+                        // ===== PAGE 4: NEXT STEPS & CONTACT =====
+                        doc.addPage();
+                        addPageHeader(doc, 'Next Steps & Professional Support');
+                        
+                        // Custom professional contact section (no emojis)
+                        doc.setTextColor(0, 0, 0);
+                        doc.setFontSize(12);
+                        doc.setFont('helvetica', 'normal');
+                        
+                        const contactContent = [
+                            'This security assessment identifies critical vulnerabilities that could impact',
+                            'your WordPress site performance, security, and revenue.',
+                            '',
+                            'Based on the findings in this report, we recommend:',
+                            '',
+                            'IMMEDIATE ACTIONS:',
+                            '• Implement AI bot detection and blocking',
+                            '• Configure proper rate limiting and WAF rules',
+                            '• Optimize site performance and caching',
+                            '• Secure WordPress REST API endpoints',
+                            '',
+                            'PROFESSIONAL SERVICES:',
+                            '• Complete WordPress Bot Defense implementation',
+                            '• Performance optimization and caching strategy',
+                            '• Security hardening and monitoring',
+                            '• Ongoing maintenance and support',
+                            '',
+                            'CONTACT INFORMATION:',
+                            'James Dennis - WordPress Security Specialist',
+                            'Email: james@jamesdennis.org',
+                            'Website: jamesdennis.org',
+                            'LinkedIn: James Dennis',
+                            '',
+                            'Schedule a free consultation to discuss your specific protection needs.'
+                        ];
+                        
+                        let yPosition = 50;
+                        contactContent.forEach(line => {
+                            if (line === 'IMMEDIATE ACTIONS:' || line === 'PROFESSIONAL SERVICES:' || line === 'CONTACT INFORMATION:') {
+                                doc.setFont('helvetica', 'bold');
+                                doc.setTextColor(41, 128, 185);
+                                yPosition += 2;
+                            } else if (line === '') {
+                                doc.setFont('helvetica', 'normal');
+                                doc.setTextColor(0, 0, 0);
+                                yPosition += 5;
+                                return;
+                            } else {
+                                doc.setFont('helvetica', 'normal');
+                                doc.setTextColor(0, 0, 0);
+                            }
+                            
+                            // Handle long lines by splitting
+                            if (line.length > 60) {
+                                const lines = doc.splitTextToSize(line, pageWidth - 60);
+                                doc.text(lines, 30, yPosition);
+                                yPosition += (lines.length * 7);
+                            } else {
+                                doc.text(line, 30, yPosition);
+                                yPosition += 8;
+                            }
+                        });
+
+                        // Add footer to all pages
+                        addFooterToAllPages(doc);
+                        
+                        // Generate filename
+                        const domain = siteUrl.replace(/^https?:\/\//, '').split('/')[0];
+                        const filename = `wordpress-bot-security-report-${domain}.pdf`;
+
+                        doc.save(filename);
+                        
+                        downloadBtn.innerHTML = originalText;
+                        downloadBtn.disabled = false;
+
+                    } catch (error) {
+                        console.error('Professional PDF generation failed:', error);
+                        alert('Professional report generation failed. Using basic version...');
+                        downloadVisualReport();
+                    }
+                }
+
+                // Helper function for page headers
+                function addPageHeader(doc, title) {
+                    const pageWidth = doc.internal.pageSize.getWidth();
+                    
+                    doc.setFillColor(52, 152, 219);
+                    doc.rect(0, 0, pageWidth, 40, 'F');
+                    doc.setTextColor(255, 255, 255);
+                    doc.setFontSize(16);
+                    doc.setFont('helvetica', 'bold');
+                    doc.text(title, pageWidth / 2, 25, { align: 'center' });
+                    
+                    doc.setTextColor(0, 0, 0); // Reset for content
+                }
+
+                // Helper function for footers
+                function addFooterToAllPages(doc) {
+                    const pageWidth = doc.internal.pageSize.getWidth();
+                    const pageHeight = doc.internal.pageSize.getHeight();
+                    const totalPages = doc.getNumberOfPages();
+
+                    for (let i = 1; i <= totalPages; i++) {
+                        doc.setPage(i);
+                        
+                        // Page number
+                        doc.setFontSize(10);
+                        doc.setTextColor(100, 100, 100);
+                        doc.text(`Page ${i} of ${totalPages}`, pageWidth / 2, pageHeight - 15, { align: 'center' });
+                        
+                        // Confidential notice
+                        doc.setFontSize(8);
+                        doc.text('Confidential Security Report - jamesdennis.org', pageWidth / 2, pageHeight - 8, { align: 'center' });
+                    }
+                }
+
+                function shareReport() {
+                    const url = window.location.href;
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert('Tool link copied to clipboard!');
+                    });
+                }
+
+                function shareTwitter() {
+                    const text = 'Just scanned my WordPress site for AI bot vulnerabilities with this free tool from @JamesDennis_web!';
+                    const url = window.location.href;
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                }
+
+                function shareLinkedIn() {
+                    const url = window.location.href;
+                    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+                }
+
+                function copyToolLink() {
+                    const url = 'https://jamesdennis.org/bot-scanner/';
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert('Tool link copied to clipboard!');
+                    });
+                }
+
+                // Initialize with Vertical Progress Support
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Ensure first step is active and visible
+                    const firstStep = document.querySelector('[data-step="1"]');
+                    if (firstStep) {
+                        firstStep.classList.add('active');
+                        // Force a reflow to ensure transition works
+                        firstStep.offsetHeight;
+                    }
+                    
+                    // Add click functionality to vertical step indicators
+                    const verticalIndicators = document.querySelectorAll('.step-indicator-vertical');
+                    verticalIndicators.forEach(indicator => {
+                        indicator.addEventListener('click', function() {
+                            const step = parseInt(this.dataset.step);
+                            const currentStepElement = document.querySelector('.wizard-step.active');
+                            
+                            if (!currentStepElement) return;
+                            
+                            const currentStep = parseInt(currentStepElement.dataset.step);
+                            
+                            // Only allow clicking completed steps or next logical step
+                            if (step <= currentStep + 1) {
+                                nextStep(step);
+                            }
+                        });
+                    });
+                    
+                    // Update on resize for responsive behavior
+                    window.addEventListener('resize', function() {
+                        const currentStepElement = document.querySelector('.wizard-step.active');
+                        if (currentStepElement) {
+                            const currentStep = parseInt(currentStepElement.dataset.step);
+                            updateProgress(currentStep);
+                        }
+                    });
+                    
+                    // Set initial progress
+                    updateProgress(1);
+                    
+                    // Debug: log initial state
+                    // setTimeout(() => {
+                    //     debugSteps();
+                    // }, 100);
+                });
+        </script>
+    </body>
+</html>

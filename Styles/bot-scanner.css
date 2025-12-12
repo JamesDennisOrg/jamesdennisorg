@@ -411,7 +411,7 @@ pre {
     text-align: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: 260px;
     position: relative;
     min-width: 400px;
     .card-content {

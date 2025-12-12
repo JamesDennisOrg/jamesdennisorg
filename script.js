@@ -267,6 +267,19 @@ function initPageAnimations() {
     const page = document.body.dataset.page; // Set via <body data-page="services">
     const sections = gsap.utils.toArray(".content-section");
 
+    // PARALLAX SCROLLING EFFECTS - ALL PAGES
+    gsap.to("[data-speed]", {
+        y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window) ,
+        ease: "none",
+        scrollTrigger: {
+            start: 0,
+            end: "max",
+            invalidateOnRefresh: true,
+            scrub: 0
+        }
+    });
+
+    // SECTIONS ANIMATION ON SCROLL
     sections.forEach((section, i) => {
         gsap.from(section, {
             scrollTrigger:{
