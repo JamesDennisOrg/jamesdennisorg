@@ -1399,13 +1399,15 @@ ul.step-details {
 .header-logo-wrapper {
     position: relative;
     .header-strapline {
+        width: 100%;
+        text-align: center;
         position: absolute;
         bottom: 86px;
         left: 50%;
         transform: translate(-50%);
         font-size: var(--font-x-small);
         color: var(--brand);
-        letter-spacing: 16px;
+        letter-spacing: 12px;
     }
 }
 .cta-wrapper-index {
@@ -2387,7 +2389,7 @@ ul.step-details {
         display: none;
     }
     footer {
-        gap: .5em;
+        gap: .7em;
         height: unset;
         .footer-site-logo {
             grid-column: 1 / -1;
@@ -2404,16 +2406,18 @@ ul.step-details {
             grid-column: 1/-1;
             grid-row: 1;
             & .contact-box:nth-child(1) {
-                grid-column: 1/3;
-                justify-self: center;
+                grid-column: 1/5;
+                justify-self: left;
             }
             & .contact-box:nth-child(2) {
-                grid-column: 3/5;
+                grid-column: 1/5;
+                grid-row: 2;
                 justify-self: left;
             }
             .contact-box:nth-child(3) {
                 grid-column: 5/-1;
                 justify-self: right;
+                grid-row: 1/3;
                 .socials {
                     display: grid;
                     justify-items: center;
@@ -2429,6 +2433,7 @@ ul.step-details {
         }
         .copyright {
             grid-row: 3;
+            margin-top: 2px;
         }
     }
 }
